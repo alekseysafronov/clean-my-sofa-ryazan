@@ -1,0 +1,64 @@
+import { Link } from "react-router-dom";
+import { Phone, Mail, MapPin } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer id="contact" className="bg-foreground text-primary-foreground">
+      <div className="container py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div>
+            <h3 className="font-heading font-bold text-xl mb-4">Qweeq</h3>
+            <p className="text-primary-foreground/70 text-sm leading-relaxed mb-4">
+              Профессиональная химчистка мягкой мебели и ковров в Рязани с выездом на дом.
+            </p>
+            <p className="text-primary-foreground/50 text-xs">
+              Сафронов Алексей Юрьевич<br />
+              ИНН 623401087194 • ОГРН 326620000005879
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-4 text-primary-foreground/80">Контакты</h4>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href="tel:+79160435153" className="flex items-center gap-2 text-primary-foreground/70 hover:text-accent transition-colors">
+                  <Phone className="w-4 h-4 shrink-0" />
+                  +7 (916) 043-51-53
+                </a>
+              </li>
+              <li>
+                <a href="mailto:polka.pisem@gmail.com" className="flex items-center gap-2 text-primary-foreground/70 hover:text-accent transition-colors">
+                  <Mail className="w-4 h-4 shrink-0" />
+                  polka.pisem@gmail.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-primary-foreground/70">
+                <MapPin className="w-4 h-4 shrink-0" />
+                Рязань и Рязанская область
+              </li>
+            </ul>
+            <p className="text-primary-foreground/50 text-xs mt-3">Ежедневно 8:00 — 21:00 • WhatsApp / Telegram</p>
+          </div>
+
+          <div>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-4 text-primary-foreground/80">Услуги</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/chistka-divana" className="text-primary-foreground/70 hover:text-accent transition-colors">Химчистка диванов</Link></li>
+              <li><Link to="/kak-pochistit-divan" className="text-primary-foreground/70 hover:text-accent transition-colors">Как почистить диван</Link></li>
+              <li><Link to="/sredstva-dlya-chistki" className="text-primary-foreground/70 hover:text-accent transition-colors">Средства для чистки</Link></li>
+              <li><Link to="/udalenie-pyaten" className="text-primary-foreground/70 hover:text-accent transition-colors">Удаление пятен</Link></li>
+              <li><Link to="/chistka-paroochistitelem" className="text-primary-foreground/70 hover:text-accent transition-colors">Чистка пароочистителем</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
+          <span>© 2026 Qweeq. Все права защищены.</span>
+          <span>ИП Сафронов Алексей • ИНН 623401087194</span>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
