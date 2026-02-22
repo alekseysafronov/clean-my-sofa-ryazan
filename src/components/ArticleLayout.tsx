@@ -12,6 +12,7 @@ interface ArticleLayoutProps {
 }
 
 const allArticles = [
+  { href: "/blog", label: "← Все статьи" },
   { href: "/chistka-divana", label: "Профессиональная чистка дивана" },
   { href: "/kak-pochistit-divan", label: "Как почистить диван дома" },
   { href: "/sredstva-dlya-chistki", label: "Средства для чистки" },
