@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/#gallery", label: "Работы" },
   { href: "/#benefits", label: "Преимущества" },
   { href: "/#process", label: "Как работаем" },
+  { href: "/blog", label: "Блог" },
   { href: "/#contact", label: "Контакты" },
 ];
 
@@ -24,6 +25,8 @@ const Header = () => {
       } else {
         window.location.href = href;
       }
+    } else {
+      window.location.href = href;
     }
   };
 
