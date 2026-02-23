@@ -11,6 +11,7 @@ import KakPochistitDivan from "./pages/KakPochistitDivan";
 import SredstvaDlyaChistki from "./pages/SredstvaDlyaChistki";
 import UdaleniePyaten from "./pages/UdaleniePyaten";
 import ChistkaParoochistitelem from "./pages/ChistkaParoochistitelem";
+import KhimchistkaMebeliVRestoranah from "./pages/KhimchistkaMebeliVRestoranah";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/sredstva-dlya-chistki" element={<SredstvaDlyaChistki />} />
           <Route path="/udalenie-pyaten" element={<UdaleniePyaten />} />
           <Route path="/chistka-paroochistitelem" element={<ChistkaParoochistitelem />} />
+          <Route path="/khimchistka-mebeli-v-restoranah" element={<KhimchistkaMebeliVRestoranah />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
