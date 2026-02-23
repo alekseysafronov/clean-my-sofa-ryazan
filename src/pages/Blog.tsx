@@ -2,44 +2,68 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind, UtensilsCrossed, Layers, BedDouble, Car, Armchair } from "lucide-react";
 
 const articles = [
   {
     href: "/chistka-divana",
     title: "Профессиональная чистка дивана в Рязани",
-    description: "Как мы возвращаем мебели первозданный вид: методы глубокой экстракционной чистки, этапы работы и почему стоит доверить диван профессионалам.",
+    description: "Методы глубокой экстракционной чистки, этапы работы и почему стоит доверить диван профессионалам.",
     icon: Sparkles,
   },
   {
     href: "/kak-pochistit-divan",
     title: "Как почистить диван в домашних условиях",
-    description: "5 проверенных способов самостоятельной чистки: мыльный раствор, уксус, сода, нашатырь и специальные средства. Пошаговые инструкции.",
+    description: "5 проверенных способов самостоятельной чистки: мыльный раствор, уксус, сода, нашатырь и спецсредства.",
     icon: Droplets,
   },
   {
     href: "/sredstva-dlya-chistki",
     title: "Лучшие средства для чистки дивана",
-    description: "Обзор народных рецептов, бытовой химии и профессиональных составов. Как выбрать средство в зависимости от типа ткани и загрязнения.",
+    description: "Обзор народных рецептов, бытовой химии и профессиональных составов для разных типов тканей.",
     icon: FlaskConical,
   },
   {
     href: "/udalenie-pyaten",
     title: "Удаление пятен с дивана",
-    description: "Руководство по выведению пятен от вина, жира, кофе, крови и других загрязнений. Таблица средств для каждого типа пятна.",
+    description: "Руководство по выведению пятен от вина, жира, кофе, крови и других загрязнений.",
     icon: Eraser,
   },
   {
     href: "/chistka-paroochistitelem",
     title: "Чистка дивана пароочистителем",
-    description: "Преимущества паровой чистки, пошаговая инструкция и советы профессионалов. Какие ткани подходят, а какие нет.",
+    description: "Преимущества паровой чистки, пошаговая инструкция и советы профессионалов.",
     icon: Wind,
   },
   {
     href: "/khimchistka-mebeli-v-restoranah",
-    title: "Химчистка мебели в ресторанах, кафе и барах",
-    description: "Профессиональная чистка мягкой мебели для заведений общепита. Безопасные средства, гибкий график, договор на обслуживание.",
+    title: "Химчистка мебели в ресторанах и кафе",
+    description: "Профессиональная чистка мягкой мебели для заведений общепита. Договор на обслуживание.",
     icon: UtensilsCrossed,
+  },
+  {
+    href: "/khimchistka-kovrov",
+    title: "Химчистка ковров",
+    description: "Глубокая экстракционная чистка ковров всех типов: синтетика, шерсть, ручная работа, длинный ворс.",
+    icon: Layers,
+  },
+  {
+    href: "/chistka-matrasov",
+    title: "Химчистка матрасов",
+    description: "Глубокая чистка, дезинфекция и удаление клещей. Чистим на дому — матрас не нужно никуда везти.",
+    icon: BedDouble,
+  },
+  {
+    href: "/chistka-avtosideniy",
+    title: "Химчистка автомобильных сидений",
+    description: "Чистка тканевых и кожаных сидений, потолка, дверных карт и багажника прямо у вашего дома.",
+    icon: Car,
+  },
+  {
+    href: "/chistka-stuliev",
+    title: "Химчистка стульев и кресел",
+    description: "Офисные кресла, обеденные стулья, геймерские кресла, пуфы. Скидки для организаций.",
+    icon: Armchair,
   },
 ];
 
@@ -59,7 +83,7 @@ const Blog = () => (
 
         <div className="space-y-4">
           {articles.map((article, i) => (
-            <AnimatedSection key={article.href} delay={i * 0.08}>
+            <AnimatedSection key={article.href} delay={i * 0.06}>
               <Link
                 to={article.href}
                 className="group flex items-start gap-4 p-5 md:p-6 bg-secondary rounded-xl hover:bg-secondary/80 transition-colors"

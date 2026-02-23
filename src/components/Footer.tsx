@@ -44,10 +44,11 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-4 text-primary-foreground/80">Услуги</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to="/chistka-divana" className="text-primary-foreground/70 hover:text-accent transition-colors">Химчистка диванов</Link></li>
-              <li><Link to="/kak-pochistit-divan" className="text-primary-foreground/70 hover:text-accent transition-colors">Как почистить диван</Link></li>
-              <li><Link to="/sredstva-dlya-chistki" className="text-primary-foreground/70 hover:text-accent transition-colors">Средства для чистки</Link></li>
-              <li><Link to="/udalenie-pyaten" className="text-primary-foreground/70 hover:text-accent transition-colors">Удаление пятен</Link></li>
-              <li><Link to="/chistka-paroochistitelem" className="text-primary-foreground/70 hover:text-accent transition-colors">Чистка пароочистителем</Link></li>
+              <li><Link to="/khimchistka-kovrov" className="text-primary-foreground/70 hover:text-accent transition-colors">Химчистка ковров</Link></li>
+              <li><Link to="/chistka-matrasov" className="text-primary-foreground/70 hover:text-accent transition-colors">Химчистка матрасов</Link></li>
+              <li><Link to="/chistka-avtosideniy" className="text-primary-foreground/70 hover:text-accent transition-colors">Химчистка автосидений</Link></li>
+              <li><Link to="/chistka-stuliev" className="text-primary-foreground/70 hover:text-accent transition-colors">Химчистка стульев</Link></li>
+              <li><Link to="/blog" className="text-primary-foreground/70 hover:text-accent transition-colors">Все статьи →</Link></li>
             </ul>
           </div>
         </div>

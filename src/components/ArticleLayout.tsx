@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BlogSidebar from "@/components/BlogSidebar";
 import { Phone } from "lucide-react";
 import {
   Breadcrumb,
@@ -19,22 +20,16 @@ interface ArticleLayoutProps {
   relatedLinks?: { href: string; label: string }[];
 }
 
-const allArticles = [
-  { href: "/blog", label: "← Все статьи" },
-  { href: "/chistka-divana", label: "Профессиональная чистка дивана" },
-  { href: "/kak-pochistit-divan", label: "Как почистить диван дома" },
-  { href: "/sredstva-dlya-chistki", label: "Средства для чистки" },
-  { href: "/udalenie-pyaten", label: "Удаление пятен с дивана" },
-  { href: "/chistka-paroochistitelem", label: "Чистка пароочистителем" },
-  { href: "/khimchistka-mebeli-v-restoranah", label: "Химчистка в ресторанах" },
-];
-
 const ArticleLayout = ({ title, children }: ArticleLayoutProps) => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="pt-24 pb-16 md:pb-24">
-        <div className="container max-w-3xl">
+      <div className="container pt-24 pb-16 md:pb-24 flex gap-10">
+        {/* Sidebar */}
+        <BlogSidebar />
+
+        {/* Main content */}
+        <main className="flex-1 min-w-0 max-w-3xl">
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -82,23 +77,8 @@ const ArticleLayout = ({ title, children }: ArticleLayoutProps) => {
               +7 (916) 043-51-53
             </a>
           </div>
-
-          <div className="mt-10">
-            <h3 className="font-heading font-semibold text-foreground mb-4">Другие полезные статьи</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {allArticles.map((a) => (
-                <Link
-                  key={a.href}
-                  to={a.href}
-                  className="text-sm text-primary hover:underline p-3 bg-secondary rounded-lg"
-                >
-                  {a.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
       <Footer />
     </div>
   );
