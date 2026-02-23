@@ -11,6 +11,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import AnimatedSection from "@/components/AnimatedSection";
+import FloatingMessengers from "@/components/FloatingMessengers";
 
 const Index = () => {
   return (
@@ -45,6 +46,7 @@ const Index = () => {
         </AnimatedSection>
       </main>
       <Footer />
+      <FloatingMessengers />
     </div>
   );
 };

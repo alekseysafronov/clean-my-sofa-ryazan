@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind } from "lucide-react";
+import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind, UtensilsCrossed } from "lucide-react";
 
 const articles = [
   {
@@ -34,6 +34,12 @@ const articles = [
     title: "Чистка дивана пароочистителем",
     description: "Преимущества паровой чистки, пошаговая инструкция и советы профессионалов. Какие ткани подходят, а какие нет.",
     icon: Wind,
+  },
+  {
+    href: "/khimchistka-mebeli-v-restoranah",
+    title: "Химчистка мебели в ресторанах, кафе и барах",
+    description: "Профессиональная чистка мягкой мебели для заведений общепита. Безопасные средства, гибкий график, договор на обслуживание.",
+    icon: UtensilsCrossed,
   },
 ];
 

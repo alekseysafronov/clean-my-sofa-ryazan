@@ -2,7 +2,15 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Phone, ArrowLeft } from "lucide-react";
+import { Phone } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 interface ArticleLayoutProps {
   title: string;
@@ -18,6 +26,7 @@ const allArticles = [
   { href: "/sredstva-dlya-chistki", label: "Средства для чистки" },
   { href: "/udalenie-pyaten", label: "Удаление пятен с дивана" },
   { href: "/chistka-paroochistitelem", label: "Чистка пароочистителем" },
+  { href: "/khimchistka-mebeli-v-restoranah", label: "Химчистка в ресторанах" },
 ];
 
 const ArticleLayout = ({ title, children }: ArticleLayoutProps) => {
@@ -26,9 +35,25 @@ const ArticleLayout = ({ title, children }: ArticleLayoutProps) => {
       <Header />
       <main className="pt-24 pb-16 md:pb-24">
         <div className="container max-w-3xl">
-          <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline mb-6">
-            <ArrowLeft className="w-4 h-4" /> На главную
-          </Link>
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Главная</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/blog">Блог</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{title.length > 40 ? title.slice(0, 40) + "…" : title}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
           <h1 className="font-heading font-extrabold text-3xl md:text-4xl text-foreground mb-8 leading-tight">
             {title}
