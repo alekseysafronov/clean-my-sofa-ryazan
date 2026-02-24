@@ -12,6 +12,8 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import AnimatedSection from "@/components/AnimatedSection";
 import FloatingMessengers from "@/components/FloatingMessengers";
+import MapSection from "@/components/MapSection";
+import CalculatorSection from "@/components/CalculatorSection";
 
 const Index = () => {
   return (
@@ -37,6 +39,12 @@ const Index = () => {
         </AnimatedSection>
         <AnimatedSection>
           <ProcessSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <CalculatorSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <MapSection />
         </AnimatedSection>
         <AnimatedSection>
           <FAQSection />

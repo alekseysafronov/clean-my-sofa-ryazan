@@ -14,6 +14,9 @@ const serviceLinks = [
   { href: "/chistka-matrasov", label: "Химчистка матрасов", icon: BedDouble },
   { href: "/chistka-avtosideniy", label: "Автомобильные сиденья", icon: Car },
   { href: "/chistka-stuliev", label: "Стулья и кресла", icon: Armchair },
+  { href: "/chistka-shtor", label: "Химчистка штор", icon: Layers },
+  { href: "/chistka-kolyasok", label: "Детские коляски", icon: BedDouble },
+  { href: "/chistka-ofisnoy-mebeli", label: "Офисная мебель", icon: Armchair },
   { href: "/khimchistka-mebeli-v-restoranah", label: "Для ресторанов", icon: UtensilsCrossed },
 ];
 
