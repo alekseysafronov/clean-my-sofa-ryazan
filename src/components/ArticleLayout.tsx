@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { ReactNode, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogSidebar from "@/components/BlogSidebar";
@@ -21,6 +21,23 @@ interface ArticleLayoutProps {
 }
 
 const ArticleLayout = ({ title, children }: ArticleLayoutProps) => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Главная", item: "https://qweeq.ru/" },
+        { "@type": "ListItem", position: 2, name: "Блог", item: "https://qweeq.ru/blog" },
+        { "@type": "ListItem", position: 3, name: title, item: `https://qweeq.ru${pathname}` },
+      ],
+    });
+    document.head.appendChild(script);
+    return () => { document.head.removeChild(script); };
+  }, [title, pathname]);
   return (
     <div className="min-h-screen">
       <Header />

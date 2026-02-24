@@ -1,10 +1,37 @@
 import { useEffect } from "react";
 
+const faqs = [
+  {
+    q: "Сколько времени занимает химчистка дивана?",
+    a: "В среднем чистка одного дивана занимает 1–2 часа в зависимости от размера и степени загрязнения. Сушка — ещё 2–4 часа.",
+  },
+  {
+    q: "Какие средства вы используете? Они безопасны?",
+    a: "Мы работаем с гипоаллергенными составами 5-го поколения, безопасными для детей и домашних животных.",
+  },
+  {
+    q: "Можно ли вывести старые пятна?",
+    a: "В большинстве случаев — да. Мы используем профессиональные пятновыводители с энзимами.",
+  },
+  {
+    q: "Вы работаете по выходным?",
+    a: "Да, мы работаем ежедневно с 8:00 до 21:00, включая выходные и праздничные дни.",
+  },
+  {
+    q: "Что делать, если результат не устроит?",
+    a: "Мы даём гарантию качества. Если результат вас не устроит — бесплатно проведём повторную чистку или вернём деньги.",
+  },
+  {
+    q: "Вы выезжаете за пределы Рязани?",
+    a: "Да, мы обслуживаем Рязань и Рязанскую область. Выезд за город обсуждается индивидуально.",
+  },
+];
+
 const JsonLd = () => {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.text = JSON.stringify({
+    const localBusiness = document.createElement("script");
+    localBusiness.type = "application/ld+json";
+    localBusiness.text = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       name: "Qweeq — Химчистка мебели в Рязани",
@@ -33,8 +60,28 @@ const JsonLd = () => {
         geoRadius: "50000",
       },
     });
-    document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
+
+    const faqPage = document.createElement("script");
+    faqPage.type = "application/ld+json";
+    faqPage.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: f.a,
+        },
+      })),
+    });
+
+    document.head.appendChild(localBusiness);
+    document.head.appendChild(faqPage);
+    return () => {
+      document.head.removeChild(localBusiness);
+      document.head.removeChild(faqPage);
+    };
   }, []);
 
   return null;
