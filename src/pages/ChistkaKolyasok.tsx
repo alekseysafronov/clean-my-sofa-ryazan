@@ -1,7 +1,11 @@
 import ArticleLayout from "@/components/ArticleLayout";
+import ServiceReviews from "@/components/ServiceReviews";
 
 const ChistkaKolyasok = () => (
-  <ArticleLayout title="Чистка детских колясок в Рязани">
+  <ArticleLayout
+    title="Чистка детских колясок в Рязани"
+    metaDescription="Химчистка детских колясок в Рязани на дому. Гипоаллергенные средства, безопасные для малышей. Удаление пятен и запахов. От 1 500 ₽."
+  >
     <p>
       Детская коляска быстро пачкается — пятна от еды, грязь с улицы, пыль. Стирать чехлы в машинке не всегда можно, а вручную — долго и малоэффективно. Мы проведём глубокую химчистку прямо у вас дома.
     </p>
@@ -37,6 +41,8 @@ const ChistkaKolyasok = () => (
     </ul>
 
     <p>Позвоните — подберём удобное время для чистки.</p>
+
+    <ServiceReviews />
   </ArticleLayout>
 );
 

@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
-import { ShieldCheck, Clock, Sparkles, FileText, Phone } from "lucide-react";
+import ServiceReviews from "@/components/ServiceReviews";
+import { ShieldCheck, Clock, Sparkles, FileText } from "lucide-react";
 
 const benefits = [
   {
@@ -25,7 +26,10 @@ const benefits = [
 ];
 
 const KhimchistkaMebeliVRestoranah = () => (
-  <ArticleLayout title="Химчистка мебели в ресторанах, кафе и барах в Рязани">
+  <ArticleLayout
+    title="Химчистка мебели в ресторанах, кафе и барах в Рязани"
+    metaDescription="Химчистка мебели для ресторанов и кафе в Рязани. Диваны, кресла, стулья — чистим в нерабочее время. Договор, скидки на регулярное обслуживание."
+  >
     <p>
       Компания <strong>Qweeq</strong> предлагает ресторанам, барам и кафе Рязани и области услуги профессиональной
       химчистки мягкой мебели. Мы качественно и оперативно чистим диваны, кресла и стулья как с текстильной, так
@@ -95,6 +99,8 @@ const KhimchistkaMebeliVRestoranah = () => (
       </tbody>
     </table>
     <p>Точная цена зависит от степени загрязнения и количества предметов. Позвоните — назовём стоимость за 2 минуты.</p>
+
+    <ServiceReviews />
   </ArticleLayout>
 );
 
