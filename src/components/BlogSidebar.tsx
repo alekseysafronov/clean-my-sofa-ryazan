@@ -4,7 +4,7 @@ import {
   Sparkles, Droplets, FlaskConical, Eraser, Wind,
   UtensilsCrossed, Layers, BedDouble, Car, Armchair,
   Home, BookOpen, ChevronDown, ChevronRight, Phone,
-  Menu, X,
+  Menu, X, Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -41,6 +41,15 @@ const BlogSidebar = () => {
           className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-1"
         >
           <Home className="w-4 h-4" /> Главная
+        </Link>
+        <Link
+          to="/o-kompanii"
+          className={cn(
+            "flex items-center gap-2 text-sm font-medium transition-colors",
+            pathname === "/o-kompanii" ? "text-primary" : "text-muted-foreground hover:text-primary"
+          )}
+        >
+          <Users className="w-4 h-4" /> О компании
         </Link>
         <Link
           to="/blog"

@@ -137,17 +137,18 @@ const CalculatorSection = () => {
                   .map((svc) => {
                     const isActive = !!selected[svc.id];
                     return (
-                      <div
+                      <label
                         key={svc.id}
-                        className={`flex items-center justify-between rounded-xl px-4 py-3 cursor-pointer transition-colors border ${
+                        htmlFor={`calc-${svc.id}`}
+                        className={`flex items-center justify-between rounded-xl px-4 py-3 cursor-pointer transition-colors border select-none ${
                           isActive
                             ? "border-primary bg-primary/5"
                             : "border-border hover:border-primary/30"
                         }`}
-                        onClick={() => !isActive && toggleItem(svc.id)}
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <input
+                            id={`calc-${svc.id}`}
                             type="checkbox"
                             checked={isActive}
                             onChange={() => toggleItem(svc.id)}
@@ -179,7 +180,7 @@ const CalculatorSection = () => {
                             {svc.price.toLocaleString("ru-RU")} ₽
                           </span>
                         </div>
-                      </div>
+                      </label>
                     );
                   })}
               </div>

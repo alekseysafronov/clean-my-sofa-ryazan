@@ -19,6 +19,7 @@ import ChistkaStuliev from "./pages/ChistkaStuliev";
 import ChistkaShtory from "./pages/ChistkaShtory";
 import ChistkaKolyasok from "./pages/ChistkaKolyasok";
 import ChistkaOfisnoyMebeli from "./pages/ChistkaOfisnoyMebeli";
+import OKompanii from "./pages/OKompanii";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/chistka-shtor" element={<ChistkaShtory />} />
           <Route path="/chistka-kolyasok" element={<ChistkaKolyasok />} />
           <Route path="/chistka-ofisnoy-mebeli" element={<ChistkaOfisnoyMebeli />} />
+          <Route path="/o-kompanii" element={<OKompanii />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
