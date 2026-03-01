@@ -20,10 +20,24 @@ interface ArticleLayoutProps {
   relatedLinks?: { href: string; label: string }[];
 }
 
-const ArticleLayout = ({ title, children }: ArticleLayoutProps) => {
+const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Set document title
+    document.title = `${title} | Qweeq — химчистка в Рязани`;
+
+    // Set meta description
+    if (metaDescription) {
+      let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.name = "description";
+        document.head.appendChild(meta);
+      }
+      meta.content = metaDescription;
+    }
+
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.text = JSON.stringify({
@@ -37,7 +51,7 @@ const ArticleLayout = ({ title, children }: ArticleLayoutProps) => {
     });
     document.head.appendChild(script);
     return () => { document.head.removeChild(script); };
-  }, [title, pathname]);
+  }, [title, pathname, metaDescription]);
   return (
     <div className="min-h-screen">
       <Header />
