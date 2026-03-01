@@ -180,7 +180,7 @@ const CalculatorSection = () => {
                             {svc.price.toLocaleString("ru-RU")} ₽
                           </span>
                         </div>
-                      </div>
+                      </label>
                     );
                   })}
               </div>
