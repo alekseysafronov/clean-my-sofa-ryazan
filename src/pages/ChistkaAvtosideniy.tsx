@@ -1,7 +1,11 @@
 import ArticleLayout from "@/components/ArticleLayout";
+import ServiceReviews from "@/components/ServiceReviews";
 
 const ChistkaAvtosideniy = () => (
-  <ArticleLayout title="Химчистка автомобильных сидений в Рязани">
+  <ArticleLayout
+    title="Химчистка автомобильных сидений в Рязани"
+    metaDescription="Химчистка автосидений в Рязани с выездом. Чистим тканевые и кожаные сиденья, потолок, багажник. Результат за 3–4 часа. От 500 ₽."
+  >
     <p>
       Салон автомобиля загрязняется быстрее, чем домашняя мебель — пыль с дороги, еда, напитки, грязная обувь. Профессиональная химчистка автокресел возвращает салону свежий вид и приятный запах.
     </p>
@@ -50,6 +54,8 @@ const ChistkaAvtosideniy = () => (
     </ul>
 
     <p>Запишитесь на удобное время — чистим даже по выходным.</p>
+
+    <ServiceReviews />
   </ArticleLayout>
 );
 

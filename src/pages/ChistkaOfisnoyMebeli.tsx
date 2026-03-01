@@ -1,7 +1,11 @@
 import ArticleLayout from "@/components/ArticleLayout";
+import ServiceReviews from "@/components/ServiceReviews";
 
 const ChistkaOfisnoyMebeli = () => (
-  <ArticleLayout title="Химчистка офисной мебели в Рязани">
+  <ArticleLayout
+    title="Химчистка офисной мебели в Рязани"
+    metaDescription="Химчистка офисной мебели в Рязани. Кресла, стулья, ковры, перегородки. Работаем в нерабочее время, скидка 20% от 10 единиц. Договор и документы."
+  >
     <p>
       Офисная мебель пачкается каждый день: кофейные пятна на креслах, пыль на тканевых перегородках, засаленные подлокотники. Регулярная химчистка поддерживает презентабельный вид офиса и здоровый микроклимат.
     </p>
@@ -38,6 +42,8 @@ const ChistkaOfisnoyMebeli = () => (
     </ul>
 
     <p>Позвоните — рассчитаем стоимость для вашего офиса за 5 минут.</p>
+
+    <ServiceReviews />
   </ArticleLayout>
 );
 

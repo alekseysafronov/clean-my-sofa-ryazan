@@ -1,7 +1,11 @@
 import ArticleLayout from "@/components/ArticleLayout";
+import ServiceReviews from "@/components/ServiceReviews";
 
 const ChistkaShtory = () => (
-  <ArticleLayout title="Химчистка штор и занавесок в Рязани">
+  <ArticleLayout
+    title="Химчистка штор и занавесок в Рязани"
+    metaDescription="Химчистка штор в Рязани на дому. Чистим портьеры, тюль, рулонные шторы прямо на карнизе. Бережные средства, быстрая сушка. От 200 ₽/м²."
+  >
     <p>
       Шторы накапливают пыль, аллергены и запахи незаметно. Стирка в машинке часто портит ткань, а снимать и вешать обратно — долго и неудобно. Мы чистим шторы прямо на карнизе или с выездом на дом.
     </p>
@@ -38,6 +42,8 @@ const ChistkaShtory = () => (
     </ul>
 
     <p>Позвоните — назовём точную стоимость за 2 минуты.</p>
+
+    <ServiceReviews />
   </ArticleLayout>
 );
 
