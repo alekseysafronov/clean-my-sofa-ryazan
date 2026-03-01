@@ -43,6 +43,15 @@ const BlogSidebar = () => {
           <Home className="w-4 h-4" /> Главная
         </Link>
         <Link
+          to="/o-kompanii"
+          className={cn(
+            "flex items-center gap-2 text-sm font-medium transition-colors",
+            pathname === "/o-kompanii" ? "text-primary" : "text-muted-foreground hover:text-primary"
+          )}
+        >
+          <Users className="w-4 h-4" /> О компании
+        </Link>
+        <Link
           to="/blog"
           className={cn(
             "flex items-center gap-2 text-sm font-medium transition-colors",
