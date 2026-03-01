@@ -19,6 +19,7 @@ import ChistkaStuliev from "./pages/ChistkaStuliev";
 import ChistkaShtory from "./pages/ChistkaShtory";
 import ChistkaKolyasok from "./pages/ChistkaKolyasok";
 import ChistkaOfisnoyMebeli from "./pages/ChistkaOfisnoyMebeli";
+import OKompanii from "./pages/OKompanii";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
