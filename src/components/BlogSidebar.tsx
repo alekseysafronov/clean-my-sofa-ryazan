@@ -163,7 +163,7 @@ const BlogSidebar = () => {
       {/* Sidebar */}
       <aside
         className={cn(
-          "lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] lg:w-60 shrink-0 overflow-y-auto",
+          "lg:sticky lg:top-24 lg:max-h-[calc(100vh-6rem)] lg:w-60 shrink-0 overflow-y-auto scrollbar-thin",
           "fixed top-16 left-0 bottom-0 z-30 w-64 bg-card border-r border-border p-5 transition-transform lg:relative lg:translate-x-0 lg:border-r-0 lg:bg-transparent lg:p-0",
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         )}
