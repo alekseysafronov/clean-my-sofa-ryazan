@@ -81,10 +81,10 @@ const OKompanii = () => (
     <h2>Qweeq в цифрах</h2>
     <div className="not-prose grid grid-cols-2 sm:grid-cols-4 gap-4 my-6">
       {[
-        { num: "1 500+", label: "заказов выполнено" },
-        { num: "6 лет", label: "на рынке" },
-        { num: "4.9", label: "рейтинг на Яндексе" },
-        { num: "98%", label: "клиентов рекомендуют" },
+        { num: "3 года", label: "опыта в клининге" },
+        { num: "2026", label: "год основания" },
+        { num: "Karcher", label: "оборудование" },
+        { num: "100%", label: "гарантия результата" },
       ].map((s) => (
         <div key={s.label} className="bg-primary/5 border border-primary/20 rounded-xl p-4 text-center">
           <p className="font-heading font-extrabold text-2xl text-primary">{s.num}</p>
