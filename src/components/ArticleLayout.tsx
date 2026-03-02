@@ -60,7 +60,7 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
         <BlogSidebar />
 
         {/* Main content */}
-        <main className="flex-1 min-w-0 max-w-3xl">
+        <main className="flex-1 min-w-0 max-w-2xl">
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
