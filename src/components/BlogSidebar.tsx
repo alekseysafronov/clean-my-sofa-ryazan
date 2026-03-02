@@ -25,6 +25,10 @@ const articleLinks = [
   { href: "/sredstva-dlya-chistki", label: "Средства для чистки", icon: FlaskConical },
   { href: "/udalenie-pyaten", label: "Удаление пятен", icon: Eraser },
   { href: "/chistka-paroochistitelem", label: "Пароочистителем", icon: Wind },
+  { href: "/udalenie-zapahov", label: "Удаление запахов", icon: Flame },
+  { href: "/pyatna-ot-kofe-i-chaya", label: "Пятна от кофе и чая", icon: Coffee },
+  { href: "/chistka-mebeli-s-detmi", label: "Дети и животные", icon: Baby },
+  { href: "/kak-chasto-chistit-mebel", label: "Как часто чистить", icon: CalendarClock },
 ];
 
 const BlogSidebar = () => {
