@@ -138,7 +138,6 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
           </div>
         </aside>
       </div>
-      </div>
       <Footer />
     </div>
   );
