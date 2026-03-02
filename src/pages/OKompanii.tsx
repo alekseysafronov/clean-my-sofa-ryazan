@@ -56,7 +56,7 @@ const OKompanii = () => (
     </div>
 
     <h2>Наша команда</h2>
-    <div className="not-prose grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+    <div className="not-prose grid grid-cols-1 gap-4 my-6 max-w-sm mx-auto">
       {team.map((t) => (
         <div key={t.name} className="bg-secondary rounded-xl p-5 border border-border text-center">
           <div className="w-14 h-14 rounded-full bg-primary/10 text-primary flex items-center justify-center font-heading font-bold text-lg mx-auto mb-3">
