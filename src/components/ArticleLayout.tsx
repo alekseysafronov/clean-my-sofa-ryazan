@@ -55,12 +55,12 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
   return (
     <div className="min-h-screen">
       <Header />
-      <div className="container pt-24 pb-16 md:pb-24 flex gap-10">
+      <div className="container pt-24 pb-16 md:pb-24 flex gap-8">
         {/* Sidebar */}
         <BlogSidebar />
 
         {/* Main content */}
-        <main className="flex-1 min-w-0 max-w-3xl">
+        <main className="flex-1 min-w-0 max-w-2xl">
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -109,6 +109,34 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
             </a>
           </div>
         </main>
+
+        {/* Right sidebar — banners */}
+        <aside className="hidden xl:block w-56 shrink-0 sticky top-24 max-h-[calc(100vh-6rem)] space-y-5">
+          <div className="bg-accent/10 border border-accent/30 rounded-xl p-5 text-center">
+            <p className="font-heading font-extrabold text-lg text-accent mb-1">−20%</p>
+            <p className="text-sm text-foreground font-medium mb-2">На первый заказ</p>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-3">Назовите промокод «ПЕРВЫЙ» при звонке</p>
+            <a href="tel:+79160435153" className="inline-block bg-accent text-accent-foreground text-xs font-heading font-bold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+              Позвонить
+            </a>
+          </div>
+
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-5 text-center">
+            <p className="font-heading font-bold text-sm text-primary mb-1">Регулярная чистка</p>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-3">Скидка 15% на каждый повторный заказ. Напомним, когда пора!</p>
+            <a href="tel:+79160435153" className="inline-block bg-primary text-primary-foreground text-xs font-heading font-bold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+              Узнать больше
+            </a>
+          </div>
+
+          <div className="bg-secondary rounded-xl p-5 text-center border border-border">
+            <p className="font-heading font-bold text-sm text-foreground mb-1">Для бизнеса</p>
+            <p className="text-xs text-muted-foreground leading-relaxed mb-3">Офисы, рестораны, гостиницы — договор на обслуживание с выгодными условиями</p>
+            <a href="tel:+79160435153" className="inline-block bg-foreground text-background text-xs font-heading font-bold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
+              Обсудить
+            </a>
+          </div>
+        </aside>
       </div>
       <Footer />
     </div>
