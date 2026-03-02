@@ -4,7 +4,7 @@ import {
   Sparkles, Droplets, FlaskConical, Eraser, Wind,
   UtensilsCrossed, Layers, BedDouble, Car, Armchair,
   Home, BookOpen, ChevronDown, ChevronRight, Phone,
-  Menu, X, Users,
+  Menu, X, Users, Flame, Coffee, Baby, CalendarClock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
