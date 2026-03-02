@@ -55,7 +55,7 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
   return (
     <div className="min-h-screen">
       <Header />
-      <div className="container pt-24 pb-16 md:pb-24 flex gap-10">
+      <div className="container pt-24 pb-16 md:pb-24 flex gap-8">
         {/* Sidebar */}
         <BlogSidebar />
 
