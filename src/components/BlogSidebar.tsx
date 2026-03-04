@@ -4,7 +4,7 @@ import {
   Sparkles, Droplets, FlaskConical, Eraser, Wind,
   UtensilsCrossed, Layers, BedDouble, Car, Armchair,
   Home, BookOpen, ChevronDown, ChevronRight, Phone,
-  Menu, X, Users, Flame, Coffee, Baby, CalendarClock,
+  Users, Flame, Coffee, Baby, CalendarClock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -143,31 +143,27 @@ const BlogSidebar = () => {
 
   return (
     <>
-      {/* Mobile toggle */}
-      <button
-        onClick={() => setMobileOpen(!mobileOpen)}
-        className="lg:hidden fixed top-20 left-4 z-40 bg-card border border-border rounded-lg p-2 shadow-md"
-        aria-label="Навигация"
-      >
-        {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-      </button>
+      {/* Mobile: inline expandable navigation */}
+      <div className="lg:hidden w-full mb-4">
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="flex items-center gap-2 text-sm font-heading font-semibold text-primary bg-primary/10 px-4 py-2.5 rounded-lg w-full justify-center"
+          aria-label="Навигация по блогу"
+        >
+          <BookOpen className="w-4 h-4" />
+          Навигация по блогу
+          {mobileOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+        </button>
 
-      {/* Mobile overlay */}
-      {mobileOpen && (
-        <div
-          className="lg:hidden fixed inset-0 z-30 bg-foreground/20 backdrop-blur-sm"
-          onClick={() => setMobileOpen(false)}
-        />
-      )}
-
-      {/* Sidebar */}
-      <aside
-        className={cn(
-          "lg:sticky lg:top-24 lg:max-h-[calc(100vh-6rem)] lg:w-60 shrink-0 overflow-y-auto scrollbar-thin",
-          "fixed top-16 left-0 bottom-0 z-30 w-64 bg-card border-r border-border p-5 transition-transform lg:relative lg:translate-x-0 lg:border-r-0 lg:bg-transparent lg:p-0",
-          mobileOpen ? "translate-x-0" : "-translate-x-full"
+        {mobileOpen && (
+          <div className="mt-3 bg-card border border-border rounded-xl p-4 shadow-sm animate-fade-in">
+            <NavContent />
+          </div>
         )}
-      >
+      </div>
+
+      {/* Desktop sidebar */}
+      <aside className="hidden lg:block lg:sticky lg:top-24 lg:max-h-[calc(100vh-6rem)] lg:w-60 shrink-0 overflow-y-auto scrollbar-thin">
         <NavContent />
       </aside>
     </>
