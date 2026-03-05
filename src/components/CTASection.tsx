@@ -1,23 +1,33 @@
 import { useState } from "react";
 import { Phone, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const CTASection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) return;
 
     setSending(true);
-    // Simulate sending — replace with real endpoint later
-    setTimeout(() => {
-      setSending(false);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-telegram', {
+        body: { name: form.name.trim(), phone: form.phone.trim(), message: form.message.trim() },
+      });
+
+      if (error) throw error;
+
       toast({ title: "Заявка отправлена!", description: "Мы перезвоним в ближайшее время." });
       setForm({ name: "", phone: "", message: "" });
-    }, 800);
+    } catch (err) {
+      console.error('Error sending form:', err);
+      toast({ title: "Ошибка", description: "Не удалось отправить заявку. Позвоните нам!", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
