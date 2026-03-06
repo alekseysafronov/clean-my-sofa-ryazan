@@ -41,11 +41,11 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 sm:overflow-visible sm:snap-none sm:pb-0">
           {services.map((svc) => (
             <div
               key={svc.title}
-              className="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group"
+              className="min-w-[280px] snap-start sm:min-w-0 bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 group"
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <svc.icon className="w-6 h-6 text-primary" />

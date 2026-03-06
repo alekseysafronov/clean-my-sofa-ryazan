@@ -17,9 +17,9 @@ const ProcessSection = () => {
           <p className="text-muted-foreground">Процесс максимально удобен для вас</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 sm:overflow-visible sm:snap-none sm:pb-0">
           {steps.map((step, i) => (
-            <div key={step.num} className="relative bg-card rounded-xl p-6 shadow-card text-center">
+            <div key={step.num} className="min-w-[240px] snap-start sm:min-w-0 relative bg-card rounded-xl p-6 shadow-card text-center">
               <div className="font-heading font-extrabold text-5xl text-primary/10 mb-2">{step.num}</div>
               <h3 className="font-heading font-bold text-lg text-foreground mb-2">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
