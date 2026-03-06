@@ -69,8 +69,8 @@ const CalculatorSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) return;
-    if (!validatePhone(form.phone)) {
-      setPhoneError("Введите корректный номер телефона (не менее 10 цифр)");
+    if (!isPhoneComplete(form.phone)) {
+      setPhoneError("Введите полный номер телефона");
       return;
     }
     setPhoneError("");
