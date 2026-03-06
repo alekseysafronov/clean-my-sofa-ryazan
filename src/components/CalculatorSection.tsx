@@ -192,6 +192,7 @@ const CalculatorSection = () => {
                   value={form.phone}
                   onFocus={() => { if (!form.phone) setForm({ ...form, phone: "+7" }); }}
                   onChange={(e) => { setForm({ ...form, phone: applyPhoneMask(e.target.value) }); setPhoneError(""); }}
+                  className={`w-full rounded-lg border bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring ${phoneError ? "border-destructive" : "border-input"}`}
                   placeholder="+7 (___) ___-__-__"
                 />
                 {phoneError && <p className="text-destructive text-xs mt-1">{phoneError}</p>}
