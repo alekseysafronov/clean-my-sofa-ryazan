@@ -3,6 +3,11 @@ import { Phone, Calculator, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
+const validatePhone = (phone: string): boolean => {
+  const digits = phone.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
+};
+
 const serviceOptions = [
   { id: "sofa2", label: "2-местный диван", price: 2000, category: "Диваны" },
   { id: "sofa3", label: "3-местный диван", price: 2500, category: "Диваны" },
