@@ -11,6 +11,7 @@ const validatePhone = (phone: string): boolean => {
 const CTASection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [phoneError, setPhoneError] = useState("");
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
