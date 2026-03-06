@@ -3,14 +3,25 @@ import { Phone, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
+const validatePhone = (phone: string): boolean => {
+  const digits = phone.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
+};
+
 const CTASection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [phoneError, setPhoneError] = useState("");
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) return;
+    if (!validatePhone(form.phone)) {
+      setPhoneError("Введите корректный номер телефона (не менее 10 цифр)");
+      return;
+    }
+    setPhoneError("");
 
     setSending(true);
     try {
@@ -88,10 +99,11 @@ const CTASection = () => {
                 required
                 maxLength={20}
                 value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                onChange={(e) => { setForm({ ...form, phone: e.target.value }); setPhoneError(""); }}
+                className={`w-full rounded-lg border bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${phoneError ? "border-destructive" : "border-input"}`}
                 placeholder="+7 (___) ___-__-__"
               />
+              {phoneError && <p className="text-destructive text-xs mt-1">{phoneError}</p>}
             </div>
 
             <div>
