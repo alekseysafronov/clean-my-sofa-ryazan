@@ -99,8 +99,8 @@ const CTASection = () => {
                 required
                 maxLength={20}
                 value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                onChange={(e) => { setForm({ ...form, phone: e.target.value }); setPhoneError(""); }}
+                className={`w-full rounded-lg border bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${phoneError ? "border-destructive" : "border-input"}`}
                 placeholder="+7 (___) ___-__-__"
               />
             </div>
