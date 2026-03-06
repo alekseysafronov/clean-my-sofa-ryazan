@@ -188,9 +188,10 @@ const CalculatorSection = () => {
               <div>
                 <label htmlFor="calc-phone" className="text-sm font-medium mb-1 block text-foreground">Телефон *</label>
                 <input
-                  id="calc-phone" type="tel" required maxLength={20}
-                  value={form.phone} onChange={(e) => { setForm({ ...form, phone: e.target.value }); setPhoneError(""); }}
-                  className={`w-full rounded-lg border bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring ${phoneError ? "border-destructive" : "border-input"}`}
+                  id="calc-phone" type="tel" required
+                  value={form.phone}
+                  onFocus={() => { if (!form.phone) setForm({ ...form, phone: "+7" }); }}
+                  onChange={(e) => { setForm({ ...form, phone: applyPhoneMask(e.target.value) }); setPhoneError(""); }}
                   placeholder="+7 (___) ___-__-__"
                 />
                 {phoneError && <p className="text-destructive text-xs mt-1">{phoneError}</p>}

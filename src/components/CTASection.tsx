@@ -93,9 +93,9 @@ const CTASection = () => {
                 id="cta-phone"
                 type="tel"
                 required
-                maxLength={20}
                 value={form.phone}
-                onChange={(e) => { setForm({ ...form, phone: e.target.value }); setPhoneError(""); }}
+                onFocus={() => { if (!form.phone) setForm({ ...form, phone: "+7" }); }}
+                onChange={(e) => { setForm({ ...form, phone: applyPhoneMask(e.target.value) }); setPhoneError(""); }}
                 className={`w-full rounded-lg border bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring ${phoneError ? "border-destructive" : "border-input"}`}
                 placeholder="+7 (___) ___-__-__"
               />
