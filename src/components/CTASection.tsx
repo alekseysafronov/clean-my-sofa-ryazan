@@ -3,6 +3,11 @@ import { Phone, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
+const validatePhone = (phone: string): boolean => {
+  const digits = phone.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 15;
+};
+
 const CTASection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
