@@ -2,11 +2,7 @@ import { useState } from "react";
 import { Phone, Calculator, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-
-const validatePhone = (phone: string): boolean => {
-  const digits = phone.replace(/\D/g, "");
-  return digits.length >= 10 && digits.length <= 15;
-};
+import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 
 const serviceOptions = [
   { id: "sofa2", label: "2-местный диван", price: 2000, category: "Диваны" },
@@ -73,8 +69,8 @@ const CalculatorSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) return;
-    if (!validatePhone(form.phone)) {
-      setPhoneError("Введите корректный номер телефона (не менее 10 цифр)");
+    if (!isPhoneComplete(form.phone)) {
+      setPhoneError("Введите полный номер телефона");
       return;
     }
     setPhoneError("");
@@ -192,8 +188,10 @@ const CalculatorSection = () => {
               <div>
                 <label htmlFor="calc-phone" className="text-sm font-medium mb-1 block text-foreground">Телефон *</label>
                 <input
-                  id="calc-phone" type="tel" required maxLength={20}
-                  value={form.phone} onChange={(e) => { setForm({ ...form, phone: e.target.value }); setPhoneError(""); }}
+                  id="calc-phone" type="tel" required
+                  value={form.phone}
+                  onFocus={() => { if (!form.phone) setForm({ ...form, phone: "+7" }); }}
+                  onChange={(e) => { setForm({ ...form, phone: applyPhoneMask(e.target.value) }); setPhoneError(""); }}
                   className={`w-full rounded-lg border bg-background px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring ${phoneError ? "border-destructive" : "border-input"}`}
                   placeholder="+7 (___) ___-__-__"
                 />
