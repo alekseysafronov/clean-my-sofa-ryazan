@@ -17,6 +17,11 @@ const CTASection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim()) return;
+    if (!validatePhone(form.phone)) {
+      setPhoneError("Введите корректный номер телефона (не менее 10 цифр)");
+      return;
+    }
+    setPhoneError("");
 
     setSending(true);
     try {
