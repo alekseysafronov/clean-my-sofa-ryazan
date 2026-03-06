@@ -39,11 +39,11 @@ const ReviewsSection = () => {
           Более 1000 довольных клиентов в Рязани и области
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:snap-none md:pb-0">
           {reviews.map((review) => (
             <div
               key={review.name}
-              className="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow border border-border"
+              className="min-w-[300px] snap-start md:min-w-0 bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow border border-border"
             >
               <div className="flex items-center gap-1 mb-3">
                 {Array.from({ length: review.rating }).map((_, i) => (

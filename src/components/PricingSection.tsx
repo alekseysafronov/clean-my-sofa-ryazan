@@ -51,9 +51,9 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 sm:overflow-visible sm:snap-none sm:pb-0">
           {prices.map((group) => (
-            <div key={group.category} className="bg-card rounded-xl shadow-card overflow-hidden">
+            <div key={group.category} className="min-w-[260px] snap-start sm:min-w-0 bg-card rounded-xl shadow-card overflow-hidden">
               <div className="bg-primary text-primary-foreground font-heading font-bold text-center py-3 text-sm uppercase tracking-wider">
                 {group.category}
               </div>

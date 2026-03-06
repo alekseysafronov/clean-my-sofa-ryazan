@@ -20,9 +20,9 @@ const GallerySection = () => {
           Реальные фотографии наших работ — убедитесь в качестве сами
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:snap-none md:pb-0">
           {items.map((item) => (
-            <div key={item.label} className="group rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow">
+            <div key={item.label} className="min-w-[300px] snap-start md:min-w-0 group rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow">
               <div className="relative aspect-video overflow-hidden">
                 <img
                   src={item.img}
