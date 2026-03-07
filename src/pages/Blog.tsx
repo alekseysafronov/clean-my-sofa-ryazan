@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind, UtensilsCrossed, Layers, BedDouble, Car, Armchair, Flame, Coffee, Baby, CalendarClock } from "lucide-react";
+import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind, UtensilsCrossed, Layers, BedDouble, Car, Armchair, Flame, Coffee, Baby, CalendarClock, Home, Building2, Truck } from "lucide-react";
 
 const articles = [
   {
