@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind, UtensilsCrossed, Layers, BedDouble, Car, Armchair, Flame, Coffee, Baby, CalendarClock } from "lucide-react";
+import { ArrowRight, Sparkles, Droplets, FlaskConical, Eraser, Wind, UtensilsCrossed, Layers, BedDouble, Car, Armchair, Flame, Coffee, Baby, CalendarClock, Home, Building2, Truck } from "lucide-react";
 
 const articles = [
   {
@@ -106,6 +106,24 @@ const articles = [
     title: "Как часто нужно чистить мягкую мебель",
     description: "Рекомендации по частоте чистки для семей, аллергиков и коммерческих объектов.",
     icon: CalendarClock,
+  },
+  {
+    href: "/khimchistka-mebeli-na-domu",
+    title: "Химчистка мебели на дому в Рязани",
+    description: "Преимущества чистки на дому, какое оборудование используем, этапы работы и стоимость услуг.",
+    icon: Home,
+  },
+  {
+    href: "/khimchistka-kovrolina-v-ofise",
+    title: "Химчистка ковролина в офисе",
+    description: "Профессиональная чистка офисного ковролина. Работаем в нерабочее время, договор на обслуживание.",
+    icon: Building2,
+  },
+  {
+    href: "/vyezdnaya-khimchistka",
+    title: "Выездная химчистка мягкой мебели",
+    description: "Приедем в удобное время, почистим диван, кресла, матрас на месте. Рязань и область.",
+    icon: Truck,
   },
 ];
 
