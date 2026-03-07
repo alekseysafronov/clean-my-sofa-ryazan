@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const ChistkaOfisnoyMebeli = () => (
   <ArticleLayout
