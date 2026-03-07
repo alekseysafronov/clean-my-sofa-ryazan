@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const KhimchistkaKovrolinaVOfise = () => (
   <ArticleLayout
@@ -56,6 +57,14 @@ const KhimchistkaKovrolinaVOfise = () => (
     <p>Нет — мы аккуратно работаем вокруг столов и тумб. При необходимости передвинем лёгкую мебель.</p>
 
     <p>Оставьте заявку — рассчитаем стоимость для вашего офиса за 5 минут.</p>
+
+    <RelatedArticles links={[
+      { href: "/chistka-ofisnoy-mebeli", title: "Химчистка офисной мебели" },
+      { href: "/khimchistka-kovrov", title: "Химчистка ковров" },
+      { href: "/khimchistka-mebeli-v-restoranah", title: "Химчистка мебели в ресторанах" },
+      { href: "/vyezdnaya-khimchistka", title: "Выездная химчистка мягкой мебели" },
+      { href: "/udalenie-zapahov", title: "Как удалить запах с мебели" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

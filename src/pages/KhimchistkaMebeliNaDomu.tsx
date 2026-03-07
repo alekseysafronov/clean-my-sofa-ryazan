@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const KhimchistkaMebeliNaDomu = () => (
   <ArticleLayout
@@ -58,6 +59,14 @@ const KhimchistkaMebeliNaDomu = () => (
     </p>
 
     <p>Позвоните — бесплатно проконсультируем и назовём точную цену за 2 минуты.</p>
+
+    <RelatedArticles links={[
+      { href: "/vyezdnaya-khimchistka", title: "Выездная химчистка мягкой мебели" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+      { href: "/chistka-matrasov", title: "Химчистка матрасов" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+      { href: "/kak-chasto-chistit-mebel", title: "Как часто нужно чистить мебель" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

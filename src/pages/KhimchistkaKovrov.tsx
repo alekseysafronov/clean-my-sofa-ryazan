@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const KhimchistkaKovrov = () => (
   <ArticleLayout
@@ -52,6 +53,13 @@ const KhimchistkaKovrov = () => (
     </ul>
 
     <p>Вызовите мастера — оценим объём работы и назовём точную цену за 2 минуты по телефону.</p>
+
+    <RelatedArticles links={[
+      { href: "/khimchistka-kovrolina-v-ofise", title: "Химчистка ковролина в офисе" },
+      { href: "/khimchistka-mebeli-na-domu", title: "Химчистка мебели на дому" },
+      { href: "/udalenie-pyaten", title: "Удаление пятен" },
+      { href: "/udalenie-zapahov", title: "Как удалить запах с мебели" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>
