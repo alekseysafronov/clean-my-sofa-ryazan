@@ -60,6 +60,14 @@ const VyezdnayaKhimchistka = () => (
 
     <p>Позвоните или оставьте заявку — приедем в удобное время и вернём мебели чистоту.</p>
 
+    <RelatedArticles links={[
+      { href: "/khimchistka-mebeli-na-domu", title: "Химчистка мебели на дому" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+      { href: "/chistka-matrasov", title: "Химчистка матрасов" },
+      { href: "/khimchistka-kovrov", title: "Химчистка ковров" },
+      { href: "/chistka-mebeli-s-detmi", title: "Чистка мебели в доме с детьми" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

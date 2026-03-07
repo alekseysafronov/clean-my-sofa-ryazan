@@ -44,6 +44,13 @@ const ChistkaOfisnoyMebeli = () => (
 
     <p>Позвоните — рассчитаем стоимость для вашего офиса за 5 минут.</p>
 
+    <RelatedArticles links={[
+      { href: "/khimchistka-kovrolina-v-ofise", title: "Химчистка ковролина в офисе" },
+      { href: "/khimchistka-mebeli-v-restoranah", title: "Химчистка мебели в ресторанах" },
+      { href: "/chistka-stuliev", title: "Химчистка стульев и кресел" },
+      { href: "/vyezdnaya-khimchistka", title: "Выездная химчистка мягкой мебели" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

@@ -38,6 +38,14 @@ const ChistkaDivana = () => (
       <li>Выезжаем в день обращения</li>
     </ul>
 
+    <RelatedArticles links={[
+      { href: "/khimchistka-mebeli-na-domu", title: "Химчистка мебели на дому" },
+      { href: "/vyezdnaya-khimchistka", title: "Выездная химчистка мягкой мебели" },
+      { href: "/kak-pochistit-divan", title: "Как почистить диван в домашних условиях" },
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );
