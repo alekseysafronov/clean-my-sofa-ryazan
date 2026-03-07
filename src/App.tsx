@@ -24,6 +24,9 @@ import UdalenieZapahov from "./pages/UdalenieZapahov";
 import PyatnaOtKofeIChaiya from "./pages/PyatnaOtKofeIChaiya";
 import ChistkaMebeliSDetmi from "./pages/ChistkaMebeliSDetmi";
 import KakChastoChistit from "./pages/KakChastoChistit";
+import KhimchistkaMebeliNaDomu from "./pages/KhimchistkaMebeliNaDomu";
+import KhimchistkaKovrolinaVOfise from "./pages/KhimchistkaKovrolinaVOfise";
+import VyezdnayaKhimchistka from "./pages/VyezdnayaKhimchistka";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
