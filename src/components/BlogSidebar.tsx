@@ -19,6 +19,9 @@ const serviceLinks = [
   { href: "/chistka-kolyasok", label: "Детские коляски", icon: BedDouble },
   { href: "/chistka-ofisnoy-mebeli", label: "Офисная мебель", icon: Armchair },
   { href: "/khimchistka-mebeli-v-restoranah", label: "Для ресторанов", icon: UtensilsCrossed },
+  { href: "/khimchistka-mebeli-na-domu", label: "Мебель на дому", icon: Home },
+  { href: "/khimchistka-kovrolina-v-ofise", label: "Ковролин в офисе", icon: Building2 },
+  { href: "/vyezdnaya-khimchistka", label: "Выездная химчистка", icon: Truck },
 ];
 
 const articleLinks = [
