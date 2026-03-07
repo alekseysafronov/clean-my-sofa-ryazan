@@ -5,6 +5,7 @@ import {
   UtensilsCrossed, Layers, BedDouble, Car, Armchair,
   Home, BookOpen, ChevronDown, ChevronRight, Phone,
   Users, Flame, Coffee, Baby, CalendarClock,
+  Building2, Truck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
