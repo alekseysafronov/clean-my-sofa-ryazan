@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://qweeq.ru/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://qweeq.ru/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://qweeq.ru/faq</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qweeq.ru/franshiza</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qweeq.ru/o-kompanii</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qweeq.ru/kontakty</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qweeq.ru/kalkulyator-yur-litsa</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qweeq.ru/chistka-divana</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://qweeq.ru/kak-pochistit-divan</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qweeq.ru/sredstva-dlya-chistki</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -23,4 +27,13 @@
   <url><loc>https://qweeq.ru/khimchistka-mebeli-na-domu</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qweeq.ru/khimchistka-kovrolina-v-ofise</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://qweeq.ru/vyezdnaya-khimchistka</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qweeq.ru/rayony</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-centr-ryazani</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-dashkovo-pesochnya</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-kanishchevo</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-priokskiy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-moskovskiy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-borki</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-dyagilevo</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://qweeq.ru/khimchistka-solotcha</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
