@@ -16,8 +16,20 @@ const BeforeAfterSlider = ({
   alt = "До и после",
 }: BeforeAfterSliderProps) => {
   const [position, setPosition] = useState(50);
+  const [containerWidth, setContainerWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      setContainerWidth(entries[0].contentRect.width);
+    });
+    observer.observe(el);
+    setContainerWidth(el.offsetWidth);
+    return () => observer.disconnect();
+  }, []);
 
   const updatePosition = useCallback((clientX: number) => {
     const container = containerRef.current;
@@ -30,7 +42,7 @@ const BeforeAfterSlider = ({
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     isDragging.current = true;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
     updatePosition(e.clientX);
   }, [updatePosition]);
 
@@ -68,7 +80,7 @@ const BeforeAfterSlider = ({
           src={beforeSrc}
           alt={`${alt} — до`}
           className="absolute top-0 left-0 h-full object-cover"
-          style={{ width: containerRef.current?.getBoundingClientRect().width || "100vw", maxWidth: "none" }}
+          style={{ width: containerWidth || "100%", maxWidth: "none" }}
           draggable={false}
         />
       </div>
