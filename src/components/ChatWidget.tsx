@@ -88,6 +88,8 @@ async function streamChat({
 
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [animating, setAnimating] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
     { role: "assistant", content: WELCOME },
   ]);
@@ -118,8 +120,24 @@ const ChatWidget = () => {
   }, [messages]);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (open) {
+      setVisible(true);
+      setAnimating(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAnimating(false));
+      });
+      inputRef.current?.focus();
+    }
   }, [open]);
+
+  const handleClose = useCallback(() => {
+    setAnimating(true);
+    setTimeout(() => {
+      setOpen(false);
+      setVisible(false);
+      setAnimating(false);
+    }, 300);
+  }, []);
 
   const send = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
@@ -171,13 +189,16 @@ const ChatWidget = () => {
   return (
     <>
       {/* Chat window */}
-      {open && (
+      {visible && (
         <div
           ref={containerRef}
-          className="fixed inset-x-0 top-0 z-50 bg-card flex flex-col overflow-hidden animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
+          className={`fixed inset-x-0 top-0 z-50 bg-card flex flex-col overflow-hidden transition-transform duration-300 ease-out sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl sm:transition-all sm:duration-300 ${
+            animating
+              ? "translate-y-full sm:translate-y-0 sm:opacity-0 sm:scale-95"
+              : "translate-y-0 sm:opacity-100 sm:scale-100"
+          }`}
           style={{
             height: viewportHeight && window.innerWidth < 640 ? `${viewportHeight}px` : undefined,
-            bottom: viewportHeight && window.innerWidth < 640 ? undefined : undefined,
           }}
         >
           {/* Header */}
@@ -189,7 +210,7 @@ const ChatWidget = () => {
               <p className="font-heading font-bold text-sm">Консультант Qweeq</p>
               <p className="text-xs text-primary-foreground/70">Онлайн • Отвечаю мгновенно</p>
             </div>
-            <button onClick={() => setOpen(false)} className="hover:bg-primary-foreground/10 rounded-full p-1 transition-colors">
+            <button onClick={handleClose} className="hover:bg-primary-foreground/10 rounded-full p-1 transition-colors">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -262,7 +283,7 @@ const ChatWidget = () => {
       )}
 
       {/* Floating button — positioned above messenger buttons, hidden when chat is open */}
-      {!open && (
+      {!visible && (
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-[104px] right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-all bg-accent text-accent-foreground"
