@@ -42,19 +42,19 @@ const BlogSidebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const NavContent = () => (
-    <nav className="space-y-6">
-      <div>
+    <nav className="space-y-5">
+      <div className="space-y-1">
         <Link
           to="/"
-          className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-1"
+          className="flex items-center gap-2 text-sm py-1.5 px-2 rounded-md font-medium text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
         >
           <Home className="w-4 h-4" /> Главная
         </Link>
         <Link
           to="/o-kompanii"
           className={cn(
-            "flex items-center gap-2 text-sm font-medium transition-colors",
-            pathname === "/o-kompanii" ? "text-primary" : "text-muted-foreground hover:text-primary"
+            "flex items-center gap-2 text-sm py-1.5 px-2 rounded-md font-medium transition-colors",
+            pathname === "/o-kompanii" ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-primary hover:bg-secondary"
           )}
         >
           <Users className="w-4 h-4" /> О компании
@@ -62,8 +62,8 @@ const BlogSidebar = () => {
         <Link
           to="/blog"
           className={cn(
-            "flex items-center gap-2 text-sm font-medium transition-colors",
-            pathname === "/blog" ? "text-primary" : "text-muted-foreground hover:text-primary"
+            "flex items-center gap-2 text-sm py-1.5 px-2 rounded-md font-medium transition-colors",
+            pathname === "/blog" ? "bg-primary/10 text-primary" : "text-muted-foreground hover:text-primary hover:bg-secondary"
           )}
         >
           <BookOpen className="w-4 h-4" /> Все статьи
