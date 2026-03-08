@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли вывести старое пятно от кофе?", a: "Да, но чем старше пятно, тем сложнее. Для застарелых пятен рекомендуем глицерин или профессиональную чистку с энзимными средствами." },
@@ -56,6 +57,12 @@ const PyatnaOtKofeIChaiya = () => (
     <p><strong>Пролили кофе на любимый диван? Не экспериментируйте — позвоните нам! Приедем, оценим и почистим. Результат — в тот же день.</strong></p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана — полное руководство" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

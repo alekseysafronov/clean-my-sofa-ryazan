@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Сколько стоит почистить офисное кресло?", a: "От 700 ₽ за одно кресло. При заказе от 10 единиц — скидка 20%." },
@@ -48,6 +49,12 @@ const ChistkaStuliev = () => (
     <p>Позвоните — назовём точную стоимость за 2 минуты.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/chistka-ofisnoy-mebeli", title: "Химчистка офисной мебели" },
+      { href: "/khimchistka-mebeli-v-restoranah", title: "Химчистка мебели в ресторанах" },
+      { href: "/chistka-divana", title: "Химчистка диванов" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

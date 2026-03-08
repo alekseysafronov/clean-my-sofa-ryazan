@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Как убрать пятно от вина с дивана?", a: "Сразу засыпьте пятно солью, чтобы впитать жидкость. Затем обработайте лимонной кислотой или раствором уксуса. Промокните — не трите." },
@@ -51,6 +52,12 @@ const UdaleniePyaten = () => (
     <p>Если домашние методы не помогают – доверьтесь профессионалам. У нас есть оборудование и средства для самых сложных случаев.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/pyatna-ot-kofe-i-chaya", title: "Пятна от кофе и чая — как удалить" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки дивана" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов с мебели" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

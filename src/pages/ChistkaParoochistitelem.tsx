@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли чистить паром любой диван?", a: "Нет, не все ткани переносят высокую температуру. Замша, бархат и некоторые деликатные ткани могут пострадать. Всегда тестируйте на незаметном участке." },
@@ -50,6 +51,12 @@ const ChistkaParoochistitelem = () => (
     </ul>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/kak-pochistit-divan", title: "Как почистить диван в домашних условиях" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+    ]} />
   </ArticleLayout>
 );
 

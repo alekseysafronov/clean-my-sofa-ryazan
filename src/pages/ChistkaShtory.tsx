@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Нужно ли снимать шторы с карниза?", a: "Нет, мы чистим шторы прямо на карнизе. Снимать и вешать обратно не нужно." },
@@ -52,6 +53,12 @@ const ChistkaShtory = () => (
     <p>Позвоните — назовём точную стоимость за 2 минуты.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/chistka-divana", title: "Химчистка диванов" },
+      { href: "/khimchistka-mebeli-na-domu", title: "Химчистка мебели на дому" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов с текстиля" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

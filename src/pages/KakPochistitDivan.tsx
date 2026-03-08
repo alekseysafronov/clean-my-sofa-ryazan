@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли чистить диван обычным мылом?", a: "Да, жидкое мыло подходит для обивки с маркировкой W и WS. Разведите в тёплой воде, взбейте пену и наносите губкой." },
@@ -42,6 +43,12 @@ const KakPochistitDivan = () => (
     <p><strong>Важно!</strong> Не мочите диван слишком сильно – влага может вызвать плесень. После чистки обеспечьте вентиляцию.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки дивана" },
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана" },
+      { href: "/chistka-paroochistitelem", title: "Чистка дивана пароочистителем" },
+    ]} />
   </ArticleLayout>
 );
 

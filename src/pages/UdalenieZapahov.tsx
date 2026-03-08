@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли полностью убрать запах мочи с дивана?", a: "Да, но только при глубокой экстракционной чистке с энзимными средствами. Народные методы помогают лишь при свежих пятнах." },
@@ -71,6 +72,12 @@ const UdalenieZapahov = () => (
     <p><strong>Не миритесь с неприятным запахом — позвоните нам, и мы вернём вашей мебели свежесть за один визит.</strong> Работаем по Рязани и области, выезжаем в удобное для вас время.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана" },
+      { href: "/chistka-mebeli-s-detmi", title: "Гипоаллергенная чистка для семей с детьми" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

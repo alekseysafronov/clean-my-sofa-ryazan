@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Как часто чистить диван, если нет детей и животных?", a: "Минимум раз в 6–12 месяцев для удаления накопившейся пыли, аллергенов и поддержания свежего вида." },
@@ -68,6 +69,12 @@ const KakChastoChistit = () => (
     <p><strong>Не ждите, пока диван станет грязным — позвоните и закажите профессиональную чистку прямо сейчас!</strong></p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/chistka-mebeli-s-detmi", title: "Гипоаллергенная чистка для семей с детьми" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

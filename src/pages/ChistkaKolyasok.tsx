@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Безопасны ли средства для малыша?", a: "Да, мы используем только гипоаллергенные, сертифицированные средства, безопасные для детей с первых дней жизни." },
@@ -51,6 +52,12 @@ const ChistkaKolyasok = () => (
     <p>Позвоните — подберём удобное время для чистки.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/chistka-mebeli-s-detmi", title: "Гипоаллергенная чистка для семей с детьми" },
+      { href: "/chistka-matrasov", title: "Химчистка матрасов" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

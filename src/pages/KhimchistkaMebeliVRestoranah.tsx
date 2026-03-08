@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 import { ShieldCheck, Clock, Sparkles, FileText } from "lucide-react";
 
 const benefits = [
@@ -89,6 +90,12 @@ const KhimchistkaMebeliVRestoranah = () => (
     <p>Точная цена зависит от степени загрязнения и количества предметов. Позвоните — назовём стоимость за 2 минуты.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/chistka-ofisnoy-mebeli", title: "Химчистка офисной мебели" },
+      { href: "/chistka-stuliev", title: "Химчистка стульев и кресел" },
+      { href: "/khimchistka-kovrolina-v-ofise", title: "Химчистка ковролина в офисе" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Где проводится чистка — нужно ехать к вам?", a: "Нет, мы приезжаем к вам — чистим салон прямо у дома, на парковке или в гараже." },
@@ -64,6 +65,12 @@ const ChistkaAvtosideniy = () => (
     <p>Запишитесь на удобное время — чистим даже по выходным.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/udalenie-pyaten", title: "Удаление пятен с обивки" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов" },
+      { href: "/vyezdnaya-khimchistka", title: "Выездная химчистка мебели" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>

@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Какое средство лучше для чистки дивана дома?", a: "Для лёгких загрязнений — мыльный раствор или Vanish. Для жирных пятен — средство для посуды. Для запахов — уксус и сода." },
@@ -52,6 +53,12 @@ const SredstvaDlyaChistki = () => (
     <p>Всегда тестируйте средство на незаметном участке. Не смешивайте разные составы. Тщательно удаляйте остатки.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/kak-pochistit-divan", title: "Как почистить диван в домашних условиях" },
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана" },
+      { href: "/chistka-paroochistitelem", title: "Чистка дивана пароочистителем" },
+    ]} />
   </ArticleLayout>
 );
 

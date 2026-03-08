@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Как часто нужно чистить матрас?", a: "Рекомендуем раз в 6–12 месяцев. Если в доме аллергики или маленькие дети — каждые 3–4 месяца." },
@@ -62,6 +63,12 @@ const ChistkaMatrasov = () => (
     <p>Чистим на дому — не нужно везти матрас в цех. Позвоните, и мы приедем в удобное время.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/chistka-divana", title: "Химчистка диванов" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов с мебели" },
+      { href: "/chistka-mebeli-s-detmi", title: "Гипоаллергенная чистка для семей с детьми" },
+    ]} />
 
     <ServiceReviews />
   </ArticleLayout>
