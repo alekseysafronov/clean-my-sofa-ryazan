@@ -1,6 +1,14 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import RelatedArticles from "@/components/RelatedArticles";
+import ArticleFAQ from "@/components/ArticleFAQ";
+
+const faqItems = [
+  { q: "Сколько времени занимает чистка на дому?", a: "Чистка одного дивана — 1–2 часа. Сушка — ещё 3–6 часов при комнатной температуре." },
+  { q: "Выезд мастера платный?", a: "Нет, выезд по Рязани бесплатный. За пределы города — от 30 ₽/км." },
+  { q: "Какое оборудование вы используете?", a: "Экстракторы Karcher Puzzi — профессиональные моющие пылесосы, которые промывают ткань на всю глубину и тут же вытягивают грязь." },
+  { q: "Можно ли почистить мебель в день обращения?", a: "Да, при наличии свободных мастеров выезжаем в день обращения. Позвоните, и мы согласуем время." },
+];
 
 const KhimchistkaMebeliNaDomu = () => (
   <ArticleLayout
@@ -59,6 +67,8 @@ const KhimchistkaMebeliNaDomu = () => (
     </p>
 
     <p>Позвоните — бесплатно проконсультируем и назовём точную цену за 2 минуты.</p>
+
+    <ArticleFAQ items={faqItems} />
 
     <RelatedArticles links={[
       { href: "/vyezdnaya-khimchistka", title: "Выездная химчистка мягкой мебели" },

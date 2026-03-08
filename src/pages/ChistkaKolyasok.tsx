@@ -1,5 +1,13 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
+import ArticleFAQ from "@/components/ArticleFAQ";
+
+const faqItems = [
+  { q: "Безопасны ли средства для малыша?", a: "Да, мы используем только гипоаллергенные, сертифицированные средства, безопасные для детей с первых дней жизни." },
+  { q: "Нужно ли разбирать коляску?", a: "Нет, мы чистим коляску в собранном виде у вас дома. Разбирать и перевозить ничего не нужно." },
+  { q: "Сколько времени занимает чистка?", a: "В среднем 1,5–2 часа. Коляска высыхает за 2–3 часа после чистки." },
+  { q: "Чистите ли вы автокресла?", a: "Да, мы также чистим детские автокресла. Стоимость — от 1 200 ₽." },
+];
 
 const ChistkaKolyasok = () => (
   <ArticleLayout
@@ -41,6 +49,8 @@ const ChistkaKolyasok = () => (
     </ul>
 
     <p>Позвоните — подберём удобное время для чистки.</p>
+
+    <ArticleFAQ items={faqItems} />
 
     <ServiceReviews />
   </ArticleLayout>
