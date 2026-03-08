@@ -93,7 +93,7 @@ const ChatWidget = () => {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState<number | null>(null);
+  const [viewportHeight, setViewportHeight] = useState<number>(window.innerHeight);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -101,17 +101,40 @@ const ChatWidget = () => {
   // Track visual viewport to handle mobile keyboard
   useEffect(() => {
     const vv = window.visualViewport;
-    if (!vv) return;
     const onResize = () => {
-      setViewportHeight(vv.height);
+      setViewportHeight(vv?.height ?? window.innerHeight);
     };
-    vv.addEventListener("resize", onResize);
-    vv.addEventListener("scroll", onResize);
+
+    onResize();
+
+    vv?.addEventListener("resize", onResize);
+    vv?.addEventListener("scroll", onResize);
+    window.addEventListener("resize", onResize);
+
     return () => {
-      vv.removeEventListener("resize", onResize);
-      vv.removeEventListener("scroll", onResize);
+      vv?.removeEventListener("resize", onResize);
+      vv?.removeEventListener("scroll", onResize);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
+
+  // Prevent page scroll under fullscreen mobile chat
+  useEffect(() => {
+    if (!open || !window.matchMedia("(max-width: 639px)").matches) return;
+
+    const { style: bodyStyle } = document.body;
+    const { style: htmlStyle } = document.documentElement;
+    const prevBodyOverflow = bodyStyle.overflow;
+    const prevHtmlOverflow = htmlStyle.overflow;
+
+    bodyStyle.overflow = "hidden";
+    htmlStyle.overflow = "hidden";
+
+    return () => {
+      bodyStyle.overflow = prevBodyOverflow;
+      htmlStyle.overflow = prevHtmlOverflow;
+    };
+  }, [open]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);
@@ -174,10 +197,9 @@ const ChatWidget = () => {
       {open && (
         <div
           ref={containerRef}
-          className="fixed inset-x-0 top-0 z-50 bg-card flex flex-col overflow-hidden animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
+          className="fixed inset-0 z-50 bg-card flex flex-col overflow-hidden animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
           style={{
-            height: viewportHeight && window.innerWidth < 640 ? `${viewportHeight}px` : undefined,
-            bottom: viewportHeight && window.innerWidth < 640 ? undefined : undefined,
+            height: window.innerWidth < 640 ? `${viewportHeight}px` : undefined,
           }}
         >
           {/* Header */}
