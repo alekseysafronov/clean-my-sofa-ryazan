@@ -25,11 +25,10 @@ const GallerySection = () => {
           {items.map((item) => (
             <div key={item.label} className="min-w-[300px] snap-start md:min-w-0 group rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow">
               <div className="relative aspect-video overflow-hidden">
-                <img
+                <OptimizedImage
                   src={item.img}
                   alt={`До и после: ${item.label}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
+                  className="w-full h-full group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
