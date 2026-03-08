@@ -42,6 +42,7 @@ import Dyagilevo from "./pages/districts/Dyagilevo";
 import Solotcha from "./pages/districts/Solotcha";
 import Centr from "./pages/districts/Centr";
 import Magazin from "./pages/Magazin";
+import PolitikaKonfidencialnosti from "./pages/PolitikaKonfidencialnosti";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -90,6 +91,7 @@ const App = () => (
           <Route path="/franshiza" element={<Franshiza />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/magazin" element={<Magazin />} />
+          <Route path="/politika-konfidencialnosti" element={<PolitikaKonfidencialnosti />} />
           <Route path="/rayony" element={<Rayony />} />
           <Route path="/khimchistka-dashkovo-pesochnya" element={<DashkovoPesochnya />} />
           <Route path="/khimchistka-kanishchevo" element={<Kanishchevo />} />
