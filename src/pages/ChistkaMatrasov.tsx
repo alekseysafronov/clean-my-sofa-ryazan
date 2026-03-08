@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Как часто нужно чистить матрас?", a: "Рекомендуем раз в 6–12 месяцев. Если в доме аллергики или маленькие дети — каждые 3–4 месяца." },
