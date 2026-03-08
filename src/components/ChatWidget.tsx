@@ -210,7 +210,7 @@ const ChatWidget = () => {
               <p className="font-heading font-bold text-sm">Консультант Qweeq</p>
               <p className="text-xs text-primary-foreground/70">Онлайн • Отвечаю мгновенно</p>
             </div>
-            <button onClick={() => setOpen(false)} className="hover:bg-primary-foreground/10 rounded-full p-1 transition-colors">
+            <button onClick={handleClose} className="hover:bg-primary-foreground/10 rounded-full p-1 transition-colors">
               <X className="w-5 h-5" />
             </button>
           </div>
