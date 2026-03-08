@@ -61,10 +61,11 @@ export async function generateProposalPdf(params: PdfParams) {
 
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
 
-  // Load and embed Cyrillic fonts
-  const [regularBase64, boldBase64] = await Promise.all([
+  // Load fonts and logo
+  const [regularBase64, boldBase64, logoDataUrl] = await Promise.all([
     loadFont("/fonts/Roboto-Regular.ttf"),
     loadFont("/fonts/Roboto-Bold.ttf"),
+    loadImageAsDataUrl("/images/logo-qweeq.png"),
   ]);
 
   doc.addFileToVFS("Roboto-Regular.ttf", regularBase64);
@@ -78,17 +79,20 @@ export async function generateProposalPdf(params: PdfParams) {
   const margin = 20;
   let y = 20;
 
-  // --- Header ---
-  doc.setFontSize(16);
+  // --- Header with logo ---
+  const logoW = 40;
+  const logoH = 25;
+  doc.addImage(logoDataUrl, "PNG", margin, y - 5, logoW, logoH);
+
+  doc.setFontSize(12);
   doc.setFont("Roboto", "bold");
-  doc.text("Химчистка мягкой мебели и ковров", margin, y);
+  doc.text("Химчистка мягкой мебели и ковров", margin + logoW + 4, y + 4);
   doc.setFontSize(10);
   doc.setFont("Roboto", "normal");
   doc.setTextColor(100);
-  doc.text("qweeq.ru", pageW - margin, y, { align: "right" });
-  y += 4;
+  doc.text("qweeq.ru", margin + logoW + 4, y + 10);
   doc.text("+7 (916) 043-51-53", pageW - margin, y + 4, { align: "right" });
-  y += 12;
+  y += logoH + 5;
 
   // Divider
   doc.setDrawColor(200);
