@@ -208,11 +208,16 @@ const Uslugi = () => {
                           <span className="text-foreground font-medium">{svc.time}</span>
                         </div>
                         <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{svc.desc}</p>
-                        <div className="flex items-center gap-1 text-primary text-sm font-medium mt-4 group-hover:gap-2 transition-all">
-                          Подробнее <ArrowRight className="w-4 h-4" />
+                        <div className="flex items-center justify-between mt-4">
+                          <div className="flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                            Подробнее <ArrowRight className="w-4 h-4" />
+                          </div>
                         </div>
                       </div>
                     </Link>
+                    <div className="px-5 pb-5 -mt-1">
+                      <CallbackModal serviceName={svc.title} />
+                    </div>
                   </motion.div>
                 ))}
               </div>
