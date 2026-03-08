@@ -9,6 +9,7 @@ const siteLinks = [
   { href: "/blog", label: "Блог" },
   { href: "/faq", label: "FAQ" },
   { href: "/magazin", label: "Магазин" },
+  { href: "/aktsii", label: "Акции" },
   { href: "/franshiza", label: "Франшиза" },
   { href: "/kalkulyator-yur-litsa", label: "Для бизнеса" },
   { href: "/o-kompanii", label: "О компании" },
