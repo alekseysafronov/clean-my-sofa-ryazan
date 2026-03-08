@@ -177,35 +177,42 @@ const Uslugi = () => {
               </h2>
 
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {services.map((svc) => (
-                  <Link
+                {services.map((svc, i) => (
+                  <motion.div
                     key={svc.title}
-                    to={svc.link}
-                    className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <img
-                        src={svc.image}
-                        alt={svc.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <span className="absolute top-3 left-3 bg-card/90 backdrop-blur-sm text-foreground text-sm font-heading font-bold px-3 py-1.5 rounded-full shadow-sm">
-                        {svc.price}
-                      </span>
-                    </div>
-                    <div className="p-5">
-                      <h3 className="font-heading font-bold text-lg text-foreground mb-3">{svc.title}</h3>
-                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-1">
-                        <span>Время работы</span>
-                        <span className="text-foreground font-medium">{svc.time}</span>
+                    <Link
+                      to={svc.link}
+                      className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 block h-full"
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        <img
+                          src={svc.image}
+                          alt={svc.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        <span className="absolute top-3 left-3 bg-card/90 backdrop-blur-sm text-foreground text-sm font-heading font-bold px-3 py-1.5 rounded-full shadow-sm">
+                          {svc.price}
+                        </span>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{svc.desc}</p>
-                      <div className="flex items-center gap-1 text-primary text-sm font-medium mt-4 group-hover:gap-2 transition-all">
-                        Подробнее <ArrowRight className="w-4 h-4" />
+                      <div className="p-5">
+                        <h3 className="font-heading font-bold text-lg text-foreground mb-3">{svc.title}</h3>
+                        <div className="flex items-center justify-between text-sm text-muted-foreground mb-1">
+                          <span>Время работы</span>
+                          <span className="text-foreground font-medium">{svc.time}</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{svc.desc}</p>
+                        <div className="flex items-center gap-1 text-primary text-sm font-medium mt-4 group-hover:gap-2 transition-all">
+                          Подробнее <ArrowRight className="w-4 h-4" />
+                        </div>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             </div>
