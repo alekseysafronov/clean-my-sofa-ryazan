@@ -32,6 +32,15 @@ import Kontakty from "./pages/Kontakty";
 import KalkulyatorDlyaYurLits from "./pages/KalkulyatorDlyaYurLits";
 import Franshiza from "./pages/Franshiza";
 import FAQ from "./pages/FAQ";
+import Rayony from "./pages/Rayony";
+import DashkovoPesochnya from "./pages/districts/DashkovoPesochnya";
+import Kanishchevo from "./pages/districts/Kanishchevo";
+import Priokskiy from "./pages/districts/Priokskiy";
+import Moskovskiy from "./pages/districts/Moskovskiy";
+import Borki from "./pages/districts/Borki";
+import Dyagilevo from "./pages/districts/Dyagilevo";
+import Solotcha from "./pages/districts/Solotcha";
+import Centr from "./pages/districts/Centr";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -79,6 +88,15 @@ const App = () => (
           <Route path="/kalkulyator-yur-litsa" element={<KalkulyatorDlyaYurLits />} />
           <Route path="/franshiza" element={<Franshiza />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/rayony" element={<Rayony />} />
+          <Route path="/khimchistka-dashkovo-pesochnya" element={<DashkovoPesochnya />} />
+          <Route path="/khimchistka-kanishchevo" element={<Kanishchevo />} />
+          <Route path="/khimchistka-priokskiy" element={<Priokskiy />} />
+          <Route path="/khimchistka-moskovskiy" element={<Moskovskiy />} />
+          <Route path="/khimchistka-borki" element={<Borki />} />
+          <Route path="/khimchistka-dyagilevo" element={<Dyagilevo />} />
+          <Route path="/khimchistka-solotcha" element={<Solotcha />} />
+          <Route path="/khimchistka-centr-ryazani" element={<Centr />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
