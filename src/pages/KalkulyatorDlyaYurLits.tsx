@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Phone, Send, Building2, Calculator, FileText } from "lucide-react";
+import { Phone, Send, Building2, Calculator, FileText, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
+import { generateProposalPdf } from "@/lib/generateProposalPdf";
 
 
 const discountTiers = [
@@ -121,6 +122,33 @@ const KalkulyatorDlyaYurLits = () => {
   };
 
   const update = (field: keyof typeof emptyForm, value: string) => setForm((prev) => ({ ...prev, [field]: value }));
+
+  const handleDownloadPdf = () => {
+    const pdfLines = serviceOptions
+      .filter((svc) => getQty(svc.id) > 0)
+      .map((svc) => {
+        const qty = getQty(svc.id);
+        return { label: svc.label, qty, unit: svc.unit, price: svc.price, lineTotal: svc.price * qty };
+      });
+    if (pdfLines.length === 0) {
+      toast({ title: "Выберите услуги", description: "Добавьте хотя бы одну услугу для формирования КП", variant: "destructive" });
+      return;
+    }
+    generateProposalPdf({
+      lines: pdfLines,
+      subtotal,
+      discount,
+      discountAmount,
+      total,
+      companyName: form.companyName.trim() || undefined,
+      contactName: form.contactName.trim() || undefined,
+      phone: form.phone.trim() || undefined,
+      email: form.email.trim() || undefined,
+      address: form.address.trim() || undefined,
+      inn: form.inn.trim() || undefined,
+    });
+    toast({ title: "PDF сформирован", description: "Файл скачан на ваше устройство" });
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -399,6 +427,14 @@ const KalkulyatorDlyaYurLits = () => {
                   >
                     <Send className="w-4 h-4" />
                     {sending ? "Отправка..." : "Отправить заявку"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleDownloadPdf}
+                    className="w-full flex items-center justify-center gap-2 border border-primary text-primary font-heading font-semibold px-6 py-3 rounded-lg hover:bg-primary/5 transition-colors"
+                  >
+                    <Download className="w-4 h-4" />
+                    Скачать КП в PDF
                   </button>
                   <a
                     href="tel:+79160435153"
