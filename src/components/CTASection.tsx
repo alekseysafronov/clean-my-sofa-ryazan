@@ -117,9 +117,11 @@ const CTASection = () => {
               />
             </div>
 
+            <ConsentCheckbox id="cta-consent" checked={consent} onChange={setConsent} />
+
             <button
               type="submit"
-              disabled={sending}
+              disabled={sending || !consent}
               className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60"
             >
               <Send className="w-4 h-4" />

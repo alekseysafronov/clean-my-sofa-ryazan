@@ -257,11 +257,13 @@ const Magazin = () => {
                     required
                   />
 
+                  <ConsentCheckbox id="shop-consent" checked={consent} onChange={setConsent} />
+
                   <Button
                     type="submit"
                     className="w-full"
                     size="lg"
-                    disabled={selectedItems.length === 0 || !name.trim() || !isPhoneComplete(phone) || sending}
+                    disabled={selectedItems.length === 0 || !name.trim() || !isPhoneComplete(phone) || sending || !consent}
                   >
                     {sending ? (
                       "Отправка…"
@@ -272,10 +274,6 @@ const Magazin = () => {
                       </>
                     )}
                   </Button>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                  </p>
                 </form>
               )}
             </CardContent>
