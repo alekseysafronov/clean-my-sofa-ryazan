@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Безопасны ли средства для малыша?", a: "Да, мы используем только гипоаллергенные, сертифицированные средства, безопасные для детей с первых дней жизни." },
