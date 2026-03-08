@@ -8,6 +8,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Phone, ShoppingCart, Send, Check } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -124,8 +133,19 @@ const Magazin = () => {
       <SeoHead title="Магазин химии для клининга — Рязань" description="Купить профессиональную химию для химчистки мебели и ковров в Рязани. ChemSpec, Бриз — порции по 50 г." />
       <Header />
 
+      {/* Breadcrumbs */}
+      <div className="container pt-24 md:pt-28 pb-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem><BreadcrumbLink asChild><Link to="/">Главная</Link></BreadcrumbLink></BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem><BreadcrumbPage>Магазин</BreadcrumbPage></BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
       {/* Hero */}
-      <section className="pt-24 pb-12 md:pt-28 md:pb-16 bg-secondary">
+      <section className="pb-12 md:pb-16 bg-secondary">
         <div className="container text-center max-w-2xl">
           <h1 className="font-heading font-extrabold text-3xl md:text-5xl text-foreground mb-4">
             Магазин профессиональной химии

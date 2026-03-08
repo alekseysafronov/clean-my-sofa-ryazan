@@ -1,5 +1,14 @@
 import { useState } from "react";
 import { Phone, Send, Building2, Calculator, FileText, Download } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
@@ -162,6 +171,15 @@ const KalkulyatorDlyaYurLits = () => {
 
       <main className="flex-1 pt-20 md:pt-24 pb-16">
         <div className="container max-w-5xl">
+          {/* Breadcrumbs */}
+          <Breadcrumb className="mb-8">
+            <BreadcrumbList>
+              <BreadcrumbItem><BreadcrumbLink asChild><Link to="/">Главная</Link></BreadcrumbLink></BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem><BreadcrumbPage>Калькулятор для организаций</BreadcrumbPage></BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
           {/* Hero */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
