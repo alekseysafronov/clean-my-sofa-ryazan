@@ -237,16 +237,16 @@ const ChatWidget = () => {
         </div>
       )}
 
-      {/* Floating button — positioned above messenger buttons */}
-      <button
-        onClick={() => setOpen(!open)}
-        className={`fixed bottom-[104px] right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-all ${
-          open ? "bg-muted text-muted-foreground" : "bg-accent text-accent-foreground"
-        }`}
-        aria-label="Чат с консультантом"
-      >
-        {open ? <X className="w-6 h-6" /> : <Bot className="w-6 h-6" />}
-      </button>
+      {/* Floating button — positioned above messenger buttons, hidden when chat is open */}
+      {!open && (
+        <button
+          onClick={() => setOpen(true)}
+          className="fixed bottom-[104px] right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-all bg-accent text-accent-foreground"
+          aria-label="Чат с консультантом"
+        >
+          <Bot className="w-6 h-6" />
+        </button>
+      )}
     </>
   );
 };
