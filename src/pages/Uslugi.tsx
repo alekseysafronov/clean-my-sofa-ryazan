@@ -6,6 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 import beforeSofa from "@/assets/before-sofa.jpg";
 import afterSofa from "@/assets/after-sofa.jpg";
