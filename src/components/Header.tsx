@@ -64,7 +64,7 @@ const Header = () => {
 
           <a
             href="tel:+79160435153"
-            className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-lg font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
+            className="hidden lg:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-lg font-heading font-semibold text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
           >
             <Phone className="w-4 h-4" />
             +7 (916) 043-51-53
