@@ -42,6 +42,7 @@ import Dyagilevo from "./pages/districts/Dyagilevo";
 import Solotcha from "./pages/districts/Solotcha";
 import Centr from "./pages/districts/Centr";
 import Magazin from "./pages/Magazin";
+import Uslugi from "./pages/Uslugi";
 import PolitikaKonfidencialnosti from "./pages/PolitikaKonfidencialnosti";
 import NotFound from "./pages/NotFound";
 
@@ -64,6 +65,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/uslugi" element={<Uslugi />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/chistka-divana" element={<ChistkaDivana />} />
           <Route path="/kak-pochistit-divan" element={<KakPochistitDivan />} />
