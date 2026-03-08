@@ -28,6 +28,7 @@ import KhimchistkaMebeliNaDomu from "./pages/KhimchistkaMebeliNaDomu";
 import KhimchistkaKovrolinaVOfise from "./pages/KhimchistkaKovrolinaVOfise";
 import VyezdnayaKhimchistka from "./pages/VyezdnayaKhimchistka";
 import Blog from "./pages/Blog";
+import Kontakty from "./pages/Kontakty";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -71,6 +72,7 @@ const App = () => (
           <Route path="/khimchistka-mebeli-na-domu" element={<KhimchistkaMebeliNaDomu />} />
           <Route path="/khimchistka-kovrolina-v-ofise" element={<KhimchistkaKovrolinaVOfise />} />
           <Route path="/vyezdnaya-khimchistka" element={<VyezdnayaKhimchistka />} />
+          <Route path="/kontakty" element={<Kontakty />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

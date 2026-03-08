@@ -6,6 +6,7 @@ const siteLinks = [
   { href: "/", label: "Главная" },
   { href: "/blog", label: "Блог" },
   { href: "/o-kompanii", label: "О компании" },
+  { href: "/kontakty", label: "Контакты" },
 ];
 
 const pageAnchors = [
