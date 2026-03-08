@@ -219,6 +219,7 @@ const Uslugi = () => {
                     <div className="px-5 pb-5 -mt-1">
                       <CallbackModal serviceName={svc.title} />
                     </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
