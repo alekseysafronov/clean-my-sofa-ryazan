@@ -123,6 +123,33 @@ const KalkulyatorDlyaYurLits = () => {
 
   const update = (field: keyof typeof emptyForm, value: string) => setForm((prev) => ({ ...prev, [field]: value }));
 
+  const handleDownloadPdf = () => {
+    const pdfLines = serviceOptions
+      .filter((svc) => getQty(svc.id) > 0)
+      .map((svc) => {
+        const qty = getQty(svc.id);
+        return { label: svc.label, qty, unit: svc.unit, price: svc.price, lineTotal: svc.price * qty };
+      });
+    if (pdfLines.length === 0) {
+      toast({ title: "Выберите услуги", description: "Добавьте хотя бы одну услугу для формирования КП", variant: "destructive" });
+      return;
+    }
+    generateProposalPdf({
+      lines: pdfLines,
+      subtotal,
+      discount,
+      discountAmount,
+      total,
+      companyName: form.companyName.trim() || undefined,
+      contactName: form.contactName.trim() || undefined,
+      phone: form.phone.trim() || undefined,
+      email: form.email.trim() || undefined,
+      address: form.address.trim() || undefined,
+      inn: form.inn.trim() || undefined,
+    });
+    toast({ title: "PDF сформирован", description: "Файл скачан на ваше устройство" });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
