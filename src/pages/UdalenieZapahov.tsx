@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли полностью убрать запах мочи с дивана?", a: "Да, но только при глубокой экстракционной чистке с энзимными средствами. Народные методы помогают лишь при свежих пятнах." },
