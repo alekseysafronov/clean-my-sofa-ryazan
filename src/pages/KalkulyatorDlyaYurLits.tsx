@@ -202,12 +202,39 @@ const KalkulyatorDlyaYurLits = () => {
                   ))}
                 </div>
 
+                {/* Discount banner */}
+                {hasItems && (
+                  <div className={`px-6 py-3 border-t border-border flex items-center gap-3 transition-colors ${discount ? "bg-primary/10" : "bg-secondary/30"}`}>
+                    <span className="text-lg">🎁</span>
+                    {discount ? (
+                      <span className="text-sm font-semibold text-primary">
+                        Скидка {discount.percent}% применена! Вы экономите {discountAmount.toLocaleString("ru-RU")} ₽
+                      </span>
+                    ) : (
+                      <span className="text-sm text-muted-foreground">
+                        {totalQty < 10
+                          ? `Добавьте ещё ${10 - totalQty} ед. для скидки 5%`
+                          : `Добавьте ещё ${20 - totalQty} ед. для скидки 10%`}
+                      </span>
+                    )}
+                  </div>
+                )}
+
                 {/* Total bar */}
-                <div className="px-6 py-5 bg-secondary/50 border-t border-border flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Примерная стоимость</span>
-                  <span className="font-heading font-extrabold text-2xl text-foreground">
-                    {hasItems ? `от ${total.toLocaleString("ru-RU")} ₽` : "—"}
-                  </span>
+                <div className="px-6 py-5 bg-secondary/50 border-t border-border">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Примерная стоимость</span>
+                    <div className="text-right">
+                      {discount && (
+                        <span className="text-sm text-muted-foreground line-through mr-2">
+                          {subtotal.toLocaleString("ru-RU")} ₽
+                        </span>
+                      )}
+                      <span className="font-heading font-extrabold text-2xl text-foreground">
+                        {`от ${total.toLocaleString("ru-RU")} ₽`}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
