@@ -123,7 +123,7 @@ const KalkulyatorDlyaYurLits = () => {
 
   const update = (field: keyof typeof emptyForm, value: string) => setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleDownloadPdf = () => {
+  const handleDownloadPdf = async () => {
     const pdfLines = serviceOptions
       .filter((svc) => getQty(svc.id) > 0)
       .map((svc) => {
@@ -134,20 +134,24 @@ const KalkulyatorDlyaYurLits = () => {
       toast({ title: "Выберите услуги", description: "Добавьте хотя бы одну услугу для формирования КП", variant: "destructive" });
       return;
     }
-    generateProposalPdf({
-      lines: pdfLines,
-      subtotal,
-      discount,
-      discountAmount,
-      total,
-      companyName: form.companyName.trim() || undefined,
-      contactName: form.contactName.trim() || undefined,
-      phone: form.phone.trim() || undefined,
-      email: form.email.trim() || undefined,
-      address: form.address.trim() || undefined,
-      inn: form.inn.trim() || undefined,
-    });
-    toast({ title: "PDF сформирован", description: "Файл скачан на ваше устройство" });
+    try {
+      await generateProposalPdf({
+        lines: pdfLines,
+        subtotal,
+        discount,
+        discountAmount,
+        total,
+        companyName: form.companyName.trim() || undefined,
+        contactName: form.contactName.trim() || undefined,
+        phone: form.phone.trim() || undefined,
+        email: form.email.trim() || undefined,
+        address: form.address.trim() || undefined,
+        inn: form.inn.trim() || undefined,
+      });
+      toast({ title: "PDF сформирован", description: "Файл скачан на ваше устройство" });
+    } catch (e) {
+      toast({ title: "Ошибка", description: "Не удалось сформировать PDF", variant: "destructive" });
+    }
   };
 
   return (
