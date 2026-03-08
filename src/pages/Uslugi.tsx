@@ -227,6 +227,11 @@ const Uslugi = () => {
             </div>
           </section>
         </AnimatedSection>
+
+        {/* Reviews Carousel */}
+        <AnimatedSection>
+          <UslugiReviews />
+        </AnimatedSection>
       </main>
       <Footer />
       <FloatingMessengers />
