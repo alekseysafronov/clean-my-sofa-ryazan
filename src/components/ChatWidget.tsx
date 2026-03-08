@@ -237,10 +237,10 @@ const ChatWidget = () => {
         </div>
       )}
 
-      {/* Floating button */}
+      {/* Floating button — positioned above messenger buttons */}
       <button
         onClick={() => setOpen(!open)}
-        className={`fixed bottom-24 right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-all ${
+        className={`fixed bottom-[104px] right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-all ${
           open ? "bg-muted text-muted-foreground" : "bg-accent text-accent-foreground"
         }`}
         aria-label="Чат с консультантом"
