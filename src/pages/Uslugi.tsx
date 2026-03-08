@@ -5,8 +5,9 @@ import FloatingMessengers from "@/components/FloatingMessengers";
 import AnimatedSection from "@/components/AnimatedSection";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import CallbackModal from "@/components/CallbackModal";
 
 import beforeSofa from "@/assets/before-sofa.jpg";
 import afterSofa from "@/assets/after-sofa.jpg";
@@ -185,9 +186,10 @@ const Uslugi = () => {
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                   >
+                    <div className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full">
                     <Link
                       to={svc.link}
-                      className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 block h-full"
+                      className="block"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <img
@@ -207,11 +209,17 @@ const Uslugi = () => {
                           <span className="text-foreground font-medium">{svc.time}</span>
                         </div>
                         <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{svc.desc}</p>
-                        <div className="flex items-center gap-1 text-primary text-sm font-medium mt-4 group-hover:gap-2 transition-all">
-                          Подробнее <ArrowRight className="w-4 h-4" />
+                        <div className="flex items-center justify-between mt-4">
+                          <div className="flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                            Подробнее <ArrowRight className="w-4 h-4" />
+                          </div>
                         </div>
                       </div>
                     </Link>
+                    <div className="px-5 pb-5 -mt-1">
+                      <CallbackModal serviceName={svc.title} />
+                    </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>

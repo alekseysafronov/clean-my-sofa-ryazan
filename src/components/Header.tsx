@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const siteLinks = [
   { href: "/", label: "Главная" },
@@ -64,21 +65,27 @@ const Header = () => {
             ))}
           </nav>
 
-          <a
-            href="tel:+79160435153"
-            className="hidden lg:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-lg font-heading font-semibold text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
-          >
-            <Phone className="w-4 h-4" />
-            +7 (916) 043-51-53
-          </a>
+          <div className="hidden lg:flex items-center gap-2">
+            <ThemeToggle />
+            <a
+              href="tel:+79160435153"
+              className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-lg font-heading font-semibold text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
+            >
+              <Phone className="w-4 h-4" />
+              +7 (916) 043-51-53
+            </a>
+          </div>
 
-          <button
+          <div className="lg:hidden flex items-center gap-1">
+            <ThemeToggle />
+            <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden p-2 text-foreground"
-            aria-label="Меню"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+              aria-label="Меню"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
