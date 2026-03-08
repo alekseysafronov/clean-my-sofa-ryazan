@@ -43,6 +43,7 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
 
   return (
     <div className="min-h-screen">
+      <SeoHead title={`${title} — химчистка в Рязани`} description={metaDescription || ""} />
       <Header />
       <div className="container pt-24 pb-16 md:pb-24">
         {/* Breadcrumbs */}
