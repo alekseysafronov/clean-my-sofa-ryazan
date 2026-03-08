@@ -8,6 +8,13 @@ import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
 
 
+const discountTiers = [
+  { minQty: 20, percent: 10, label: "−10% от 20 ед." },
+  { minQty: 10, percent: 5, label: "−5% от 10 ед." },
+];
+
+const getDiscount = (totalQty: number) => discountTiers.find((t) => totalQty >= t.minQty) || null;
+
 const serviceOptions = [
   { id: "sofa2", label: "2-местный диван", price: 2000, unit: "шт.", category: "Диваны" },
   { id: "sofa3", label: "3-местный диван", price: 2500, unit: "шт.", category: "Диваны" },
@@ -51,8 +58,12 @@ const KalkulyatorDlyaYurLits = () => {
     return v ? parseInt(v, 10) || 0 : 0;
   };
 
-  const total = serviceOptions.reduce((sum, svc) => sum + svc.price * getQty(svc.id), 0);
-  const hasItems = total > 0;
+  const totalQty = serviceOptions.reduce((sum, svc) => sum + getQty(svc.id), 0);
+  const subtotal = serviceOptions.reduce((sum, svc) => sum + svc.price * getQty(svc.id), 0);
+  const discount = getDiscount(totalQty);
+  const discountAmount = discount ? Math.round(subtotal * discount.percent / 100) : 0;
+  const total = subtotal - discountAmount;
+  const hasItems = subtotal > 0;
 
   const categories = [...new Set(serviceOptions.map((s) => s.category))];
 
@@ -84,6 +95,7 @@ const KalkulyatorDlyaYurLits = () => {
       const lines = [
         `🏢 Заявка от юр. лица`,
         orderDetails ? `\n📋 Заказ:\n${orderDetails}` : "",
+        discount ? `\n🎁 Скидка за объём: ${discount.percent}% (−${discountAmount.toLocaleString("ru-RU")} ₽)` : "",
         `\n💰 Итого: от ${total.toLocaleString("ru-RU")} ₽`,
         form.companyName.trim() ? `\n🏛 Компания: ${form.companyName.trim()}` : "",
         form.inn.trim() ? `📄 ИНН: ${form.inn.trim()}` : "",
@@ -128,6 +140,14 @@ const KalkulyatorDlyaYurLits = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
               Рассчитайте стоимость химчистки для вашего офиса, ресторана или гостиницы. Работаем по безналичному расчёту, предоставляем закрывающие документы.
             </p>
+            <div className="flex flex-wrap justify-center gap-3 mt-5">
+              <div className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium">
+                🎁 от 10 единиц — скидка 5%
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+                🎁 от 20 единиц — скидка 10%
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -190,12 +210,39 @@ const KalkulyatorDlyaYurLits = () => {
                   ))}
                 </div>
 
+                {/* Discount banner */}
+                {hasItems && (
+                  <div className={`px-6 py-3 border-t border-border flex items-center gap-3 transition-colors ${discount ? "bg-primary/10" : "bg-secondary/30"}`}>
+                    <span className="text-lg">🎁</span>
+                    {discount ? (
+                      <span className="text-sm font-semibold text-primary">
+                        Скидка {discount.percent}% применена! Вы экономите {discountAmount.toLocaleString("ru-RU")} ₽
+                      </span>
+                    ) : (
+                      <span className="text-sm text-muted-foreground">
+                        {totalQty < 10
+                          ? `Добавьте ещё ${10 - totalQty} ед. для скидки 5%`
+                          : `Добавьте ещё ${20 - totalQty} ед. для скидки 10%`}
+                      </span>
+                    )}
+                  </div>
+                )}
+
                 {/* Total bar */}
-                <div className="px-6 py-5 bg-secondary/50 border-t border-border flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Примерная стоимость</span>
-                  <span className="font-heading font-extrabold text-2xl text-foreground">
-                    {hasItems ? `от ${total.toLocaleString("ru-RU")} ₽` : "—"}
-                  </span>
+                <div className="px-6 py-5 bg-secondary/50 border-t border-border">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">Примерная стоимость</span>
+                    <div className="text-right">
+                      {discount && (
+                        <span className="text-sm text-muted-foreground line-through mr-2">
+                          {subtotal.toLocaleString("ru-RU")} ₽
+                        </span>
+                      )}
+                      <span className="font-heading font-extrabold text-2xl text-foreground">
+                        {`от ${total.toLocaleString("ru-RU")} ₽`}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
