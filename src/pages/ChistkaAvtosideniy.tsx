@@ -66,6 +66,12 @@ const ChistkaAvtosideniy = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/udalenie-pyaten", title: "Удаление пятен с обивки" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов" },
+      { href: "/vyezdnaya-khimchistka", title: "Выездная химчистка мебели" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

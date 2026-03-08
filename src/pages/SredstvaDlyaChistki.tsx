@@ -53,6 +53,12 @@ const SredstvaDlyaChistki = () => (
     <p>Всегда тестируйте средство на незаметном участке. Не смешивайте разные составы. Тщательно удаляйте остатки.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/kak-pochistit-divan", title: "Как почистить диван в домашних условиях" },
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана" },
+      { href: "/chistka-paroochistitelem", title: "Чистка дивана пароочистителем" },
+    ]} />
   </ArticleLayout>
 );
 

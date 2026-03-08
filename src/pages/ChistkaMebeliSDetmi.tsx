@@ -70,6 +70,12 @@ const ChistkaMebeliSDetmi = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/chistka-kolyasok", title: "Чистка детских колясок" },
+      { href: "/chistka-matrasov", title: "Химчистка матрасов" },
+      { href: "/kak-chasto-chistit-mebel", title: "Как часто нужно чистить мебель" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

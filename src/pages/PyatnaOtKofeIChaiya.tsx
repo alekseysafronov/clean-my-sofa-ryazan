@@ -58,6 +58,12 @@ const PyatnaOtKofeIChaiya = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана — полное руководство" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

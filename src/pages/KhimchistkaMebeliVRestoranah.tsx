@@ -90,6 +90,12 @@ const KhimchistkaMebeliVRestoranah = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/chistka-ofisnoy-mebeli", title: "Химчистка офисной мебели" },
+      { href: "/chistka-stuliev", title: "Химчистка стульев и кресел" },
+      { href: "/khimchistka-kovrolina-v-ofise", title: "Химчистка ковролина в офисе" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

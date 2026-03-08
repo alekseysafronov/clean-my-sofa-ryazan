@@ -73,6 +73,12 @@ const UdalenieZapahov = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана" },
+      { href: "/chistka-mebeli-s-detmi", title: "Гипоаллергенная чистка для семей с детьми" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

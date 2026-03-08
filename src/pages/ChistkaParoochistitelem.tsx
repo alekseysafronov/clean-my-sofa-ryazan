@@ -51,6 +51,12 @@ const ChistkaParoochistitelem = () => (
     </ul>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/kak-pochistit-divan", title: "Как почистить диван в домашних условиях" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+    ]} />
   </ArticleLayout>
 );
 

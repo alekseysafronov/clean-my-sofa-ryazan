@@ -54,6 +54,12 @@ const ChistkaShtory = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/chistka-divana", title: "Химчистка диванов" },
+      { href: "/khimchistka-mebeli-na-domu", title: "Химчистка мебели на дому" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов с текстиля" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

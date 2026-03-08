@@ -43,6 +43,12 @@ const KakPochistitDivan = () => (
     <p><strong>Важно!</strong> Не мочите диван слишком сильно – влага может вызвать плесень. После чистки обеспечьте вентиляцию.</p>
 
     <ArticleFAQ items={faqItems} />
+
+    <RelatedArticles links={[
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки дивана" },
+      { href: "/udalenie-pyaten", title: "Удаление пятен с дивана" },
+      { href: "/chistka-paroochistitelem", title: "Чистка дивана пароочистителем" },
+    ]} />
   </ArticleLayout>
 );
 

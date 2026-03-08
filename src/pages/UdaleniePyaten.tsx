@@ -53,6 +53,12 @@ const UdaleniePyaten = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/pyatna-ot-kofe-i-chaya", title: "Пятна от кофе и чая — как удалить" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки дивана" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов с мебели" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

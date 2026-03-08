@@ -70,6 +70,12 @@ const KakChastoChistit = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/chistka-mebeli-s-detmi", title: "Гипоаллергенная чистка для семей с детьми" },
+      { href: "/chistka-divana", title: "Профессиональная чистка дивана" },
+      { href: "/sredstva-dlya-chistki", title: "Лучшие средства для чистки" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );

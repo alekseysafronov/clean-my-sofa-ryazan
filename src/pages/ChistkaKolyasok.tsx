@@ -53,6 +53,12 @@ const ChistkaKolyasok = () => (
 
     <ArticleFAQ items={faqItems} />
 
+    <RelatedArticles links={[
+      { href: "/chistka-mebeli-s-detmi", title: "Гипоаллергенная чистка для семей с детьми" },
+      { href: "/chistka-matrasov", title: "Химчистка матрасов" },
+      { href: "/udalenie-zapahov", title: "Удаление запахов" },
+    ]} />
+
     <ServiceReviews />
   </ArticleLayout>
 );
