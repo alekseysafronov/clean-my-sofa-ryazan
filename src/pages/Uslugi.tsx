@@ -175,21 +175,34 @@ const Uslugi = () => {
                 Выберите нужную услугу
               </h2>
 
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((svc) => (
                   <Link
                     key={svc.title}
                     to={svc.link}
-                    className="group bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                    className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <svc.icon className="w-6 h-6 text-primary" />
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img
+                        src={svc.image}
+                        alt={svc.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-3 left-3 bg-card/90 backdrop-blur-sm text-foreground text-sm font-heading font-bold px-3 py-1.5 rounded-full shadow-sm">
+                        {svc.price}
+                      </span>
                     </div>
-                    <h3 className="font-heading font-bold text-lg text-foreground mb-2">{svc.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{svc.desc}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary font-heading font-bold text-sm">{svc.price}</span>
-                      <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="p-5">
+                      <h3 className="font-heading font-bold text-lg text-foreground mb-3">{svc.title}</h3>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-1">
+                        <span>Время работы</span>
+                        <span className="text-foreground font-medium">{svc.time}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{svc.desc}</p>
+                      <div className="flex items-center gap-1 text-primary text-sm font-medium mt-4 group-hover:gap-2 transition-all">
+                        Подробнее <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </Link>
                 ))}
