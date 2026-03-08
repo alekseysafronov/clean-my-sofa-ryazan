@@ -58,8 +58,12 @@ const KalkulyatorDlyaYurLits = () => {
     return v ? parseInt(v, 10) || 0 : 0;
   };
 
-  const total = serviceOptions.reduce((sum, svc) => sum + svc.price * getQty(svc.id), 0);
-  const hasItems = total > 0;
+  const totalQty = serviceOptions.reduce((sum, svc) => sum + getQty(svc.id), 0);
+  const subtotal = serviceOptions.reduce((sum, svc) => sum + svc.price * getQty(svc.id), 0);
+  const discount = getDiscount(totalQty);
+  const discountAmount = discount ? Math.round(subtotal * discount.percent / 100) : 0;
+  const total = subtotal - discountAmount;
+  const hasItems = subtotal > 0;
 
   const categories = [...new Set(serviceOptions.map((s) => s.category))];
 
