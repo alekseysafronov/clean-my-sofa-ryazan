@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 import minfinLogo from "@/assets/minfin-logo.png";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <h3 className="font-heading font-bold text-xl mb-4">Qweeq</h3>
+            <img src={logo} alt="Qweeq" className="h-10 w-auto brightness-0 invert mb-4" />
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-4">
               Профессиональная химчистка мягкой мебели и ковров в Рязани с выездом на дом.
             </p>
