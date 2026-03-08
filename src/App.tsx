@@ -74,6 +74,7 @@ const App = () => (
           <Route path="/khimchistka-kovrolina-v-ofise" element={<KhimchistkaKovrolinaVOfise />} />
           <Route path="/vyezdnaya-khimchistka" element={<VyezdnayaKhimchistka />} />
           <Route path="/kontakty" element={<Kontakty />} />
+          <Route path="/kalkulyator-yur-litsa" element={<KalkulyatorDlyaYurLits />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
