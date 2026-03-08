@@ -15,6 +15,8 @@ import AnimatedSection from "@/components/AnimatedSection";
 import FloatingMessengers from "@/components/FloatingMessengers";
 import MapSection from "@/components/MapSection";
 import CalculatorSection from "@/components/CalculatorSection";
+import StatsCounter from "@/components/StatsCounter";
+import SocialProofNotification from "@/components/SocialProofNotification";
 
 const Index = () => {
   return (
