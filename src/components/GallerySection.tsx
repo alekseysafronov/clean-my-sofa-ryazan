@@ -1,3 +1,4 @@
+import OptimizedImage from "@/components/OptimizedImage";
 import beforeAfter1 from "@/assets/before-after-1.jpg";
 import beforeAfter2 from "@/assets/before-after-2.jpg";
 import beforeAfter3 from "@/assets/before-after-3.jpg";
