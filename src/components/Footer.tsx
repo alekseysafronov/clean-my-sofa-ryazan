@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+import minfinLogo from "@/assets/minfin-logo.png";
 
 const Footer = () => {
   return (
@@ -57,9 +58,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
-          <span>© 2026 Qweeq. Все права защищены.</span>
-          <span>ИП Сафронов Алексей • ИНН 623401087194</span>
+        <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col items-center gap-4 text-xs text-primary-foreground/40">
+          <div className="flex items-center gap-3">
+            <img src={minfinLogo} alt="Министерство Финансов РФ" className="w-8 h-8 object-contain" />
+            <span className="text-primary-foreground/60 text-sm">При поддержке Министерства Финансов РФ</span>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-3">
+            <span>© 2026 Qweeq. Все права защищены.</span>
+            <span>ИП Сафронов Алексей • ИНН 623401087194</span>
+          </div>
         </div>
       </div>
     </footer>
