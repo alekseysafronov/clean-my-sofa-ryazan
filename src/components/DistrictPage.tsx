@@ -53,11 +53,7 @@ const DistrictPage = ({
   landmarks,
   faq,
 }: DistrictPageProps) => {
-  useEffect(() => {
-    document.title = metaTitle;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", metaDescription);
-  }, [metaTitle, metaDescription]);
+  // SeoHead handles title and description
 
   useEffect(() => {
     const script = document.createElement("script");
