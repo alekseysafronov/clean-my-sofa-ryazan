@@ -29,6 +29,7 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <StatsCounter />
         <AnimatedSection>
           <ServicesSection />
         </AnimatedSection>
