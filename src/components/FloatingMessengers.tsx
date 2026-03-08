@@ -37,11 +37,12 @@ const channels = [
 
 const FloatingMessengers = () => {
   const [open, setOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <>
-      <ChatWidget />
-      <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3">
+      <ChatWidget onOpenChange={setChatOpen} />
+      <div className={`fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3 ${chatOpen ? "max-sm:hidden" : ""}`}>
         {open && (
           <div className="flex flex-col gap-3 animate-fade-in">
             {channels.map((ch) => (
