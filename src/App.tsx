@@ -43,6 +43,7 @@ import Solotcha from "./pages/districts/Solotcha";
 import Centr from "./pages/districts/Centr";
 import Magazin from "./pages/Magazin";
 import Uslugi from "./pages/Uslugi";
+import Aktsii from "./pages/Aktsii";
 import PolitikaKonfidencialnosti from "./pages/PolitikaKonfidencialnosti";
 import NotFound from "./pages/NotFound";
 
@@ -66,6 +67,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/uslugi" element={<Uslugi />} />
+          <Route path="/aktsii" element={<Aktsii />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/chistka-divana" element={<ChistkaDivana />} />
           <Route path="/kak-pochistit-divan" element={<KakPochistitDivan />} />
