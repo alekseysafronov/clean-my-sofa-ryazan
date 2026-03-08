@@ -63,6 +63,7 @@ const Magazin = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [sent, setSent] = useState(false);
 
   useEffect(() => {

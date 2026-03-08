@@ -26,6 +26,7 @@ const CalculatorSection = () => {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", contact: "" });
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [phoneError, setPhoneError] = useState("");
 
   const toggleItem = (id: string) => {

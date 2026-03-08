@@ -48,6 +48,7 @@ const KalkulyatorDlyaYurLits = () => {
   const [quantities, setQuantities] = useState<Record<string, string>>({});
   const [form, setForm] = useState(emptyForm);
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [phoneError, setPhoneError] = useState("");
 
   const setQty = (id: string, raw: string) => {
