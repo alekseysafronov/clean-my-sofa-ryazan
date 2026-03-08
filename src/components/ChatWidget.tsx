@@ -98,6 +98,7 @@ const ChatWidget = ({ onOpenChange }: { onOpenChange?: (open: boolean) => void }
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [viewportHeight, setViewportHeight] = useState<number>(window.innerHeight);
+  const [viewportTop, setViewportTop] = useState<number>(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -107,6 +108,7 @@ const ChatWidget = ({ onOpenChange }: { onOpenChange?: (open: boolean) => void }
     const vv = window.visualViewport;
     const onResize = () => {
       setViewportHeight(vv?.height ?? window.innerHeight);
+      setViewportTop(vv?.offsetTop ?? 0);
     };
 
     onResize();
@@ -128,15 +130,33 @@ const ChatWidget = ({ onOpenChange }: { onOpenChange?: (open: boolean) => void }
 
     const { style: bodyStyle } = document.body;
     const { style: htmlStyle } = document.documentElement;
+    const scrollY = window.scrollY;
+
     const prevBodyOverflow = bodyStyle.overflow;
+    const prevBodyPosition = bodyStyle.position;
+    const prevBodyTop = bodyStyle.top;
+    const prevBodyLeft = bodyStyle.left;
+    const prevBodyRight = bodyStyle.right;
+    const prevBodyWidth = bodyStyle.width;
     const prevHtmlOverflow = htmlStyle.overflow;
 
     bodyStyle.overflow = "hidden";
+    bodyStyle.position = "fixed";
+    bodyStyle.top = `-${scrollY}px`;
+    bodyStyle.left = "0";
+    bodyStyle.right = "0";
+    bodyStyle.width = "100%";
     htmlStyle.overflow = "hidden";
 
     return () => {
       bodyStyle.overflow = prevBodyOverflow;
+      bodyStyle.position = prevBodyPosition;
+      bodyStyle.top = prevBodyTop;
+      bodyStyle.left = prevBodyLeft;
+      bodyStyle.right = prevBodyRight;
+      bodyStyle.width = prevBodyWidth;
       htmlStyle.overflow = prevHtmlOverflow;
+      window.scrollTo(0, scrollY);
     };
   }, [open]);
 
@@ -201,10 +221,12 @@ const ChatWidget = ({ onOpenChange }: { onOpenChange?: (open: boolean) => void }
       {open && (
         <div
           ref={containerRef}
-          className="fixed inset-0 z-50 bg-card flex flex-col overflow-hidden animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
-          style={{
-            height: window.innerWidth < 640 ? `${viewportHeight}px` : undefined,
-          }}
+          className="fixed inset-0 z-50 bg-card flex flex-col overflow-hidden overscroll-none animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
+          style={
+            window.innerWidth < 640
+              ? { height: `${viewportHeight}px`, top: `${viewportTop}px`, bottom: "auto" }
+              : undefined
+          }
         >
           {/* Header */}
           <div className="bg-primary text-primary-foreground px-4 py-3 flex items-center gap-3">
