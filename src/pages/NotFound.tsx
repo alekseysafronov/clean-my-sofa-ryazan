@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 
@@ -14,6 +15,7 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SeoHead title="Страница не найдена" description="" noindex />
       <Header />
       <main className="flex-1 flex items-center justify-center bg-section-gradient pt-24 pb-16">
         <div className="container text-center max-w-lg">
