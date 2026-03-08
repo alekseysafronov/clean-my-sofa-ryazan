@@ -46,12 +46,12 @@ const Header = () => {
             Qweeq
           </Link>
 
-          <nav className="hidden md:flex items-center gap-5">
+          <nav className="hidden lg:flex items-center gap-4">
             {siteLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap ${
                   location.pathname === link.href
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary"
