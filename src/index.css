@@ -72,6 +72,10 @@
     --border: 200 15% 22%;
     --input: 200 15% 22%;
     --ring: 185 60% 45%;
+
+    --section-gradient: linear-gradient(180deg, hsl(200 25% 10%), hsl(200 15% 13%));
+    --card-shadow: 0 4px 24px hsl(0 0% 0% / 0.3);
+    --card-shadow-hover: 0 8px 32px hsl(0 0% 0% / 0.4);
   }
 }
 
