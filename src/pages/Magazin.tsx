@@ -10,6 +10,7 @@ import { Phone, ShoppingCart, Send, Check } from "lucide-react";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 
 interface Product {
   name: string;
