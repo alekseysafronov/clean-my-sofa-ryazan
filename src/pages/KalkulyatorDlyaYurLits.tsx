@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
 import { generateProposalPdf } from "@/lib/generateProposalPdf";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 
 
 const discountTiers = [
