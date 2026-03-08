@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const siteLinks = [
   { href: "/", label: "Главная" },
