@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Как убрать пятно от вина с дивана?", a: "Сразу засыпьте пятно солью, чтобы впитать жидкость. Затем обработайте лимонной кислотой или раствором уксуса. Промокните — не трите." },
