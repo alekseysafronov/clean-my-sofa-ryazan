@@ -3,6 +3,7 @@ import { Phone, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 
 const CTASection = () => {
   const { toast } = useToast();
