@@ -58,7 +58,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Primary nav — all pages */}
-      <div className="bg-card/95 backdrop-blur-md border-b border-border">
+      <div className="bg-card/95 backdrop-blur-md border-b border-border relative z-[60]">
         <div className="container flex items-center justify-between h-14 md:h-16">
           <Link to="/" className="flex items-center">
             <img src={logo} alt="Qweeq — выездная химчистка мебели" className="h-9 md:h-11 w-auto" />
