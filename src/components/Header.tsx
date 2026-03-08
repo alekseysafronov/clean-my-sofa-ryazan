@@ -81,10 +81,11 @@ const Header = () => {
             <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden p-2 text-foreground"
-            aria-label="Меню"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+              aria-label="Меню"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
