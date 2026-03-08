@@ -27,60 +27,106 @@ const faqs = [
   },
 ];
 
+const services = [
+  { name: "Химчистка диванов", url: "https://qweeq.ru/chistka-divana" },
+  { name: "Химчистка ковров", url: "https://qweeq.ru/khimchistka-kovrov" },
+  { name: "Химчистка матрасов", url: "https://qweeq.ru/chistka-matrasov" },
+  { name: "Химчистка стульев", url: "https://qweeq.ru/chistka-stuliev" },
+  { name: "Химчистка штор", url: "https://qweeq.ru/chistka-shtor" },
+  { name: "Выездная химчистка", url: "https://qweeq.ru/vyezdnaya-khimchistka" },
+  { name: "Удаление пятен", url: "https://qweeq.ru/udalenie-pyaten" },
+  { name: "Удаление запахов", url: "https://qweeq.ru/udalenie-zapahov" },
+];
+
 const JsonLd = () => {
   useEffect(() => {
-    const localBusiness = document.createElement("script");
-    localBusiness.type = "application/ld+json";
-    localBusiness.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: "Qweeq — Химчистка мебели в Рязани",
-      image: "https://qweeq.ru/og-image.png",
-      url: "https://qweeq.ru",
-      telephone: "+79160435153",
-      email: "polka.pisem@gmail.com",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Рязань",
-        addressRegion: "Рязанская область",
-        addressCountry: "RU",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 54.6296,
-        longitude: 39.7421,
-      },
-      openingHours: "Mo-Su 08:00-21:00",
-      priceRange: "₽₽",
-      description:
-        "Профессиональная химчистка мягкой мебели и ковров в Рязани с выездом на дом. Гарантия результата.",
-      areaServed: {
-        "@type": "GeoCircle",
-        geoMidpoint: { "@type": "GeoCoordinates", latitude: 54.6296, longitude: 39.7421 },
-        geoRadius: "50000",
-      },
-    });
-
-    const faqPage = document.createElement("script");
-    faqPage.type = "application/ld+json";
-    faqPage.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: f.a,
+    const schemas = [
+      // LocalBusiness
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://qweeq.ru/#business",
+        name: "Qweeq — Химчистка мебели в Рязани",
+        image: "https://qweeq.ru/og-image.png",
+        url: "https://qweeq.ru",
+        telephone: "+79160435153",
+        email: "polka.pisem@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Рязань",
+          addressRegion: "Рязанская область",
+          postalCode: "390000",
+          addressCountry: "RU",
         },
-      })),
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 54.6296,
+          longitude: 39.7421,
+        },
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          opens: "08:00",
+          closes: "21:00",
+        },
+        priceRange: "₽₽",
+        description:
+          "Профессиональная химчистка мягкой мебели и ковров в Рязани с выездом на дом. Гарантия результата.",
+        areaServed: {
+          "@type": "City",
+          name: "Рязань",
+        },
+        sameAs: [
+          "https://t.me/qweeq_ryazan",
+          "https://wa.me/79160435153",
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Услуги химчистки",
+          itemListElement: services.map((s) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: s.name,
+              url: s.url,
+            },
+          })),
+        },
+      },
+      // WebSite with SearchAction potential
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://qweeq.ru/#website",
+        url: "https://qweeq.ru",
+        name: "Qweeq — Химчистка мебели в Рязани",
+        publisher: { "@id": "https://qweeq.ru/#business" },
+      },
+      // FAQPage
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      },
+    ];
+
+    const scripts = schemas.map((schema) => {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+      return script;
     });
 
-    document.head.appendChild(localBusiness);
-    document.head.appendChild(faqPage);
     return () => {
-      document.head.removeChild(localBusiness);
-      document.head.removeChild(faqPage);
+      scripts.forEach((s) => document.head.removeChild(s));
     };
   }, []);
 
