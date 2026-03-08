@@ -428,6 +428,14 @@ const KalkulyatorDlyaYurLits = () => {
                     <Send className="w-4 h-4" />
                     {sending ? "Отправка..." : "Отправить заявку"}
                   </button>
+                  <button
+                    type="button"
+                    onClick={handleDownloadPdf}
+                    className="w-full flex items-center justify-center gap-2 border border-primary text-primary font-heading font-semibold px-6 py-3 rounded-lg hover:bg-primary/5 transition-colors"
+                  >
+                    <Download className="w-4 h-4" />
+                    Скачать КП в PDF
+                  </button>
                   <a
                     href="tel:+79160435153"
                     className="w-full flex items-center justify-center gap-2 bg-accent text-accent-foreground font-heading font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
