@@ -221,10 +221,12 @@ const ChatWidget = ({ onOpenChange }: { onOpenChange?: (open: boolean) => void }
       {open && (
         <div
           ref={containerRef}
-          className="fixed inset-0 z-50 bg-card flex flex-col overflow-hidden animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
-          style={{
-            height: window.innerWidth < 640 ? `${viewportHeight}px` : undefined,
-          }}
+          className="fixed inset-0 z-50 bg-card flex flex-col overflow-hidden overscroll-none animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
+          style={
+            window.innerWidth < 640
+              ? { height: `${viewportHeight}px`, top: `${viewportTop}px`, bottom: "auto" }
+              : undefined
+          }
         >
           {/* Header */}
           <div className="bg-primary text-primary-foreground px-4 py-3 flex items-center gap-3">
