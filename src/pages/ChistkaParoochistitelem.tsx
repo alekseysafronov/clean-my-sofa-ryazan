@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли чистить паром любой диван?", a: "Нет, не все ткани переносят высокую температуру. Замша, бархат и некоторые деликатные ткани могут пострадать. Всегда тестируйте на незаметном участке." },
