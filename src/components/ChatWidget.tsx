@@ -189,13 +189,16 @@ const ChatWidget = () => {
   return (
     <>
       {/* Chat window */}
-      {open && (
+      {visible && (
         <div
           ref={containerRef}
-          className="fixed inset-x-0 top-0 z-50 bg-card flex flex-col overflow-hidden animate-fade-in sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl"
+          className={`fixed inset-x-0 top-0 z-50 bg-card flex flex-col overflow-hidden transition-transform duration-300 ease-out sm:inset-auto sm:bottom-[104px] sm:right-6 sm:w-96 sm:max-h-[60vh] sm:border sm:border-border sm:rounded-2xl sm:shadow-2xl sm:transition-all sm:duration-300 ${
+            animating
+              ? "translate-y-full sm:translate-y-0 sm:opacity-0 sm:scale-95"
+              : "translate-y-0 sm:opacity-100 sm:scale-100"
+          }`}
           style={{
             height: viewportHeight && window.innerWidth < 640 ? `${viewportHeight}px` : undefined,
-            bottom: viewportHeight && window.innerWidth < 640 ? undefined : undefined,
           }}
         >
           {/* Header */}
