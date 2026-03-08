@@ -1,5 +1,13 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
+import ArticleFAQ from "@/components/ArticleFAQ";
+
+const faqItems = [
+  { q: "Где проводится чистка — нужно ехать к вам?", a: "Нет, мы приезжаем к вам — чистим салон прямо у дома, на парковке или в гараже." },
+  { q: "Сколько сохнут сиденья после чистки?", a: "Тканевые сиденья высыхают за 3–4 часа, кожаные — за 1–2 часа." },
+  { q: "Можно ли чистить кожаные сиденья?", a: "Да, мы работаем как с тканевой, так и с кожаной обивкой (натуральная кожа и экокожа). Используем специальные средства для кожи." },
+  { q: "Чистите ли вы потолок и багажник?", a: "Да, мы чистим весь салон: сиденья, потолок, дверные карты, подлокотники, ковролин пола и багажник." },
+];
 
 const ChistkaAvtosideniy = () => (
   <ArticleLayout
@@ -54,6 +62,8 @@ const ChistkaAvtosideniy = () => (
     </ul>
 
     <p>Запишитесь на удобное время — чистим даже по выходным.</p>
+
+    <ArticleFAQ items={faqItems} />
 
     <ServiceReviews />
   </ArticleLayout>

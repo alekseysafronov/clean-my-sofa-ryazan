@@ -1,6 +1,14 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import RelatedArticles from "@/components/RelatedArticles";
+import ArticleFAQ from "@/components/ArticleFAQ";
+
+const faqItems = [
+  { q: "Можно ли чистить ковёр, не снимая с пола?", a: "Да, мы чистим ковры прямо на полу с помощью экстракционного оборудования. Снимать и перевозить не нужно." },
+  { q: "Как быстро высохнет ковёр после чистки?", a: "При хорошей вентиляции ковёр высыхает за 3–5 часов. Мы максимально удаляем влагу в процессе чистки." },
+  { q: "Можно ли чистить ковёр ручной работы?", a: "Да, мы работаем с коврами ручной работы. Подбираем щадящие средства и методы, чтобы не повредить ворс и красители." },
+  { q: "Сколько стоит почистить ковёр?", a: "От 120 ₽/м² для ковролина до 350 ₽/м² для ковров ручной работы. Точная цена зависит от типа и степени загрязнения." },
+];
 
 const KhimchistkaKovrov = () => (
   <ArticleLayout
@@ -53,6 +61,8 @@ const KhimchistkaKovrov = () => (
     </ul>
 
     <p>Вызовите мастера — оценим объём работы и назовём точную цену за 2 минуты по телефону.</p>
+
+    <ArticleFAQ items={faqItems} />
 
     <RelatedArticles links={[
       { href: "/khimchistka-kovrolina-v-ofise", title: "Химчистка ковролина в офисе" },

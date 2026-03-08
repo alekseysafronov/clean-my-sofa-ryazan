@@ -1,6 +1,14 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import RelatedArticles from "@/components/RelatedArticles";
+import ArticleFAQ from "@/components/ArticleFAQ";
+
+const faqItems = [
+  { q: "Можно ли чистить мебель в нерабочее время?", a: "Да, мы работаем вечером, ночью и в выходные — без простоя офиса." },
+  { q: "Заключаете ли вы договор?", a: "Да, заключаем договор на разовое или регулярное обслуживание. Предоставляем все закрывающие документы для бухгалтерии." },
+  { q: "Есть ли скидки при большом объёме?", a: "Да, при заказе от 10 единиц мебели — скидка 20%. Для регулярного обслуживания — скидка 15% на каждую чистку." },
+  { q: "Как быстро высохнет мебель?", a: "Офисные кресла и стулья высыхают за 2–4 часа. При вечерней чистке к утру мебель полностью готова к использованию." },
+];
 
 const ChistkaOfisnoyMebeli = () => (
   <ArticleLayout
@@ -43,6 +51,8 @@ const ChistkaOfisnoyMebeli = () => (
     </ul>
 
     <p>Позвоните — рассчитаем стоимость для вашего офиса за 5 минут.</p>
+
+    <ArticleFAQ items={faqItems} />
 
     <RelatedArticles links={[
       { href: "/khimchistka-kovrolina-v-ofise", title: "Химчистка ковролина в офисе" },

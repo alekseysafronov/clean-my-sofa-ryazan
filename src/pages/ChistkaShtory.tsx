@@ -1,5 +1,13 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
+import ArticleFAQ from "@/components/ArticleFAQ";
+
+const faqItems = [
+  { q: "Нужно ли снимать шторы с карниза?", a: "Нет, мы чистим шторы прямо на карнизе. Снимать и вешать обратно не нужно." },
+  { q: "Подходит ли чистка для деликатных тканей?", a: "Да, мы подбираем средства под тип ткани: бархат, шёлк, органза, блэкаут — для каждого материала свой подход." },
+  { q: "Как быстро высохнут шторы?", a: "Лёгкий тюль высыхает за 1–2 часа, плотные портьеры — за 3–5 часов." },
+  { q: "Сколько стоит химчистка штор?", a: "От 200 ₽/м² для тюля и от 350 ₽/м² для портьер. Точная цена зависит от типа ткани и степени загрязнения." },
+];
 
 const ChistkaShtory = () => (
   <ArticleLayout
@@ -42,6 +50,8 @@ const ChistkaShtory = () => (
     </ul>
 
     <p>Позвоните — назовём точную стоимость за 2 минуты.</p>
+
+    <ArticleFAQ items={faqItems} />
 
     <ServiceReviews />
   </ArticleLayout>
