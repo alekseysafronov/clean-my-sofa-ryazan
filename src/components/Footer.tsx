@@ -63,9 +63,16 @@ const Footer = () => {
             <img src={minfinLogo} alt="Министерство Финансов РФ" className="w-8 h-8 object-contain" />
             <span className="text-primary-foreground/60 text-sm">При поддержке Министерства Финансов РФ</span>
           </div>
+          <p className="text-center text-primary-foreground/50 text-xs leading-relaxed max-w-xl">
+            Информация, представленная на сайте, носит исключительно информационный характер и не является публичной офертой, определяемой положениями ст.&nbsp;437 ГК&nbsp;РФ.
+          </p>
           <div className="flex flex-col md:flex-row items-center justify-between w-full gap-3">
             <span>© 2026 Qweeq. Все права защищены.</span>
-            <span>ИП Сафронов Алексей • ИНН 623401087194</span>
+            <div className="flex items-center gap-3">
+              <Link to="/politika-konfidencialnosti" className="hover:text-primary-foreground/70 transition-colors underline underline-offset-2">Политика конфиденциальности</Link>
+              <span>•</span>
+              <span>ИП Сафронов Алексей • ИНН 623401087194</span>
+            </div>
           </div>
         </div>
       </div>

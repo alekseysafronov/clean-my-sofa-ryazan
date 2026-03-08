@@ -42,6 +42,7 @@ import Dyagilevo from "./pages/districts/Dyagilevo";
 import Solotcha from "./pages/districts/Solotcha";
 import Centr from "./pages/districts/Centr";
 import Magazin from "./pages/Magazin";
+import PolitikaKonfidencialnosti from "./pages/PolitikaKonfidencialnosti";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
