@@ -6,6 +6,7 @@ import { Phone, Mail, MapPin, Building2, CreditCard, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 
 const Kontakty = () => {
   const { toast } = useToast();
