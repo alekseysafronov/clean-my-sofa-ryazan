@@ -67,17 +67,7 @@ const Magazin = () => {
   const [consent, setConsent] = useState(false);
   const [sent, setSent] = useState(false);
 
-  useEffect(() => {
-    document.title = "Магазин химии для клининга | Qweeq — Рязань";
-    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-    meta.content =
-      "Купить профессиональную химию для химчистки мебели и ковров в Рязани. ChemSpec, Бриз — порции по 50 г.";
-  }, []);
+  // SeoHead handles meta tags
 
   const toggle = (productName: string) => {
     setSelected((prev) => {
