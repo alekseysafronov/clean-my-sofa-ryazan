@@ -29,6 +29,7 @@ import KhimchistkaKovrolinaVOfise from "./pages/KhimchistkaKovrolinaVOfise";
 import VyezdnayaKhimchistka from "./pages/VyezdnayaKhimchistka";
 import Blog from "./pages/Blog";
 import Kontakty from "./pages/Kontakty";
+import KalkulyatorDlyaYurLits from "./pages/KalkulyatorDlyaYurLits";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
