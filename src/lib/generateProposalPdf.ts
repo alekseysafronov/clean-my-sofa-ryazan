@@ -22,7 +22,18 @@ interface PdfParams {
   inn?: string;
 }
 
-export function generateProposalPdf(params: PdfParams) {
+async function loadFont(url: string): Promise<string> {
+  const response = await fetch(url);
+  const buffer = await response.arrayBuffer();
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary);
+}
+
+export async function generateProposalPdf(params: PdfParams) {
   const {
     lines,
     subtotal,
@@ -38,18 +49,32 @@ export function generateProposalPdf(params: PdfParams) {
   } = params;
 
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
+
+  // Load and embed Cyrillic fonts
+  const [regularBase64, boldBase64] = await Promise.all([
+    loadFont("/fonts/Roboto-Regular.ttf"),
+    loadFont("/fonts/Roboto-Bold.ttf"),
+  ]);
+
+  doc.addFileToVFS("Roboto-Regular.ttf", regularBase64);
+  doc.addFont("Roboto-Regular.ttf", "Roboto", "normal");
+  doc.addFileToVFS("Roboto-Bold.ttf", boldBase64);
+  doc.addFont("Roboto-Bold.ttf", "Roboto", "bold");
+
+  doc.setFont("Roboto", "normal");
+
   const pageW = doc.internal.pageSize.getWidth();
   const margin = 20;
   let y = 20;
 
   // --- Header ---
-  doc.setFontSize(20);
-  doc.setFont("helvetica", "bold");
-  doc.text("Clean My Sofa", margin, y);
+  doc.setFontSize(16);
+  doc.setFont("Roboto", "bold");
+  doc.text("Химчистка мягкой мебели и ковров", margin, y);
   doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
+  doc.setFont("Roboto", "normal");
   doc.setTextColor(100);
-  doc.text("himchistka-ryazan.ru", pageW - margin, y, { align: "right" });
+  doc.text("qweeq.ru", pageW - margin, y, { align: "right" });
   y += 4;
   doc.text("+7 (916) 043-51-53", pageW - margin, y + 4, { align: "right" });
   y += 12;
@@ -62,13 +87,13 @@ export function generateProposalPdf(params: PdfParams) {
   // --- Title ---
   doc.setTextColor(0);
   doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
+  doc.setFont("Roboto", "bold");
   doc.text("Коммерческое предложение", margin, y);
   y += 8;
 
   // Date
   doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
+  doc.setFont("Roboto", "normal");
   doc.setTextColor(100);
   const today = new Date().toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
   doc.text(`от ${today}`, margin, y);
@@ -78,10 +103,10 @@ export function generateProposalPdf(params: PdfParams) {
   if (companyName || contactName || inn || phone || email || address) {
     doc.setTextColor(0);
     doc.setFontSize(11);
-    doc.setFont("helvetica", "bold");
+    doc.setFont("Roboto", "bold");
     doc.text("Заказчик:", margin, y);
     y += 6;
-    doc.setFont("helvetica", "normal");
+    doc.setFont("Roboto", "normal");
     doc.setFontSize(10);
     const clientLines: string[] = [];
     if (companyName) clientLines.push(`Организация: ${companyName}`);
@@ -109,7 +134,7 @@ export function generateProposalPdf(params: PdfParams) {
   doc.setFillColor(245, 245, 245);
   doc.rect(margin, y - 4, pageW - 2 * margin, 8, "F");
   doc.setFontSize(9);
-  doc.setFont("helvetica", "bold");
+  doc.setFont("Roboto", "bold");
   doc.setTextColor(80);
   doc.text("№", colX.num, y);
   doc.text("Услуга", colX.name, y);
@@ -119,7 +144,7 @@ export function generateProposalPdf(params: PdfParams) {
   y += 7;
 
   // --- Table rows ---
-  doc.setFont("helvetica", "normal");
+  doc.setFont("Roboto", "normal");
   doc.setTextColor(0);
   doc.setFontSize(10);
 
@@ -156,14 +181,14 @@ export function generateProposalPdf(params: PdfParams) {
   }
 
   doc.setFontSize(12);
-  doc.setFont("helvetica", "bold");
+  doc.setFont("Roboto", "bold");
   doc.text("ИТОГО:", colX.price - 20, y, { align: "right" });
   doc.text(`от ${total.toLocaleString("ru-RU")} ₽`, colX.total, y, { align: "right" });
   y += 14;
 
   // --- Footer notes ---
   doc.setFontSize(9);
-  doc.setFont("helvetica", "normal");
+  doc.setFont("Roboto", "normal");
   doc.setTextColor(100);
   const notes = [
     "* Указана ориентировочная стоимость. Точная цена определяется после осмотра.",
