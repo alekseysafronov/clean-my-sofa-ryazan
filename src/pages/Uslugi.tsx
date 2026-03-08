@@ -11,21 +11,21 @@ import CallbackModal from "@/components/CallbackModal";
 import UslugiReviews from "@/components/UslugiReviews";
 import OptimizedImage from "@/components/OptimizedImage";
 
-import beforeSofa from "@/assets/before-sofa.jpg";
-import afterSofa from "@/assets/after-sofa.jpg";
-import beforeCarpet from "@/assets/before-carpet.jpg";
-import afterCarpet from "@/assets/after-carpet.jpg";
-import beforeArmchair from "@/assets/before-armchair.jpg";
-import afterArmchair from "@/assets/after-armchair.jpg";
+import beforeSofa from "@/assets/before-sofa.jpg?w=600&format=webp";
+import afterSofa from "@/assets/after-sofa.jpg?w=600&format=webp";
+import beforeCarpet from "@/assets/before-carpet.jpg?w=600&format=webp";
+import afterCarpet from "@/assets/after-carpet.jpg?w=600&format=webp";
+import beforeArmchair from "@/assets/before-armchair.jpg?w=600&format=webp";
+import afterArmchair from "@/assets/after-armchair.jpg?w=600&format=webp";
 
-import serviceSofa from "@/assets/service-sofa.jpg";
-import serviceCarpet from "@/assets/service-carpet.jpg";
-import serviceArmchair from "@/assets/service-armchair.jpg";
-import serviceCar from "@/assets/service-car.jpg";
-import serviceMattress from "@/assets/service-mattress.jpg";
-import serviceCurtains from "@/assets/service-curtains.jpg";
-import serviceStroller from "@/assets/service-stroller.jpg";
-import serviceOffice from "@/assets/service-office.jpg";
+import serviceSofa from "@/assets/service-sofa.jpg?w=500&format=webp";
+import serviceCarpet from "@/assets/service-carpet.jpg?w=500&format=webp";
+import serviceArmchair from "@/assets/service-armchair.jpg?w=500&format=webp";
+import serviceCar from "@/assets/service-car.jpg?w=500&format=webp";
+import serviceMattress from "@/assets/service-mattress.jpg?w=500&format=webp";
+import serviceCurtains from "@/assets/service-curtains.jpg?w=500&format=webp";
+import serviceStroller from "@/assets/service-stroller.jpg?w=500&format=webp";
+import serviceOffice from "@/assets/service-office.jpg?w=500&format=webp";
 
 const services = [
   {
