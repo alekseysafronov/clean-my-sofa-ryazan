@@ -328,10 +328,17 @@ const ChatWidget = ({ onOpenChange }: { onOpenChange?: (open: boolean) => void }
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-[104px] right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-all bg-accent text-accent-foreground"
+          className="fixed bottom-[104px] right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl hover:scale-105 transition-all overflow-hidden"
           aria-label="Чат с консультантом"
         >
-          <Bot className="w-6 h-6" />
+          <video
+            src="/videos/chat-avatar.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
         </button>
       )}
     </>
