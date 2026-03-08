@@ -6,7 +6,7 @@ import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
-import JsonLd from "@/components/JsonLd";
+
 
 const serviceOptions = [
   { id: "sofa2", label: "2-местный диван", price: 2000, unit: "шт.", category: "Диваны" },
