@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Где проводится чистка — нужно ехать к вам?", a: "Нет, мы приезжаем к вам — чистим салон прямо у дома, на парковке или в гараже." },
