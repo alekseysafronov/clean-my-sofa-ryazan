@@ -45,7 +45,7 @@ const CallbackModal = ({ serviceName, trigger }: CallbackModalProps) => {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {trigger || (
-          <Button size="sm" variant="outline" className="gap-1.5 text-xs">
+          <Button size="sm" variant="outline" className="gap-1.5 text-xs relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_hsl(var(--primary)/0.4)] animate-[soft-pulse_2.5s_ease-in-out_infinite]">
             <Phone className="w-3.5 h-3.5" />
             Заказать звонок
           </Button>
