@@ -75,20 +75,20 @@ const services = [
 
 const beforeAfterItems = [
   {
-    before: beforeAfter1,
-    after: beforeAfter1,
+    before: beforeSofa,
+    after: afterSofa,
     title: "Диван — удаление пятен",
     description: "Вывели застарелые пятна от кофе и вина с дивана из микрофибры",
   },
   {
-    before: beforeAfter2,
-    after: beforeAfter2,
+    before: beforeCarpet,
+    after: afterCarpet,
     title: "Ковёр — глубокая чистка",
     description: "Полная чистка шерстяного ковра с восстановлением цвета",
   },
   {
-    before: beforeAfter3,
-    after: beforeAfter3,
+    before: beforeArmchair,
+    after: afterArmchair,
     title: "Кресло — полная химчистка",
     description: "Химчистка кресла из велюра с удалением запахов",
   },
