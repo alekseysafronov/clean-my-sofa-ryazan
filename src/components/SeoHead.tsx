@@ -10,10 +10,13 @@ interface SeoHeadProps {
 
 const SITE = "https://qweeq.ru";
 
-const SeoHead = ({ title, description, noindex }: SeoHeadProps) => {
+const DEFAULT_OG_IMAGE = `${SITE}/og-image.jpg`;
+
+const SeoHead = ({ title, description, noindex, ogImage }: SeoHeadProps) => {
   const { pathname } = useLocation();
   const canonical = `${SITE}${pathname === "/" ? "" : pathname}`;
   const fullTitle = pathname === "/" ? title : `${title} | Qweeq`;
+  const image = ogImage || DEFAULT_OG_IMAGE;
 
   useEffect(() => {
     document.title = fullTitle;
@@ -33,8 +36,13 @@ const SeoHead = ({ title, description, noindex }: SeoHeadProps) => {
     setMeta("og:description", description, "property");
     setMeta("og:url", canonical, "property");
     setMeta("og:type", "website", "property");
+    setMeta("og:image", image, "property");
+    setMeta("og:image:width", "1920", "property");
+    setMeta("og:image:height", "1080", "property");
+    setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", fullTitle);
     setMeta("twitter:description", description);
+    setMeta("twitter:image", image);
 
     // Canonical
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -60,7 +68,7 @@ const SeoHead = ({ title, description, noindex }: SeoHeadProps) => {
     } else {
       document.querySelector('meta[name="robots"][content*="noindex"]')?.remove();
     }
-  }, [fullTitle, description, canonical, noindex]);
+  }, [fullTitle, description, canonical, noindex, image]);
 
   return null;
 };
