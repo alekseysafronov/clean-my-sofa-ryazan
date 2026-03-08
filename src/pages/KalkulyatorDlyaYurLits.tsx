@@ -95,6 +95,7 @@ const KalkulyatorDlyaYurLits = () => {
       const lines = [
         `🏢 Заявка от юр. лица`,
         orderDetails ? `\n📋 Заказ:\n${orderDetails}` : "",
+        discount ? `\n🎁 Скидка за объём: ${discount.percent}% (−${discountAmount.toLocaleString("ru-RU")} ₽)` : "",
         `\n💰 Итого: от ${total.toLocaleString("ru-RU")} ₽`,
         form.companyName.trim() ? `\n🏛 Компания: ${form.companyName.trim()}` : "",
         form.inn.trim() ? `📄 ИНН: ${form.inn.trim()}` : "",
