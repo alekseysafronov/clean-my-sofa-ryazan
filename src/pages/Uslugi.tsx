@@ -5,7 +5,7 @@ import FloatingMessengers from "@/components/FloatingMessengers";
 import AnimatedSection from "@/components/AnimatedSection";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Link } from "react-router-dom";
-import { Sofa, Layers, Armchair, Car, BedDouble, Shirt, Baby, Building2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import beforeSofa from "@/assets/before-sofa.jpg";
 import afterSofa from "@/assets/after-sofa.jpg";
@@ -14,62 +14,79 @@ import afterCarpet from "@/assets/after-carpet.jpg";
 import beforeArmchair from "@/assets/before-armchair.jpg";
 import afterArmchair from "@/assets/after-armchair.jpg";
 
+import serviceSofa from "@/assets/service-sofa.jpg";
+import serviceCarpet from "@/assets/service-carpet.jpg";
+import serviceArmchair from "@/assets/service-armchair.jpg";
+import serviceCar from "@/assets/service-car.jpg";
+import serviceMattress from "@/assets/service-mattress.jpg";
+import serviceCurtains from "@/assets/service-curtains.jpg";
+import serviceStroller from "@/assets/service-stroller.jpg";
+import serviceOffice from "@/assets/service-office.jpg";
+
 const services = [
   {
-    icon: Sofa,
+    image: serviceSofa,
     title: "Химчистка диванов",
     desc: "Глубокая очистка диванов любых размеров и материалов. Удаляем пятна, запахи и аллергены.",
     link: "/chistka-divana",
     price: "от 2 000 ₽",
+    time: "2–4 часа",
   },
   {
-    icon: Layers,
+    image: serviceCarpet,
     title: "Чистка ковров",
     desc: "Профессиональная чистка ковров с восстановлением цвета и структуры ворса.",
     link: "/khimchistka-kovrov",
     price: "от 1 500 ₽",
+    time: "1–3 часа",
   },
   {
-    icon: Armchair,
+    image: serviceArmchair,
     title: "Химчистка кресел и стульев",
     desc: "Бережная очистка кресел и стульев с мягкой обивкой.",
     link: "/chistka-stuliev",
     price: "от 400 ₽",
+    time: "1–2 часа",
   },
   {
-    icon: Car,
+    image: serviceCar,
     title: "Чистка автосалонов",
     desc: "Комплексная химчистка салона: сиденья, потолок, двери, багажник.",
     link: "/chistka-avtosideniy",
     price: "от 3 000 ₽",
+    time: "3–5 часов",
   },
   {
-    icon: BedDouble,
+    image: serviceMattress,
     title: "Чистка матрасов",
     desc: "Удаление пятен, пыли и аллергенов из матрасов любого размера.",
     link: "/chistka-matrasov",
     price: "от 1 500 ₽",
+    time: "1–2 часа",
   },
   {
-    icon: Shirt,
+    image: serviceCurtains,
     title: "Чистка штор",
     desc: "Химчистка штор и занавесок без снятия и со снятием с карнизов.",
     link: "/chistka-shtor",
     price: "от 300 ₽/м²",
+    time: "2–4 часа",
   },
   {
-    icon: Baby,
+    image: serviceStroller,
     title: "Чистка детских колясок",
     desc: "Безопасная очистка колясок гипоаллергенными средствами.",
     link: "/chistka-kolyasok",
     price: "от 1 500 ₽",
+    time: "1–2 часа",
   },
   {
-    icon: Building2,
+    image: serviceOffice,
     title: "Химчистка офисной мебели",
     desc: "Регулярная чистка офисных кресел, диванов и перегородок.",
     link: "/chistka-ofisnoy-mebeli",
     price: "от 800 ₽",
+    time: "2–4 часа",
   },
 ];
 
@@ -158,21 +175,34 @@ const Uslugi = () => {
                 Выберите нужную услугу
               </h2>
 
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((svc) => (
                   <Link
                     key={svc.title}
                     to={svc.link}
-                    className="group bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                    className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <svc.icon className="w-6 h-6 text-primary" />
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img
+                        src={svc.image}
+                        alt={svc.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-3 left-3 bg-card/90 backdrop-blur-sm text-foreground text-sm font-heading font-bold px-3 py-1.5 rounded-full shadow-sm">
+                        {svc.price}
+                      </span>
                     </div>
-                    <h3 className="font-heading font-bold text-lg text-foreground mb-2">{svc.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{svc.desc}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary font-heading font-bold text-sm">{svc.price}</span>
-                      <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="p-5">
+                      <h3 className="font-heading font-bold text-lg text-foreground mb-3">{svc.title}</h3>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground mb-1">
+                        <span>Время работы</span>
+                        <span className="text-foreground font-medium">{svc.time}</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{svc.desc}</p>
+                      <div className="flex items-center gap-1 text-primary text-sm font-medium mt-4 group-hover:gap-2 transition-all">
+                        Подробнее <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </Link>
                 ))}
