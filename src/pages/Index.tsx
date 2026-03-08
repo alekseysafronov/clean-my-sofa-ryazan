@@ -10,6 +10,7 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import SeoHead from "@/components/SeoHead";
 import AnimatedSection from "@/components/AnimatedSection";
 import FloatingMessengers from "@/components/FloatingMessengers";
 import MapSection from "@/components/MapSection";
@@ -18,6 +19,10 @@ import CalculatorSection from "@/components/CalculatorSection";
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SeoHead
+        title="Химчистка мебели в Рязани — Qweeq"
+        description="Профессиональная химчистка мягкой мебели и ковров в Рязани с выездом на дом. Гарантия результата. Звоните: +7 (916) 043-51-53"
+      />
       <JsonLd />
       <Header />
       <main>
