@@ -15,7 +15,7 @@ const HeroSection = () => {
             Работаем по всей Рязани и области
           </p>
 
-          <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight text-primary-foreground mb-6 animate-fade-in-up">
+          <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 animate-fade-in-up hero-gradient-text">
             Профессиональная химчистка мебели и ковров
           </h1>
 
