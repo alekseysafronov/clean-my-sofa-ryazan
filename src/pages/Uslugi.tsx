@@ -186,9 +186,10 @@ const Uslugi = () => {
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                   >
+                    <div className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 h-full">
                     <Link
                       to={svc.link}
-                      className="group bg-card rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 block h-full"
+                      className="block"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <img
