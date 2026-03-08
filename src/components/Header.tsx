@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const siteLinks = [
   { href: "/", label: "Главная" },
@@ -42,8 +43,8 @@ const Header = () => {
       {/* Primary nav — all pages */}
       <div className="bg-card/95 backdrop-blur-md border-b border-border">
         <div className="container flex items-center justify-between h-14 md:h-16">
-          <Link to="/" className="font-heading font-bold text-xl md:text-2xl text-primary tracking-tight">
-            Qweeq
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Qweeq — выездная химчистка мебели" className="h-9 md:h-11 w-auto" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-4">
