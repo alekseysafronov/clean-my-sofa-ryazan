@@ -112,14 +112,6 @@ const KalkulyatorDlyaYurLits = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <JsonLd
-        type="WebPage"
-        data={{
-          name: "Калькулятор для юридических лиц — Qweeq",
-          description: "Расчёт стоимости химчистки мебели для организаций. Большие объёмы, безналичный расчёт, закрывающие документы.",
-          url: "https://clean-my-sofa-ryazan.lovable.app/kalkulyator-yur-litsa",
-        }}
-      />
       <Header />
 
       <main className="flex-1 pt-20 md:pt-24 pb-16">
