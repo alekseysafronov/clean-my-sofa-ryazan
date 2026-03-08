@@ -1,5 +1,14 @@
 import { useState } from "react";
 import { Phone, Send, Building2, Calculator, FileText, Download } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
