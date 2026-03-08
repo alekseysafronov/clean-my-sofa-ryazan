@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
+import SeoHead from "@/components/SeoHead";
 import ArticleFAQ, { FAQItem } from "@/components/ArticleFAQ";
 import {
   Breadcrumb,
