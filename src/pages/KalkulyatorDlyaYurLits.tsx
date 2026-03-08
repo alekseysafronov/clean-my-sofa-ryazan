@@ -140,6 +140,14 @@ const KalkulyatorDlyaYurLits = () => {
             <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
               Рассчитайте стоимость химчистки для вашего офиса, ресторана или гостиницы. Работаем по безналичному расчёту, предоставляем закрывающие документы.
             </p>
+            <div className="flex flex-wrap justify-center gap-3 mt-5">
+              <div className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium">
+                🎁 от 10 единиц — скидка 5%
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+                🎁 от 20 единиц — скидка 10%
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
