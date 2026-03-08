@@ -10,6 +10,7 @@ const CTASection = () => {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [phoneError, setPhoneError] = useState("");
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
