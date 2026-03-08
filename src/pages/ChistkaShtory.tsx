@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Нужно ли снимать шторы с карниза?", a: "Нет, мы чистим шторы прямо на карнизе. Снимать и вешать обратно не нужно." },
