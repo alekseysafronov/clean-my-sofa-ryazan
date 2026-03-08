@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
+import SeoHead from "@/components/SeoHead";
 
 const PolitikaKonfidencialnosti = () => {
   useEffect(() => {
-    document.title = "Политика конфиденциальности — Qweeq";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Политика конфиденциальности компании Qweeq. Обработка и защита персональных данных.");
+    // SeoHead handles meta tags now
+  }, []);
   }, []);
 
   return (
