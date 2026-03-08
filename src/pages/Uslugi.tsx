@@ -7,9 +7,12 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Link } from "react-router-dom";
 import { Sofa, Layers, Armchair, Car, BedDouble, Shirt, Baby, Building2, ArrowRight } from "lucide-react";
 
-import beforeAfter1 from "@/assets/before-after-1.jpg";
-import beforeAfter2 from "@/assets/before-after-2.jpg";
-import beforeAfter3 from "@/assets/before-after-3.jpg";
+import beforeSofa from "@/assets/before-sofa.jpg";
+import afterSofa from "@/assets/after-sofa.jpg";
+import beforeCarpet from "@/assets/before-carpet.jpg";
+import afterCarpet from "@/assets/after-carpet.jpg";
+import beforeArmchair from "@/assets/before-armchair.jpg";
+import afterArmchair from "@/assets/after-armchair.jpg";
 
 const services = [
   {
@@ -72,20 +75,20 @@ const services = [
 
 const beforeAfterItems = [
   {
-    before: beforeAfter1,
-    after: beforeAfter1,
+    before: beforeSofa,
+    after: afterSofa,
     title: "Диван — удаление пятен",
     description: "Вывели застарелые пятна от кофе и вина с дивана из микрофибры",
   },
   {
-    before: beforeAfter2,
-    after: beforeAfter2,
+    before: beforeCarpet,
+    after: afterCarpet,
     title: "Ковёр — глубокая чистка",
     description: "Полная чистка шерстяного ковра с восстановлением цвета",
   },
   {
-    before: beforeAfter3,
-    after: beforeAfter3,
+    before: beforeArmchair,
+    after: afterArmchair,
     title: "Кресло — полная химчистка",
     description: "Химчистка кресла из велюра с удалением запахов",
   },
