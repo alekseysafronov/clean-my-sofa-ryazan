@@ -5,8 +5,9 @@ import FloatingMessengers from "@/components/FloatingMessengers";
 import AnimatedSection from "@/components/AnimatedSection";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import CallbackModal from "@/components/CallbackModal";
 
 import beforeSofa from "@/assets/before-sofa.jpg";
 import afterSofa from "@/assets/after-sofa.jpg";
