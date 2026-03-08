@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Какое средство лучше для чистки дивана дома?", a: "Для лёгких загрязнений — мыльный раствор или Vanish. Для жирных пятен — средство для посуды. Для запахов — уксус и сода." },
