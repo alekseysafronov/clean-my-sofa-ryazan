@@ -5,13 +5,10 @@ import FloatingMessengers from "@/components/FloatingMessengers";
 import SeoHead from "@/components/SeoHead";
 
 const PolitikaKonfidencialnosti = () => {
-  useEffect(() => {
-    // SeoHead handles meta tags now
-  }, []);
-  }, []);
 
   return (
     <>
+      <SeoHead title="Политика конфиденциальности" description="Политика конфиденциальности компании Qweeq. Обработка и защита персональных данных." noindex />
       <Header />
       <FloatingMessengers />
       <main className="pt-24 pb-16">
