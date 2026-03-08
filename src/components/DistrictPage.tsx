@@ -85,6 +85,7 @@ const DistrictPage = ({
 
   return (
     <>
+      <SeoHead title={metaTitle.replace(" | Qweeq", "")} description={metaDescription} />
       <Header />
       <main className="pt-24 md:pt-28 pb-16">
         {/* Breadcrumbs */}
