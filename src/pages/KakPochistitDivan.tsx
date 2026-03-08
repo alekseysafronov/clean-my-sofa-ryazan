@@ -1,5 +1,6 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли чистить диван обычным мылом?", a: "Да, жидкое мыло подходит для обивки с маркировкой W и WS. Разведите в тёплой воде, взбейте пену и наносите губкой." },
