@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
+import ChatWidget from "./ChatWidget";
 
 const channels = [
   {
@@ -38,31 +39,34 @@ const FloatingMessengers = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-      {open && (
-        <div className="flex flex-col gap-3 animate-fade-in">
-          {channels.map((ch) => (
-            <a
-              key={ch.name}
-              href={ch.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${ch.color} w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform`}
-              aria-label={ch.name}
-            >
-              {ch.icon}
-            </a>
-          ))}
-        </div>
-      )}
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-xl flex items-center justify-center hover:scale-105 transition-transform"
-        aria-label="Связаться с нами"
-      >
-        {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
-      </button>
-    </div>
+    <>
+      <ChatWidget />
+      <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3">
+        {open && (
+          <div className="flex flex-col gap-3 animate-fade-in">
+            {channels.map((ch) => (
+              <a
+                key={ch.name}
+                href={ch.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${ch.color} w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform`}
+                aria-label={ch.name}
+              >
+                {ch.icon}
+              </a>
+            ))}
+          </div>
+        )}
+        <button
+          onClick={() => setOpen(!open)}
+          className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-xl flex items-center justify-center hover:scale-105 transition-transform"
+          aria-label="Связаться с нами"
+        >
+          {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        </button>
+      </div>
+    </>
   );
 };
 
