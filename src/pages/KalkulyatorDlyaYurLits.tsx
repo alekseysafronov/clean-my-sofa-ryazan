@@ -8,6 +8,13 @@ import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
 
 
+const discountTiers = [
+  { minQty: 20, percent: 10, label: "−10% от 20 ед." },
+  { minQty: 10, percent: 5, label: "−5% от 10 ед." },
+];
+
+const getDiscount = (totalQty: number) => discountTiers.find((t) => totalQty >= t.minQty) || null;
+
 const serviceOptions = [
   { id: "sofa2", label: "2-местный диван", price: 2000, unit: "шт.", category: "Диваны" },
   { id: "sofa3", label: "3-местный диван", price: 2500, unit: "шт.", category: "Диваны" },
