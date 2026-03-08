@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-foreground text-primary-foreground">
+    <footer id="contact" className="bg-[hsl(200,25%,15%)] text-white dark:bg-[hsl(200,25%,8%)]">
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
