@@ -3,6 +3,7 @@ import { Phone, Calculator, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 
 const serviceOptions = [
   { id: "sofa2", label: "2-местный диван", price: 2000, category: "Диваны" },
@@ -25,6 +26,7 @@ const CalculatorSection = () => {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", contact: "" });
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [phoneError, setPhoneError] = useState("");
 
   const toggleItem = (id: string) => {
@@ -206,8 +208,9 @@ const CalculatorSection = () => {
                   placeholder="email или @telegram (необязательно)"
                 />
               </div>
+              <ConsentCheckbox id="calc-consent" checked={consent} onChange={setConsent} />
               <button
-                type="submit" disabled={sending}
+                type="submit" disabled={sending || !consent}
                 className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60"
               >
                 <Send className="w-4 h-4" />

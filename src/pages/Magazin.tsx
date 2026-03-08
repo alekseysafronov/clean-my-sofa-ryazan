@@ -10,6 +10,7 @@ import { Phone, ShoppingCart, Send, Check } from "lucide-react";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 
 interface Product {
   name: string;
@@ -62,6 +63,7 @@ const Magazin = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [sent, setSent] = useState(false);
 
   useEffect(() => {
@@ -256,11 +258,13 @@ const Magazin = () => {
                     required
                   />
 
+                  <ConsentCheckbox id="shop-consent" checked={consent} onChange={setConsent} />
+
                   <Button
                     type="submit"
                     className="w-full"
                     size="lg"
-                    disabled={selectedItems.length === 0 || !name.trim() || !isPhoneComplete(phone) || sending}
+                    disabled={selectedItems.length === 0 || !name.trim() || !isPhoneComplete(phone) || sending || !consent}
                   >
                     {sending ? (
                       "Отправка…"
@@ -271,10 +275,6 @@ const Magazin = () => {
                       </>
                     )}
                   </Button>
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                  </p>
                 </form>
               )}
             </CardContent>

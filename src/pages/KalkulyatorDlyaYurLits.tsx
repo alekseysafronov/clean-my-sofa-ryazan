@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
 import { generateProposalPdf } from "@/lib/generateProposalPdf";
+import ConsentCheckbox from "@/components/ConsentCheckbox";
 
 
 const discountTiers = [
@@ -47,6 +48,7 @@ const KalkulyatorDlyaYurLits = () => {
   const [quantities, setQuantities] = useState<Record<string, string>>({});
   const [form, setForm] = useState(emptyForm);
   const [sending, setSending] = useState(false);
+  const [consent, setConsent] = useState(false);
   const [phoneError, setPhoneError] = useState("");
 
   const setQty = (id: string, raw: string) => {
@@ -424,9 +426,10 @@ const KalkulyatorDlyaYurLits = () => {
                 </div>
 
                 <div className="px-6 pb-6 space-y-3">
+                  <ConsentCheckbox id="b2b-consent" checked={consent} onChange={setConsent} />
                   <button
                     type="submit"
-                    disabled={sending}
+                    disabled={sending || !consent}
                     className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60"
                   >
                     <Send className="w-4 h-4" />
