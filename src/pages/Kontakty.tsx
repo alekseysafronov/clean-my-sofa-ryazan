@@ -53,6 +53,13 @@ const Kontakty = () => {
       <main className="pt-14 md:pt-16">
         <section className="py-16 md:py-24 bg-secondary/30">
           <div className="container max-w-4xl">
+            <Breadcrumb className="mb-6">
+              <BreadcrumbList>
+                <BreadcrumbItem><BreadcrumbLink asChild><Link to="/">Главная</Link></BreadcrumbLink></BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem><BreadcrumbPage>Контакты</BreadcrumbPage></BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <h1 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">Контакты</h1>
             <p className="text-muted-foreground text-lg mb-10">
               Свяжитесь с нами любым удобным способом — мы всегда на связи.
