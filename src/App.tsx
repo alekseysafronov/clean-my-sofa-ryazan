@@ -30,6 +30,8 @@ import VyezdnayaKhimchistka from "./pages/VyezdnayaKhimchistka";
 import Blog from "./pages/Blog";
 import Kontakty from "./pages/Kontakty";
 import KalkulyatorDlyaYurLits from "./pages/KalkulyatorDlyaYurLits";
+import Franshiza from "./pages/Franshiza";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
