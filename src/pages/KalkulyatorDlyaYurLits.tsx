@@ -123,7 +123,7 @@ const KalkulyatorDlyaYurLits = () => {
 
   const update = (field: keyof typeof emptyForm, value: string) => setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleDownloadPdf = () => {
+  const handleDownloadPdf = async () => {
     const pdfLines = serviceOptions
       .filter((svc) => getQty(svc.id) > 0)
       .map((svc) => {
