@@ -120,8 +120,24 @@ const ChatWidget = () => {
   }, [messages]);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (open) {
+      setVisible(true);
+      setAnimating(true);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAnimating(false));
+      });
+      inputRef.current?.focus();
+    }
   }, [open]);
+
+  const handleClose = useCallback(() => {
+    setAnimating(true);
+    setTimeout(() => {
+      setOpen(false);
+      setVisible(false);
+      setAnimating(false);
+    }, 300);
+  }, []);
 
   const send = useCallback(async (text: string) => {
     if (!text.trim() || loading) return;
