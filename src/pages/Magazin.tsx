@@ -121,6 +121,7 @@ const Magazin = () => {
 
   return (
     <div className="min-h-screen">
+      <SeoHead title="Магазин химии для клининга — Рязань" description="Купить профессиональную химию для химчистки мебели и ковров в Рязани. ChemSpec, Бриз — порции по 50 г." />
       <Header />
 
       {/* Hero */}
