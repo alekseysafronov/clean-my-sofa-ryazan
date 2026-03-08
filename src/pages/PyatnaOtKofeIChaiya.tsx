@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Можно ли вывести старое пятно от кофе?", a: "Да, но чем старше пятно, тем сложнее. Для застарелых пятен рекомендуем глицерин или профессиональную чистку с энзимными средствами." },
