@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingMessengers from "@/components/FloatingMessengers";
+import SeoHead from "@/components/SeoHead";
 import ArticleFAQ, { FAQItem } from "@/components/ArticleFAQ";
 import {
   Breadcrumb,
@@ -52,11 +53,7 @@ const DistrictPage = ({
   landmarks,
   faq,
 }: DistrictPageProps) => {
-  useEffect(() => {
-    document.title = metaTitle;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", metaDescription);
-  }, [metaTitle, metaDescription]);
+  // SeoHead handles title and description
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -88,6 +85,7 @@ const DistrictPage = ({
 
   return (
     <>
+      <SeoHead title={metaTitle.replace(" | Qweeq", "")} description={metaDescription} />
       <Header />
       <main className="pt-24 md:pt-28 pb-16">
         {/* Breadcrumbs */}

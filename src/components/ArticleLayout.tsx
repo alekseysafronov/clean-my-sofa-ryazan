@@ -1,8 +1,9 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogSidebar from "@/components/BlogSidebar";
+import SeoHead from "@/components/SeoHead";
 import { Phone } from "lucide-react";
 import {
   Breadcrumb,
@@ -12,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { useEffect } from "react";
 
 interface ArticleLayoutProps {
   title: string;
@@ -24,16 +26,6 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
   const { pathname } = useLocation();
 
   useEffect(() => {
-    document.title = `${title} | Qweeq — химчистка в Рязани`;
-    if (metaDescription) {
-      let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-      if (!meta) {
-        meta = document.createElement("meta");
-        meta.name = "description";
-        document.head.appendChild(meta);
-      }
-      meta.content = metaDescription;
-    }
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.text = JSON.stringify({
@@ -47,10 +39,11 @@ const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps)
     });
     document.head.appendChild(script);
     return () => { document.head.removeChild(script); };
-  }, [title, pathname, metaDescription]);
+  }, [title, pathname]);
 
   return (
     <div className="min-h-screen">
+      <SeoHead title={`${title} — химчистка в Рязани`} description={metaDescription || ""} />
       <Header />
       <div className="container pt-24 pb-16 md:pb-24">
         {/* Breadcrumbs */}
