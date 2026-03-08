@@ -1,6 +1,7 @@
 import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const faqItems = [
   { q: "Какие средства вы используете в домах с детьми?", a: "Только гипоаллергенные, сертифицированные составы без хлора и резкого запаха. Безопасны для детей с первых дней жизни и домашних животных." },
