@@ -30,6 +30,8 @@ import VyezdnayaKhimchistka from "./pages/VyezdnayaKhimchistka";
 import Blog from "./pages/Blog";
 import Kontakty from "./pages/Kontakty";
 import KalkulyatorDlyaYurLits from "./pages/KalkulyatorDlyaYurLits";
+import Franshiza from "./pages/Franshiza";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -75,6 +77,8 @@ const App = () => (
           <Route path="/vyezdnaya-khimchistka" element={<VyezdnayaKhimchistka />} />
           <Route path="/kontakty" element={<Kontakty />} />
           <Route path="/kalkulyator-yur-litsa" element={<KalkulyatorDlyaYurLits />} />
+          <Route path="/franshiza" element={<Franshiza />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

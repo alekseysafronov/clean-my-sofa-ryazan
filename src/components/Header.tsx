@@ -5,6 +5,8 @@ import { Phone, Menu, X } from "lucide-react";
 const siteLinks = [
   { href: "/", label: "Главная" },
   { href: "/blog", label: "Блог" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/franshiza", label: "Франшиза" },
   { href: "/kalkulyator-yur-litsa", label: "Для бизнеса" },
   { href: "/o-kompanii", label: "О компании" },
   { href: "/kontakty", label: "Контакты" },
