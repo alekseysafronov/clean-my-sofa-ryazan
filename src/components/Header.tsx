@@ -46,12 +46,12 @@ const Header = () => {
             Qweeq
           </Link>
 
-          <nav className="hidden md:flex items-center gap-5">
+          <nav className="hidden lg:flex items-center gap-4">
             {siteLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap ${
                   location.pathname === link.href
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary"
@@ -64,7 +64,7 @@ const Header = () => {
 
           <a
             href="tel:+79160435153"
-            className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-lg font-heading font-semibold text-sm hover:opacity-90 transition-opacity"
+            className="hidden lg:flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-lg font-heading font-semibold text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
           >
             <Phone className="w-4 h-4" />
             +7 (916) 043-51-53
@@ -72,7 +72,7 @@ const Header = () => {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground"
             aria-label="Меню"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -82,7 +82,7 @@ const Header = () => {
 
       {/* Secondary nav — page anchors, shown on homepage */}
       {isHome && (
-        <div className="hidden md:block bg-secondary/80 backdrop-blur-sm border-b border-border">
+        <div className="hidden lg:block bg-secondary/80 backdrop-blur-sm border-b border-border">
           <div className="container flex items-center gap-5 h-10">
             {pageAnchors.map((anchor) => (
               <button
@@ -99,7 +99,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-card border-b border-border animate-fade-in">
+        <div className="lg:hidden bg-card border-b border-border animate-fade-in">
           <nav className="container py-4 flex flex-col gap-2">
             {siteLinks.map((link) => (
               <Link
