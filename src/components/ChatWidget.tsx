@@ -86,8 +86,12 @@ async function streamChat({
   onDone();
 }
 
-const ChatWidget = () => {
-  const [open, setOpen] = useState(false);
+const ChatWidget = ({ onOpenChange }: { onOpenChange?: (open: boolean) => void }) => {
+  const [open, setOpenState] = useState(false);
+  const setOpen = (v: boolean) => {
+    setOpenState(v);
+    onOpenChange?.(v);
+  };
   const [messages, setMessages] = useState<Msg[]>([
     { role: "assistant", content: WELCOME },
   ]);
