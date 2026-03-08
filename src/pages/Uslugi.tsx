@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import CallbackModal from "@/components/CallbackModal";
+import UslugiReviews from "@/components/UslugiReviews";
+import OptimizedImage from "@/components/OptimizedImage";
 
 import beforeSofa from "@/assets/before-sofa.jpg";
 import afterSofa from "@/assets/after-sofa.jpg";
