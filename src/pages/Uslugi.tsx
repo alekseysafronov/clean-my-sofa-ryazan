@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import CallbackModal from "@/components/CallbackModal";
+import UslugiReviews from "@/components/UslugiReviews";
+import OptimizedImage from "@/components/OptimizedImage";
 
 import beforeSofa from "@/assets/before-sofa.jpg";
 import afterSofa from "@/assets/after-sofa.jpg";
@@ -192,11 +194,10 @@ const Uslugi = () => {
                       className="block"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden">
-                        <img
+                        <OptimizedImage
                           src={svc.image}
                           alt={svc.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
+                          className="w-full h-full group-hover:scale-105 transition-transform duration-500"
                         />
                         <span className="absolute top-3 left-3 bg-card/90 backdrop-blur-sm text-foreground text-sm font-heading font-bold px-3 py-1.5 rounded-full shadow-sm">
                           {svc.price}
@@ -225,6 +226,11 @@ const Uslugi = () => {
               </div>
             </div>
           </section>
+        </AnimatedSection>
+
+        {/* Reviews Carousel */}
+        <AnimatedSection>
+          <UslugiReviews />
         </AnimatedSection>
       </main>
       <Footer />
