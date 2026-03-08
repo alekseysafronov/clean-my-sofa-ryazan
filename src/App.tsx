@@ -41,6 +41,7 @@ import Borki from "./pages/districts/Borki";
 import Dyagilevo from "./pages/districts/Dyagilevo";
 import Solotcha from "./pages/districts/Solotcha";
 import Centr from "./pages/districts/Centr";
+import Magazin from "./pages/Magazin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -88,6 +89,7 @@ const App = () => (
           <Route path="/kalkulyator-yur-litsa" element={<KalkulyatorDlyaYurLits />} />
           <Route path="/franshiza" element={<Franshiza />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/magazin" element={<Magazin />} />
           <Route path="/rayony" element={<Rayony />} />
           <Route path="/khimchistka-dashkovo-pesochnya" element={<DashkovoPesochnya />} />
           <Route path="/khimchistka-kanishchevo" element={<Kanishchevo />} />
