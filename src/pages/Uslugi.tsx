@@ -5,7 +5,7 @@ import FloatingMessengers from "@/components/FloatingMessengers";
 import AnimatedSection from "@/components/AnimatedSection";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Link } from "react-router-dom";
-import { Sofa, Layers, Armchair, Car, BedDouble, Shirt, Baby, Building2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import beforeSofa from "@/assets/before-sofa.jpg";
 import afterSofa from "@/assets/after-sofa.jpg";
@@ -14,62 +14,79 @@ import afterCarpet from "@/assets/after-carpet.jpg";
 import beforeArmchair from "@/assets/before-armchair.jpg";
 import afterArmchair from "@/assets/after-armchair.jpg";
 
+import serviceSofa from "@/assets/service-sofa.jpg";
+import serviceCarpet from "@/assets/service-carpet.jpg";
+import serviceArmchair from "@/assets/service-armchair.jpg";
+import serviceCar from "@/assets/service-car.jpg";
+import serviceMattress from "@/assets/service-mattress.jpg";
+import serviceCurtains from "@/assets/service-curtains.jpg";
+import serviceStroller from "@/assets/service-stroller.jpg";
+import serviceOffice from "@/assets/service-office.jpg";
+
 const services = [
   {
-    icon: Sofa,
+    image: serviceSofa,
     title: "Химчистка диванов",
     desc: "Глубокая очистка диванов любых размеров и материалов. Удаляем пятна, запахи и аллергены.",
     link: "/chistka-divana",
     price: "от 2 000 ₽",
+    time: "2–4 часа",
   },
   {
-    icon: Layers,
+    image: serviceCarpet,
     title: "Чистка ковров",
     desc: "Профессиональная чистка ковров с восстановлением цвета и структуры ворса.",
     link: "/khimchistka-kovrov",
     price: "от 1 500 ₽",
+    time: "1–3 часа",
   },
   {
-    icon: Armchair,
+    image: serviceArmchair,
     title: "Химчистка кресел и стульев",
     desc: "Бережная очистка кресел и стульев с мягкой обивкой.",
     link: "/chistka-stuliev",
     price: "от 400 ₽",
+    time: "1–2 часа",
   },
   {
-    icon: Car,
+    image: serviceCar,
     title: "Чистка автосалонов",
     desc: "Комплексная химчистка салона: сиденья, потолок, двери, багажник.",
     link: "/chistka-avtosideniy",
     price: "от 3 000 ₽",
+    time: "3–5 часов",
   },
   {
-    icon: BedDouble,
+    image: serviceMattress,
     title: "Чистка матрасов",
     desc: "Удаление пятен, пыли и аллергенов из матрасов любого размера.",
     link: "/chistka-matrasov",
     price: "от 1 500 ₽",
+    time: "1–2 часа",
   },
   {
-    icon: Shirt,
+    image: serviceCurtains,
     title: "Чистка штор",
     desc: "Химчистка штор и занавесок без снятия и со снятием с карнизов.",
     link: "/chistka-shtor",
     price: "от 300 ₽/м²",
+    time: "2–4 часа",
   },
   {
-    icon: Baby,
+    image: serviceStroller,
     title: "Чистка детских колясок",
     desc: "Безопасная очистка колясок гипоаллергенными средствами.",
     link: "/chistka-kolyasok",
     price: "от 1 500 ₽",
+    time: "1–2 часа",
   },
   {
-    icon: Building2,
+    image: serviceOffice,
     title: "Химчистка офисной мебели",
     desc: "Регулярная чистка офисных кресел, диванов и перегородок.",
     link: "/chistka-ofisnoy-mebeli",
     price: "от 800 ₽",
+    time: "2–4 часа",
   },
 ];
 
