@@ -5,6 +5,7 @@ interface SeoHeadProps {
   title: string;
   description: string;
   noindex?: boolean;
+  ogImage?: string;
 }
 
 const SITE = "https://qweeq.ru";
