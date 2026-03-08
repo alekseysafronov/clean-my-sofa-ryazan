@@ -88,6 +88,15 @@ const App = () => (
           <Route path="/kalkulyator-yur-litsa" element={<KalkulyatorDlyaYurLits />} />
           <Route path="/franshiza" element={<Franshiza />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/rayony" element={<Rayony />} />
+          <Route path="/khimchistka-dashkovo-pesochnya" element={<DashkovoPesochnya />} />
+          <Route path="/khimchistka-kanishchevo" element={<Kanishchevo />} />
+          <Route path="/khimchistka-priokskiy" element={<Priokskiy />} />
+          <Route path="/khimchistka-moskovskiy" element={<Moskovskiy />} />
+          <Route path="/khimchistka-borki" element={<Borki />} />
+          <Route path="/khimchistka-dyagilevo" element={<Dyagilevo />} />
+          <Route path="/khimchistka-solotcha" element={<Solotcha />} />
+          <Route path="/khimchistka-centr-ryazani" element={<Centr />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
