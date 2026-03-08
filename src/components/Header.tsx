@@ -82,7 +82,7 @@ const Header = () => {
 
       {/* Secondary nav — page anchors, shown on homepage */}
       {isHome && (
-        <div className="hidden md:block bg-secondary/80 backdrop-blur-sm border-b border-border">
+        <div className="hidden lg:block bg-secondary/80 backdrop-blur-sm border-b border-border">
           <div className="container flex items-center gap-5 h-10">
             {pageAnchors.map((anchor) => (
               <button
