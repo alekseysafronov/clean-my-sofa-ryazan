@@ -93,8 +93,25 @@ const ChatWidget = () => {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState<number | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track visual viewport to handle mobile keyboard
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const onResize = () => {
+      setViewportHeight(vv.height);
+    };
+    vv.addEventListener("resize", onResize);
+    vv.addEventListener("scroll", onResize);
+    return () => {
+      vv.removeEventListener("resize", onResize);
+      vv.removeEventListener("scroll", onResize);
+    };
+  }, []);
 
   useEffect(() => {
     scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);
