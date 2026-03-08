@@ -99,7 +99,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-card border-b border-border animate-fade-in">
+        <div className="lg:hidden bg-card border-b border-border animate-fade-in">
           <nav className="container py-4 flex flex-col gap-2">
             {siteLinks.map((link) => (
               <Link
