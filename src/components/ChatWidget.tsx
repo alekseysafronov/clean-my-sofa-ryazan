@@ -283,7 +283,7 @@ const ChatWidget = () => {
       )}
 
       {/* Floating button — positioned above messenger buttons, hidden when chat is open */}
-      {!open && (
+      {!visible && (
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-[104px] right-4 sm:right-6 z-50 w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-all bg-accent text-accent-foreground"
