@@ -46,6 +46,7 @@ import Uslugi from "./pages/Uslugi";
 import Aktsii from "./pages/Aktsii";
 import PolitikaKonfidencialnosti from "./pages/PolitikaKonfidencialnosti";
 import NotFound from "./pages/NotFound";
+import Nsk from "./pages/Nsk";
 
 const queryClient = new QueryClient();
 
