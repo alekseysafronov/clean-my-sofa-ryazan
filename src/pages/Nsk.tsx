@@ -20,6 +20,67 @@ import nskWork6 from "@/assets/nsk/nsk-work-6.webp";
 import nskWork7 from "@/assets/nsk/nsk-work-7.webp";
 import nskWork8 from "@/assets/nsk/nsk-work-8.webp";
 
+import master1 from "@/assets/nsk/master-1.webp";
+import master2 from "@/assets/nsk/master-2.webp";
+import master3 from "@/assets/nsk/master-3.webp";
+import master4 from "@/assets/nsk/master-4.webp";
+import master5 from "@/assets/nsk/master-5.webp";
+import master6 from "@/assets/nsk/master-6.webp";
+
+const masterPhotos = [
+  { img: master1, label: "Процесс химчистки дивана" },
+  { img: master2, label: "Работа с оборудованием Kärcher" },
+  { img: master3, label: "Глубокая чистка обивки" },
+  { img: master4, label: "Обработка труднодоступных мест" },
+  { img: master5, label: "Профессиональная чистка" },
+  { img: master6, label: "Результат — чистый диван!" },
+];
+
+const MasterCarousel = () => {
+  const [current, setCurrent] = useState(0);
+  const total = masterPhotos.length;
+
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
+  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
+
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  return (
+    <div className="relative max-w-2xl mx-auto">
+      <div className="overflow-hidden rounded-2xl shadow-card">
+        <div className="relative aspect-[4/3]">
+          {masterPhotos.map((photo, i) => (
+            <img
+              key={i}
+              src={photo.img}
+              alt={photo.label}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+            />
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <span className="text-primary-foreground font-heading font-semibold text-sm">{masterPhotos[current].label}</span>
+          </div>
+        </div>
+      </div>
+      <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center shadow-md hover:bg-background transition-colors" aria-label="Предыдущее фото">
+        <ChevronLeft className="w-5 h-5 text-foreground" />
+      </button>
+      <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur flex items-center justify-center shadow-md hover:bg-background transition-colors" aria-label="Следующее фото">
+        <ChevronRight className="w-5 h-5 text-foreground" />
+      </button>
+      <div className="flex justify-center gap-2 mt-4">
+        {masterPhotos.map((_, i) => (
+          <button key={i} onClick={() => setCurrent(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? "bg-primary" : "bg-muted-foreground/30"}`} aria-label={`Фото ${i + 1}`} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const PHONE = "+79612210475";
 const PHONE_DISPLAY = "+7 (961) 221-04-75";
 const EMAIL = "Ivan.avdeev.2012@mail.ru";
