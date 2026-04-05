@@ -106,6 +106,7 @@ const App = () => (
           <Route path="/khimchistka-dyagilevo" element={<Dyagilevo />} />
           <Route path="/khimchistka-solotcha" element={<Solotcha />} />
           <Route path="/khimchistka-centr-ryazani" element={<Centr />} />
+          <Route path="/nsk" element={<Nsk />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
