@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Phone, ArrowRight, MapPin, Clock, MessageCircle, Send, ShieldCheck, Sparkles, Truck, Star, X } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Phone, ArrowRight, MapPin, Clock, MessageCircle, Send, ShieldCheck, Sparkles, Truck, Star, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -332,9 +332,21 @@ const Nsk = () => {
           </section>
         </AnimatedSection>
 
-        {/* Process */}
+        {/* Master Carousel */}
         <AnimatedSection>
           <section className="py-16 md:py-24">
+            <div className="container">
+              <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider text-center mb-2">Наш мастер</p>
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-center text-foreground mb-4">Иван — ваш специалист в Новосибирске</h2>
+              <p className="text-muted-foreground text-center max-w-lg mx-auto mb-10">Профессиональное оборудование Kärcher, опыт и ответственный подход к каждому заказу</p>
+              <MasterCarousel />
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* Process */}
+        <AnimatedSection>
+          <section className="py-16 md:py-24 bg-section-gradient">
             <div className="container">
               <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider text-center mb-2">Как мы работаем</p>
               <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground text-center mb-12">4 простых шага к чистоте</h2>
