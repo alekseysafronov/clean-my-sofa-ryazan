@@ -252,8 +252,9 @@ const Nsk = () => {
   return (
     <div className="min-h-screen">
       <SeoHead
-        title={`Химчистка мебели в Новосибирске — Qweeq`}
+        title="Химчистка мебели в Новосибирске — Qweeq"
         description={`Профессиональная химчистка мягкой мебели и матрасов в Новосибирске, ${DISTRICT}. Оборудование Kärcher, химия ChemSpec. Звоните: ${PHONE_DISPLAY}`}
+        ogImage="https://qweeq.ru/og-image-nsk.jpg"
       />
 
       {/* Header */}
