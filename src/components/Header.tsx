@@ -3,34 +3,37 @@ import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
 import { motion, AnimatePresence } from "framer-motion";
-
-const siteLinks = [
-  { href: "/", label: "Главная" },
-  { href: "/uslugi", label: "Услуги" },
-  { href: "/blog", label: "Блог" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/magazin", label: "Магазин" },
-  { href: "/aktsii", label: "Акции" },
-  { href: "/franshiza", label: "Франшиза" },
-  { href: "/kalkulyator-yur-litsa", label: "Для бизнеса" },
-  { href: "/o-kompanii", label: "О компании" },
-  { href: "/kontakty", label: "Контакты" },
-];
-
-const pageAnchors = [
-  { id: "services", label: "Услуги" },
-  { id: "pricing", label: "Цены" },
-  { id: "gallery", label: "Работы" },
-  { id: "benefits", label: "Преимущества" },
-  { id: "process", label: "Как работаем" },
-  { id: "contact", label: "Контакты" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const { t } = useLanguage();
+
+  const siteLinks = [
+    { href: "/", label: t("nav.home") },
+    { href: "/uslugi", label: t("nav.services") },
+    { href: "/blog", label: t("nav.blog") },
+    { href: "/faq", label: t("nav.faq") },
+    { href: "/magazin", label: t("nav.shop") },
+    { href: "/aktsii", label: t("nav.promos") },
+    { href: "/franshiza", label: t("nav.franchise") },
+    { href: "/kalkulyator-yur-litsa", label: t("nav.business") },
+    { href: "/o-kompanii", label: t("nav.about") },
+    { href: "/kontakty", label: t("nav.contacts") },
+  ];
+
+  const pageAnchors = [
+    { id: "services", label: t("anchor.services") },
+    { id: "pricing", label: t("anchor.pricing") },
+    { id: "gallery", label: t("anchor.gallery") },
+    { id: "benefits", label: t("anchor.benefits") },
+    { id: "process", label: t("anchor.process") },
+    { id: "contact", label: t("anchor.contacts") },
+  ];
 
   useEffect(() => {
     if (mobileOpen) {
@@ -41,7 +44,6 @@ const Header = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  // Close menu on route change
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname]);
@@ -57,7 +59,6 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Primary nav — all pages */}
       <div className="bg-card/95 backdrop-blur-md border-b border-border relative z-[60]">
         <div className="container flex items-center justify-between h-14 md:h-16">
           <Link to="/" className="flex items-center">
@@ -81,6 +82,7 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <a
               href="tel:+79160435153"
@@ -92,11 +94,12 @@ const Header = () => {
           </div>
 
           <div className="lg:hidden flex items-center gap-1">
+            <LanguageToggle />
             <ThemeToggle />
             <motion.button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden p-2 text-foreground relative z-[60]"
-              aria-label="Меню"
+              aria-label={t("header.menu")}
               whileTap={{ scale: 0.9 }}
             >
               <AnimatePresence mode="wait" initial={false}>
@@ -127,7 +130,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Secondary nav — page anchors, shown on homepage */}
       {isHome && (
         <div className="hidden lg:block bg-secondary/80 backdrop-blur-sm border-b border-border">
           <div className="container flex items-center gap-5 h-10">
@@ -144,7 +146,6 @@ const Header = () => {
         </div>
       )}
 
-      {/* Fullscreen mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -154,9 +155,7 @@ const Header = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            {/* Spacer for header */}
             <div className="h-14 shrink-0" />
-
             <nav className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-1">
               {siteLinks.map((link, i) => (
                 <motion.div
@@ -186,7 +185,7 @@ const Header = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <p className="text-xs font-heading font-semibold uppercase tracking-wider text-muted-foreground/60 mb-2">На этой странице</p>
+                  <p className="text-xs font-heading font-semibold uppercase tracking-wider text-muted-foreground/60 mb-2">{t("header.onThisPage")}</p>
                   {pageAnchors.map((anchor) => (
                     <button
                       key={anchor.id}

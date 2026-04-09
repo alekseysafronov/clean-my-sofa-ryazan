@@ -1,53 +1,57 @@
-const prices = [
-  {
-    category: "Диваны",
-    items: [
-      { name: "2-местный диван", price: "от 2 000 ₽" },
-      { name: "3-местный диван", price: "от 2 500 ₽" },
-      { name: "Угловой диван", price: "от 3 500 ₽" },
-      { name: "Выведение пятна", price: "от 300 ₽" },
-    ],
-  },
-  {
-    category: "Кресла и стулья",
-    items: [
-      { name: "Кресло", price: "от 1 000 ₽" },
-      { name: "Офисное кресло", price: "от 800 ₽" },
-      { name: "Стул мягкий", price: "от 400 ₽" },
-      { name: "Пуф / банкетка", price: "от 500 ₽" },
-    ],
-  },
-  {
-    category: "Ковры",
-    items: [
-      { name: "до 5 м²", price: "от 1 500 ₽" },
-      { name: "5–10 м²", price: "от 2 500 ₽" },
-      { name: "свыше 10 м²", price: "от 250 ₽/м²" },
-      { name: "Ковролин", price: "от 200 ₽/м²" },
-    ],
-  },
-  {
-    category: "Автомобили",
-    items: [
-      { name: "Салон (ткань)", price: "от 3 000 ₽" },
-      { name: "Салон (кожа)", price: "от 4 000 ₽" },
-      { name: "Потолок", price: "от 1 500 ₽" },
-      { name: "Багажник", price: "от 1 000 ₽" },
-    ],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PricingSection = () => {
+  const { t } = useLanguage();
+
+  const prices = [
+    {
+      category: t("pricing.sofas"),
+      items: [
+        { name: t("pricing.2seat"), price: "от 2 000 ₽" },
+        { name: t("pricing.3seat"), price: "от 2 500 ₽" },
+        { name: t("pricing.corner"), price: "от 3 500 ₽" },
+        { name: t("pricing.stain"), price: "от 300 ₽" },
+      ],
+    },
+    {
+      category: t("pricing.chairs"),
+      items: [
+        { name: t("pricing.armchair"), price: "от 1 000 ₽" },
+        { name: t("pricing.officeChair"), price: "от 800 ₽" },
+        { name: t("pricing.softChair"), price: "от 400 ₽" },
+        { name: t("pricing.pouf"), price: "от 500 ₽" },
+      ],
+    },
+    {
+      category: t("pricing.carpets"),
+      items: [
+        { name: t("pricing.carpetSmall"), price: "от 1 500 ₽" },
+        { name: t("pricing.carpetMed"), price: "от 2 500 ₽" },
+        { name: t("pricing.carpetLarge"), price: "от 250 ₽/м²" },
+        { name: t("pricing.carpetTile"), price: "от 200 ₽/м²" },
+      ],
+    },
+    {
+      category: t("pricing.cars"),
+      items: [
+        { name: t("pricing.carFabric"), price: "от 3 000 ₽" },
+        { name: t("pricing.carLeather"), price: "от 4 000 ₽" },
+        { name: t("pricing.ceiling"), price: "от 1 500 ₽" },
+        { name: t("pricing.trunk"), price: "от 1 000 ₽" },
+      ],
+    },
+  ];
+
   return (
     <section id="pricing" className="py-16 md:py-24">
       <div className="container">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider mb-2">Прайс-лист</p>
+          <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider mb-2">{t("pricing.label")}</p>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
-            Стоимость услуг
+            {t("pricing.title")}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Точная цена определяется после осмотра. Оплата только после выполнения работы.
+            {t("pricing.subtitle")}
           </p>
         </div>
 

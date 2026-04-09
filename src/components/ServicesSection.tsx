@@ -1,43 +1,46 @@
 import { Sofa, Armchair, Car, Layers } from "lucide-react";
-
-const services = [
-  {
-    icon: Sofa,
-    title: "Химчистка диванов",
-    desc: "Глубокая очистка диванов любых размеров и материалов. Удаляем пятна, запахи и аллергены.",
-    features: ["Любые ткани", "Выведение пятен", "Устранение запахов"],
-  },
-  {
-    icon: Layers,
-    title: "Чистка ковров",
-    desc: "Профессиональная чистка ковров с восстановлением цвета и структуры ворса.",
-    features: ["Все виды ковров", "Восстановление цвета", "Антибактериальная обработка"],
-  },
-  {
-    icon: Armchair,
-    title: "Химчистка кресел",
-    desc: "Бережная очистка кресел и стульев с мягкой обивкой. Офисная и домашняя мебель.",
-    features: ["Офисные кресла", "Домашняя мебель", "Деликатные ткани"],
-  },
-  {
-    icon: Car,
-    title: "Чистка автосалонов",
-    desc: "Комплексная химчистка салона автомобиля: сиденья, потолок, двери, багажник.",
-    features: ["Сиденья и потолок", "Пластик и кожа", "Удаление запахов"],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      icon: Sofa,
+      title: t("services.sofa.title"),
+      desc: t("services.sofa.desc"),
+      features: [t("services.sofa.f1"), t("services.sofa.f2"), t("services.sofa.f3")],
+    },
+    {
+      icon: Layers,
+      title: t("services.carpet.title"),
+      desc: t("services.carpet.desc"),
+      features: [t("services.carpet.f1"), t("services.carpet.f2"), t("services.carpet.f3")],
+    },
+    {
+      icon: Armchair,
+      title: t("services.chair.title"),
+      desc: t("services.chair.desc"),
+      features: [t("services.chair.f1"), t("services.chair.f2"), t("services.chair.f3")],
+    },
+    {
+      icon: Car,
+      title: t("services.car.title"),
+      desc: t("services.car.desc"),
+      features: [t("services.car.f1"), t("services.car.f2"), t("services.car.f3")],
+    },
+  ];
+
   return (
     <section id="services" className="py-16 md:py-24 bg-section-gradient">
       <div className="container">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider mb-2">Наши услуги</p>
+          <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider mb-2">{t("services.label")}</p>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
-            Чистота и свежесть для вашего дома
+            {t("services.title")}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Предоставляем полный спектр услуг по химчистке мягкой мебели и ковров с выездом на дом
+            {t("services.subtitle")}
           </p>
         </div>
 

@@ -4,50 +4,43 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const faqs = [
-  {
-    q: "Сколько времени занимает химчистка дивана?",
-    a: "В среднем чистка одного дивана занимает 1–2 часа в зависимости от размера и степени загрязнения. Сушка — ещё 2–4 часа.",
-  },
-  {
-    q: "Какие средства вы используете? Они безопасны?",
-    a: "Мы работаем с гипоаллергенными составами 5-го поколения, безопасными для детей и домашних животных. Средства сертифицированы и не оставляют резкого запаха.",
-  },
-  {
-    q: "Можно ли вывести старые пятна?",
-    a: "В большинстве случаев — да. Мы используем профессиональные пятновыводители с энзимами, которые справляются даже с застарелыми загрязнениями. Точный результат оценим после осмотра.",
-  },
-  {
-    q: "Вы работаете по выходным?",
-    a: "Да, мы работаем ежедневно с 8:00 до 21:00, включая выходные и праздничные дни.",
-  },
-  {
-    q: "Нужно ли мне что-то подготовить перед приездом мастера?",
-    a: "Достаточно убрать личные вещи с дивана и обеспечить доступ к мебели. Всё оборудование и средства мастер привозит с собой.",
-  },
-  {
-    q: "Что делать, если результат не устроит?",
-    a: "Мы даём гарантию качества. Если результат вас не устроит — бесплатно проведём повторную чистку или вернём деньги.",
-  },
-  {
-    q: "Вы выезжаете за пределы Рязани?",
-    a: "Да, мы обслуживаем Рязань и Рязанскую область. Выезд за город обсуждается индивидуально.",
-  },
+const faqsRu = [
+  { q: "Сколько времени занимает химчистка дивана?", a: "В среднем чистка одного дивана занимает 1–2 часа в зависимости от размера и степени загрязнения. Сушка — ещё 2–4 часа." },
+  { q: "Какие средства вы используете? Они безопасны?", a: "Мы работаем с гипоаллергенными составами 5-го поколения, безопасными для детей и домашних животных. Средства сертифицированы и не оставляют резкого запаха." },
+  { q: "Можно ли вывести старые пятна?", a: "В большинстве случаев — да. Мы используем профессиональные пятновыводители с энзимами, которые справляются даже с застарелыми загрязнениями. Точный результат оценим после осмотра." },
+  { q: "Вы работаете по выходным?", a: "Да, мы работаем ежедневно с 8:00 до 21:00, включая выходные и праздничные дни." },
+  { q: "Нужно ли мне что-то подготовить перед приездом мастера?", a: "Достаточно убрать личные вещи с дивана и обеспечить доступ к мебели. Всё оборудование и средства мастер привозит с собой." },
+  { q: "Что делать, если результат не устроит?", a: "Мы даём гарантию качества. Если результат вас не устроит — бесплатно проведём повторную чистку или вернём деньги." },
+  { q: "Вы выезжаете за пределы Рязани?", a: "Да, мы обслуживаем Рязань и Рязанскую область. Выезд за город обсуждается индивидуально." },
+];
+
+const faqsEn = [
+  { q: "How long does sofa cleaning take?", a: "On average, cleaning one sofa takes 1-2 hours depending on size and level of contamination. Drying takes another 2-4 hours." },
+  { q: "What products do you use? Are they safe?", a: "We use 5th generation hypoallergenic formulas that are safe for children and pets. All products are certified and leave no strong odors." },
+  { q: "Can you remove old stains?", a: "In most cases — yes. We use professional enzyme-based stain removers that handle even old stains. We'll assess the exact result after inspection." },
+  { q: "Do you work on weekends?", a: "Yes, we work daily from 8:00 AM to 9:00 PM, including weekends and holidays." },
+  { q: "Do I need to prepare anything before the technician arrives?", a: "Just remove personal items from the sofa and provide access to the furniture. The technician brings all equipment and products." },
+  { q: "What if I'm not satisfied with the result?", a: "We provide a quality guarantee. If you're not satisfied — we'll redo the cleaning for free or refund your money." },
+  { q: "Do you travel outside of Ryazan?", a: "Yes, we serve Ryazan and the Ryazan region. Travel outside the city is discussed individually." },
 ];
 
 const FAQSection = () => {
+  const { lang, t } = useLanguage();
+  const faqs = lang === "en" ? faqsEn : faqsRu;
+
   return (
     <section id="faq" className="py-16 md:py-24">
       <div className="container max-w-3xl">
         <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider text-center mb-2">
-          Вопросы и ответы
+          {t("faq.label")}
         </p>
         <h2 className="font-heading font-bold text-3xl md:text-4xl text-center text-foreground mb-4">
-          Частые вопросы
+          {t("faq.title")}
         </h2>
         <p className="text-muted-foreground text-center max-w-lg mx-auto mb-10">
-          Ответы на самые популярные вопросы наших клиентов
+          {t("faq.subtitle")}
         </p>
 
         <Accordion type="single" collapsible className="space-y-3">
