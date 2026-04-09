@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
 interface SeoHeadProps {
@@ -9,7 +9,6 @@ interface SeoHeadProps {
 }
 
 const SITE = "https://qweeq.ru";
-
 const DEFAULT_OG_IMAGE = `${SITE}/og-image.jpg`;
 
 const SeoHead = ({ title, description, noindex, ogImage }: SeoHeadProps) => {
@@ -18,59 +17,30 @@ const SeoHead = ({ title, description, noindex, ogImage }: SeoHeadProps) => {
   const fullTitle = pathname === "/" ? title : `${title} | Qweeq`;
   const image = ogImage || DEFAULT_OG_IMAGE;
 
-  useEffect(() => {
-    document.title = fullTitle;
+  return (
+    <Helmet>
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={canonical} />
 
-    const setMeta = (name: string, content: string, attr = "name") => {
-      let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, name);
-        document.head.appendChild(el);
-      }
-      el.content = content;
-    };
+      {/* Open Graph */}
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1920" />
+      <meta property="og:image:height" content="1080" />
 
-    setMeta("description", description);
-    setMeta("og:title", fullTitle, "property");
-    setMeta("og:description", description, "property");
-    setMeta("og:url", canonical, "property");
-    setMeta("og:type", "website", "property");
-    setMeta("og:image", image, "property");
-    setMeta("og:image:width", "1920", "property");
-    setMeta("og:image:height", "1080", "property");
-    setMeta("twitter:card", "summary_large_image");
-    setMeta("twitter:title", fullTitle);
-    setMeta("twitter:description", description);
-    setMeta("twitter:image", image);
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
 
-    // Canonical
-    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "canonical";
-      document.head.appendChild(link);
-    }
-    link.href = canonical;
-
-    // Robots
-    if (noindex) {
-      let robots = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
-      if (!robots) {
-        robots = document.createElement("meta");
-        robots.name = "robots";
-        document.head.appendChild(robots);
-      }
-      robots.content = "noindex, nofollow";
-      return () => {
-        robots?.remove();
-      };
-    } else {
-      document.querySelector('meta[name="robots"][content*="noindex"]')?.remove();
-    }
-  }, [fullTitle, description, canonical, noindex, image]);
-
-  return null;
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
+    </Helmet>
+  );
 };
 
 export default SeoHead;
