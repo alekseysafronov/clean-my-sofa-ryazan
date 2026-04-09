@@ -1,16 +1,20 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const MapSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="map" className="py-16 md:py-24 bg-section-gradient">
       <div className="container">
         <div className="text-center mb-12">
           <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider mb-2">
-            Зона обслуживания
+            {t("map.label")}
           </p>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
-            Работаем по всей Рязани и области
+            {t("map.title")}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Выезжаем бесплатно в любой район города. За город — по договорённости.
+            {t("map.subtitle")}
           </p>
         </div>
 
@@ -20,7 +24,7 @@ const MapSection = () => {
             width="100%"
             height="450"
             frameBorder="0"
-            title="Зона обслуживания Qweeq в Рязани"
+            title={t("map.title")}
             className="w-full"
             loading="lazy"
           />

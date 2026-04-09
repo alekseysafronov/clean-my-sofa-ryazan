@@ -1,20 +1,24 @@
-const steps = [
-  { num: "01", title: "Звонок", desc: "Позвоните или оставьте заявку. Обсудим детали и согласуем удобное время." },
-  { num: "02", title: "Осмотр", desc: "Приезжаю, осматриваю мебель или ковёр, оцениваю загрязнения и называю точную цену." },
-  { num: "03", title: "Чистка", desc: "Провожу профессиональную химчистку с применением современного оборудования." },
-  { num: "04", title: "Результат", desc: "Показываю результат. Оплата только после того, как вы убедитесь в качестве." },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProcessSection = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    { num: "01", title: t("process.step1.title"), desc: t("process.step1.desc") },
+    { num: "02", title: t("process.step2.title"), desc: t("process.step2.desc") },
+    { num: "03", title: t("process.step3.title"), desc: t("process.step3.desc") },
+    { num: "04", title: t("process.step4.title"), desc: t("process.step4.desc") },
+  ];
+
   return (
     <section id="process" className="py-16 md:py-24 bg-section-gradient">
       <div className="container">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider mb-2">Как мы работаем</p>
+          <p className="text-primary font-heading font-semibold text-sm uppercase tracking-wider mb-2">{t("process.label")}</p>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
-            4 простых шага к чистоте
+            {t("process.title")}
           </h2>
-          <p className="text-muted-foreground">Процесс максимально удобен для вас</p>
+          <p className="text-muted-foreground">{t("process.subtitle")}</p>
         </div>
 
         <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 sm:overflow-visible sm:snap-none sm:pb-0">

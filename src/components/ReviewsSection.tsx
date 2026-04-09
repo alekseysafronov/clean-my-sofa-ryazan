@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const reviews = [
   {
@@ -28,15 +29,17 @@ const reviews = [
 ];
 
 const ReviewsSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 md:py-24">
       <div className="container">
-        <p className="text-primary font-semibold text-sm uppercase tracking-wider text-center mb-2">Отзывы</p>
+        <p className="text-primary font-semibold text-sm uppercase tracking-wider text-center mb-2">{t("reviews.label")}</p>
         <h2 className="font-heading font-bold text-3xl md:text-4xl text-center mb-4">
-          Что говорят наши клиенты
+          {t("reviews.title")}
         </h2>
         <p className="text-muted-foreground text-center max-w-lg mx-auto mb-12">
-          Более 1000 довольных клиентов в Рязани и области
+          {t("reviews.subtitle")}
         </p>
 
         <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:snap-none md:pb-0">

@@ -1,13 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Users, CheckCircle, Clock, Award } from "lucide-react";
-
-const stats = [
-  { icon: Users, value: 2500, suffix: "+", label: "Довольных клиентов" },
-  { icon: CheckCircle, value: 4800, suffix: "+", label: "Выполненных заказов" },
-  { icon: Clock, value: 5, suffix: " лет", label: "Опыт работы" },
-  { icon: Award, value: 98, suffix: "%", label: "Положительных отзывов" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AnimatedNumber = ({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) => {
   const [current, setCurrent] = useState(0);
@@ -39,6 +33,14 @@ const AnimatedNumber = ({ value, suffix, inView }: { value: number; suffix: stri
 const StatsCounter = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { t, lang } = useLanguage();
+
+  const stats = [
+    { icon: Users, value: 2500, suffix: "+", label: t("stats.clients") },
+    { icon: CheckCircle, value: 4800, suffix: "+", label: t("stats.orders") },
+    { icon: Clock, value: 5, suffix: lang === "en" ? " yrs" : " лет", label: t("stats.experience") },
+    { icon: Award, value: 98, suffix: "%", label: t("stats.reviews") },
+  ];
 
   return (
     <section ref={ref} className="py-12 md:py-16">
