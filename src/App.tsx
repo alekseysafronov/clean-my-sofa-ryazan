@@ -48,6 +48,7 @@ import PolitikaKonfidencialnosti from "./pages/PolitikaKonfidencialnosti";
 import NotFound from "./pages/NotFound";
 import Nsk from "./pages/Nsk";
 import Auto from "./pages/Auto";
+import MyteOkon from "./pages/MyteOkon";
 
 const queryClient = new QueryClient();
 
@@ -109,6 +110,7 @@ const App = () => (
           <Route path="/khimchistka-centr-ryazani" element={<Centr />} />
           <Route path="/nsk" element={<Nsk />} />
           <Route path="/auto" element={<Auto />} />
+          <Route path="/myte-okon" element={<MyteOkon />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
