@@ -2,7 +2,7 @@ import ArticleLayout from "@/components/ArticleLayout";
 import ServiceReviews from "@/components/ServiceReviews";
 import ArticleFAQ from "@/components/ArticleFAQ";
 import RelatedArticles from "@/components/RelatedArticles";
-import heroImage from "@/assets/myte-okon.jpg?w=900&format=webp";
+import heroImage from "@/assets/myte-okon.jpg?w=600&format=webp";
 
 const faqItems = [
   { q: "Моете ли окна на высоких этажах?", a: "Да, моем окна в квартирах и офисах на любых этажах. Используем телескопические штанги и безопасное оборудование." },
