@@ -40,6 +40,13 @@ const SeoHead = ({ title, description, noindex, ogImage, jsonLd }: SeoHeadProps)
       <meta name="twitter:image" content={image} />
 
       {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+      {jsonLd &&
+        (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map((schema, i) => (
+          <script key={i} type="application/ld+json">
+            {JSON.stringify(schema)}
+          </script>
+        ))}
     </Helmet>
   );
 };
