@@ -6,12 +6,13 @@ interface SeoHeadProps {
   description: string;
   noindex?: boolean;
   ogImage?: string;
+  jsonLd?: object | object[];
 }
 
 const SITE = "https://qweeq.ru";
 const DEFAULT_OG_IMAGE = `${SITE}/og-image.jpg`;
 
-const SeoHead = ({ title, description, noindex, ogImage }: SeoHeadProps) => {
+const SeoHead = ({ title, description, noindex, ogImage, jsonLd }: SeoHeadProps) => {
   const { pathname } = useLocation();
   const canonical = `${SITE}${pathname === "/" ? "" : pathname}`;
   const fullTitle = pathname === "/" ? title : `${title} | Qweeq`;
@@ -39,6 +40,13 @@ const SeoHead = ({ title, description, noindex, ogImage }: SeoHeadProps) => {
       <meta name="twitter:image" content={image} />
 
       {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+      {jsonLd &&
+        (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map((schema, i) => (
+          <script key={i} type="application/ld+json">
+            {JSON.stringify(schema)}
+          </script>
+        ))}
     </Helmet>
   );
 };

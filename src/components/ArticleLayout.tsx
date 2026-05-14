@@ -13,7 +13,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { useEffect } from "react";
 
 interface ArticleLayoutProps {
   title: string;
@@ -24,26 +23,37 @@ interface ArticleLayoutProps {
 
 const ArticleLayout = ({ title, metaDescription, children }: ArticleLayoutProps) => {
   const { pathname } = useLocation();
+  const url = `https://qweeq.ru${pathname}`;
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.text = JSON.stringify({
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description: metaDescription || "",
+      mainEntityOfPage: url,
+      url,
+      author: { "@type": "Organization", name: "Qweeq" },
+      publisher: {
+        "@type": "Organization",
+        name: "Qweeq",
+        logo: { "@type": "ImageObject", url: "https://qweeq.ru/og-image.jpg" },
+      },
+    },
+    {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Главная", item: "https://qweeq.ru/" },
         { "@type": "ListItem", position: 2, name: "Блог", item: "https://qweeq.ru/blog" },
-        { "@type": "ListItem", position: 3, name: title, item: `https://qweeq.ru${pathname}` },
+        { "@type": "ListItem", position: 3, name: title, item: url },
       ],
-    });
-    document.head.appendChild(script);
-    return () => { document.head.removeChild(script); };
-  }, [title, pathname]);
+    },
+  ];
 
   return (
     <div className="min-h-screen">
-      <SeoHead title={`${title} — химчистка в Рязани`} description={metaDescription || ""} />
+      <SeoHead title={`${title} — химчистка в Рязани`} description={metaDescription || ""} jsonLd={jsonLd} />
       <Header />
       <div className="container pt-24 pb-16 md:pb-24">
         {/* Breadcrumbs */}
