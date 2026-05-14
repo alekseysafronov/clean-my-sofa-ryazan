@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 import ConsentCheckbox from "@/components/ConsentCheckbox";
+import SeoHead from "@/components/SeoHead";
 
 const Kontakty = () => {
   const { toast } = useToast();
@@ -49,6 +50,10 @@ const Kontakty = () => {
 
   return (
     <>
+      <SeoHead
+        title="Контакты Qweeq — телефон, адрес, реквизиты"
+        description="Связаться с химчисткой Qweeq в Рязани: телефон +7 (916) 043-51-53, email, реквизиты ИП и форма обратной связи. Работаем ежедневно с 8:00 до 21:00."
+      />
       <Header />
       <main className="pt-14 md:pt-16">
         <section className="py-16 md:py-24 bg-secondary/30">
