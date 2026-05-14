@@ -6,6 +6,7 @@ interface SeoHeadProps {
   description: string;
   noindex?: boolean;
   ogImage?: string;
+  jsonLd?: object | object[];
 }
 
 const SITE = "https://qweeq.ru";
