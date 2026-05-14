@@ -12,7 +12,7 @@ interface SeoHeadProps {
 const SITE = "https://qweeq.ru";
 const DEFAULT_OG_IMAGE = `${SITE}/og-image.jpg`;
 
-const SeoHead = ({ title, description, noindex, ogImage }: SeoHeadProps) => {
+const SeoHead = ({ title, description, noindex, ogImage, jsonLd }: SeoHeadProps) => {
   const { pathname } = useLocation();
   const canonical = `${SITE}${pathname === "/" ? "" : pathname}`;
   const fullTitle = pathname === "/" ? title : `${title} | Qweeq`;
