@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { applyPhoneMask, isPhoneComplete } from "@/lib/phoneMask";
 import ConsentCheckbox from "@/components/ConsentCheckbox";
+import SeoHead from "@/components/SeoHead";
 
 const Kontakty = () => {
   const { toast } = useToast();
