@@ -6,3 +6,7 @@ declare module '*?w=500&format=webp' {
   const src: string;
   export default src;
 }
+declare module '*?w=1600&format=webp' {
+  const src: string;
+  export default src;
+}
