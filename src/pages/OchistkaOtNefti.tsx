@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
 import ArticleFAQ from "@/components/ArticleFAQ";
-import heroImage from "@/assets/oil-rain-hero.jpg?w=1920&format=webp";
+import heroImage from "@/assets/oil-rain-hero.jpg?w=1600&format=webp";
 
 const PHONE_DISPLAY = "+7 (916) 043-51-53";
 const PHONE_LINK = "tel:+79160435153";
