@@ -50,6 +50,7 @@ import Nsk from "./pages/Nsk";
 import Auto from "./pages/Auto";
 import MyteOkon from "./pages/MyteOkon";
 import KhimchistkaAvto from "./pages/KhimchistkaAvto";
+import OchistkaOtNefti from "./pages/OchistkaOtNefti";
 
 const queryClient = new QueryClient();
 
@@ -113,6 +114,7 @@ const App = () => (
           <Route path="/auto" element={<Auto />} />
           <Route path="/myte-okon" element={<MyteOkon />} />
           <Route path="/khimchistka-avto" element={<KhimchistkaAvto />} />
+          <Route path="/ochistka-ot-nefti" element={<OchistkaOtNefti />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
