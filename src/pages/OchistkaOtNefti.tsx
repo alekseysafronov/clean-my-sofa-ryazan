@@ -95,23 +95,23 @@ const OchistkaOtNefti = () => {
       <Header />
 
       {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-center pt-20 overflow-hidden bg-[hsl(200_30%_8%)]">
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Очистка автомобиля от нефтяных пятен в Рязани" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(200_30%_8%/0.92)] via-[hsl(200_30%_8%/0.78)] to-[hsl(200_30%_8%/0.45)]" />
         </div>
 
         <div className="container relative z-10 py-16 md:py-24">
           <div className="max-w-2xl">
-            <p className="inline-flex items-center gap-2 bg-destructive/90 text-destructive-foreground font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-6 animate-fade-in">
+            <p className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-heading font-semibold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full mb-6 animate-fade-in">
               <AlertTriangle className="w-3.5 h-3.5" />
               Срочно · Рязань · Нефтяной дождь
             </p>
-            <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 text-foreground animate-fade-in-up">
+            <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 text-white animate-fade-in-up">
               Очистка авто от нефти и битума
-              <span className="block text-primary mt-2">3 000 ₽ за кузов</span>
+              <span className="block text-[hsl(185_70%_65%)] mt-2">3 000 ₽ за кузов</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+            <p className="text-lg md:text-xl text-white/85 leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
               После аварии на нефтезаводе в городе выпал нефтяной дождь. Снимаем битумные и масляные пятна с кузова без вреда для лака — у нас уже есть вся специальная химия и оборудование. Тёплый паркинг на МОГЭС, 13.
             </p>
 
@@ -120,7 +120,7 @@ const OchistkaOtNefti = () => {
                 <Phone className="w-5 h-5" />
                 Срочная запись · {PHONE_DISPLAY}
               </a>
-              <a href="#pricing" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-heading font-semibold px-8 py-4 rounded-lg text-base hover:bg-primary/90 transition-colors">
+              <a href="#pricing" className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur text-white border border-white/30 font-heading font-semibold px-8 py-4 rounded-lg text-base hover:bg-white/20 transition-colors">
                 Цены и услуги
                 <ArrowRight className="w-4 h-4" />
               </a>
@@ -133,8 +133,8 @@ const OchistkaOtNefti = () => {
                 { v: "Сегодня", l: "Запись день в день" },
               ].map((s) => (
                 <div key={s.l}>
-                  <div className="font-heading font-extrabold text-xl md:text-3xl text-primary">{s.v}</div>
-                  <div className="text-xs md:text-sm text-muted-foreground mt-1">{s.l}</div>
+                  <div className="font-heading font-extrabold text-xl md:text-3xl text-[hsl(185_70%_65%)]">{s.v}</div>
+                  <div className="text-xs md:text-sm text-white/70 mt-1">{s.l}</div>
                 </div>
               ))}
             </div>
